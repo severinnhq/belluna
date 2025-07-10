@@ -294,7 +294,7 @@ export default function DigitalMarketingQuiz() {
     <div className="min-h-screen bg-gray-50 pt-16 px-4 pb-4 flex flex-col items-center">
       <div className="text-center max-w-3xl mb-16 mt-8">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-          Szerezzen havonta 5–15 új esztétikai pácienst kockázatmentesen!
+          Szerezzen havonta 5–10 új plasztikai pácienst kockázatmentesen!
         </h1>
         <p className="mt-6 text-lg md:text-xl text-gray-600">
           🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy 8 lépéses meta útmutatóhoz

@@ -48,7 +48,7 @@ const SolutionSection = () => {
                   🎯 A Bellunánál mi nem csak hirdetünk – <br /> valódi eredményeket hozunk!
                 </h3>
                 <p className="text-lg mb-6">
-                  Garantáltan <strong>5–15+ új, magas értékű páciens</strong> havonta – teljesen <strong>kockázatmentesen</strong>!
+                  Garantáltan <strong>5–10 új, magas értékű plasztikai páciens</strong> havonta – teljesen <strong>kockázatmentesen</strong>!
                   Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
                 </p>
                  <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl">

@@ -23,7 +23,7 @@ const CTA1Section = () => {
           className="text-lg md:text-xl mb-14"
         >
           📅 Foglaljon ingyenes konzultációt most, és szerezzen{" "}
-          <strong>5–15+ esztétikai pácienst havonta</strong> – <strong>kockázatmentesen</strong>!
+          <strong>5–10 új plasztikai pácienst havonta</strong> – <strong>kockázatmentesen</strong>!
         </motion.p>
 
         <motion.div
