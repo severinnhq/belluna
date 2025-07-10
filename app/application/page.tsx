@@ -193,7 +193,7 @@ export default function DigitalMarketingQuiz() {
                   <input
                     type="radio"
                     name={step.field}
-                    checked={formData[step.field] === opt.value}
+                    checked={step.field ? formData[step.field] === opt.value : false}
                     onChange={() => handleSelection(opt.value)}
                     className="w-5 h-5 text-blue-600 border-gray-300 rounded-full"
                   />
