@@ -22,7 +22,7 @@ export default function HeroSection() {
       transition: {
         duration: 0.5,
         delay: 0.2 + i * 0.1,
-        ease: [0.25, 0.1, 0.25, 1] as any,
+        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       },
     }),
   }
@@ -34,7 +34,7 @@ export default function HeroSection() {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: "easeOut" as any,
+        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       },
     },
   }
@@ -47,7 +47,7 @@ export default function HeroSection() {
       transition: {
         duration: 0.6,
         delay: 0.5,
-        ease: [0.25, 0.1, 0.25, 1] as any,
+        ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       },
     },
   }

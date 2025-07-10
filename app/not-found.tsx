@@ -15,9 +15,10 @@ export default function NotFound() {
         className="text-center max-w-lg"
       >
         <h1 className="text-7xl md:text-9xl font-bold tracking-tight">404</h1>
-        <p className="mt-4 text-xl md:text-2xl font-medium text-white/90">
-          Oops! The page you're looking for doesn’t exist.
-        </p>
+      <p className="mt-4 text-xl md:text-2xl font-medium text-white/90">
+  Oops! The page you&apos;re looking for doesn’t exist.
+</p>
+
         <p className="mt-2 text-white/70">
           It might have been moved or deleted. Let’s get you back on track.
         </p>
