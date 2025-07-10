@@ -3,10 +3,18 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: "export", // Required for static export
-  trailingSlash: true, // Fixes Vercel routing issues
+  output: "export",
+  trailingSlash: true,
   images: {
-    unoptimized: true, // Disable image optimization for static export
+    unoptimized: true,
+  },
+  // Windows-specific path fixes
+  webpack: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    };
+    return config;
   },
 };
 
