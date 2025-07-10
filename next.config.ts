@@ -3,8 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // Add this for Vercel deployment compatibility
-  output: process.env.NODE_ENV === "production" ? "export" : undefined,
+  output: "export", // Required for static export
+  trailingSlash: true, // Fixes Vercel routing issues
+  images: {
+    unoptimized: true, // Disable image optimization for static export
+  },
 };
 
 export default nextConfig;
