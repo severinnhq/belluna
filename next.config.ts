@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Windows-specific path fixes
+  // Windows-specific path fixes 
   webpack: (config) => {
     config.watchOptions = {
       poll: 1000,
