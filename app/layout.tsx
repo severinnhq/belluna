@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Belluna | Decision Intelligence Platform",
+  title: "BellunaDigital | Új páciensek plasztikai sebészeteknek, automatizáltan",
   description: "Connect ambiguous, siloed data into the most trusted, reusable resource",
 };
 

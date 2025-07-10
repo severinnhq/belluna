@@ -35,7 +35,7 @@ const ThankYouPage = () => {
         </div>
 
         <p className="text-md text-gray-600 pt-6">
-          Készülj fel — izgalmas dolgok várnak rád a híváson! 🚀
+          Készülj fel — izgalmas dolgok várnak rád a híváson! 
         </p>
       </div>
     </div>

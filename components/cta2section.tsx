@@ -51,9 +51,10 @@ const SolutionSection = () => {
                   Garantáltan <strong>5–10 új, magas értékű plasztikai páciens</strong> havonta – teljesen <strong>kockázatmentesen</strong>!
                   Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
                 </p>
-                 <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl">
-                          FOGLALJON IDŐPONTOT MOST!
-                        </Button>
+            <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl hover:-translate-y-1 transition-transform">
+  FOGLALJON IDŐPONTOT MOST!
+</Button>
+
               </div>
             </CardContent>
           </Card>

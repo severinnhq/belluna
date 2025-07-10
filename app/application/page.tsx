@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { easeOut } from 'framer-motion/dom';
 import Why from "@/components/why";
 import Cta1Section from "@/components/cta1section";
 import Cta2Section from "@/components/cta2section";
 import FAQ from "@/components/faq";
+import Footer from "@/components/Footer";
 
 // Define the shape of our form data
 interface FormData {
@@ -29,6 +32,42 @@ type QuizStep = {
   field?: keyof FormData;
   options?: { value: string; label: string }[];
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.6, 
+      ease: easeOut 
+    } 
+}
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1, 
+    transition: { 
+      duration: 0.8, 
+      ease: easeOut 
+    } 
+  }
+};
+
+const grow = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    transition: { 
+      duration: 0.7, 
+      ease: easeOut,
+      delay: 0.2
+    } 
+  }
 };
 
 export default function DigitalMarketingQuiz() {
@@ -137,12 +176,12 @@ export default function DigitalMarketingQuiz() {
   };
 
   const renderNextButton = () => (
-    <button
-      onClick={handleNext}
-      className="bg-black text-white w-full py-3 rounded-lg font-semibold hover:bg-black transition text-center"
-    >
-      TOVÁBB
-    </button>
+   <button
+  onClick={handleNext}
+  className="bg-black text-white w-full py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors"
+>
+  TOVÁBB
+</button>
   );
 
   const renderStep = () => {
@@ -257,19 +296,19 @@ export default function DigitalMarketingQuiz() {
               />
               <span className="text-gray-700 text-sm">Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel és az időpont egyeztetés céljából kezeljék.</span>
             </label>
-            <button
-              disabled={
-                !formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.acceptedPrivacy
-              }
-              onClick={() => console.log('Final submit', formData)}
-              className={`w-full py-3 rounded-lg font-semibold transition ${
-                !formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.acceptedPrivacy
-                  ? 'bg-gray-400 cursor-not-allowed text-gray-200'
-                  : 'bg-black text-white hover:bg-black'
-              }`}
-            >
-              KÜLDÉS
-            </button>
+           <button
+  disabled={
+    !formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.acceptedPrivacy
+  }
+  onClick={() => console.log('Final submit', formData)}
+  className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+    !formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.acceptedPrivacy
+      ? 'bg-gray-400 cursor-not-allowed text-gray-200'
+      : 'bg-black text-white hover:bg-gray-900 hover:text-white'
+  }`}
+>
+  KÜLDÉS
+</button>
           </div>
         )}
 
@@ -282,7 +321,7 @@ export default function DigitalMarketingQuiz() {
               VISSZA
             </span>
           ) : (
-            <span />
+            <span /> // spacer
           )}
           <span /> {/* spacer */}
         </div>
@@ -290,26 +329,92 @@ export default function DigitalMarketingQuiz() {
     );
   };
 
+  // Viewport options for scroll animations
+  const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
+
   return (
     <div className="min-h-screen bg-gray-50 pt-16 px-4 pb-4 flex flex-col items-center">
-      <div className="text-center max-w-3xl mb-16 mt-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+      {/* Animated header section */}
+      <motion.div 
+        className="text-center max-w-3xl mb-16 mt-8"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
+        <motion.h1 
+          className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight"
+          variants={fadeUp}
+          custom={0}
+        >
           Szerezzen havonta 5–10 új plasztikai pácienst kockázatmentesen!
-        </h1>
-        <p className="mt-6 text-lg md:text-xl text-gray-600">
+        </motion.h1>
+        
+        <motion.p 
+          className="mt-6 text-lg md:text-xl text-gray-600"
+          variants={fadeUp}
+          custom={1}
+        >
           🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy 8 lépéses meta útmutatóhoz
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
-      <div className="bg-white/90 backdrop-blur-lg rounded-3xl py-12 px-8 border border-gray-200 shadow-2xl w-full max-w-2xl mb-16">
+      {/* Animated form container */}
+      <motion.div 
+        className="bg-white/90 backdrop-blur-lg rounded-3xl py-12 px-8 border border-gray-200 shadow-2xl w-full max-w-2xl mb-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportOptions}
+        variants={grow}
+      >
         {renderStep()}
-      </div>
+      </motion.div>
 
+      {/* Animated content sections */}
       <div className="w-full max-w-6xl space-y-16">
-        <Why />
-        <Cta1Section />
-        <Cta2Section />
-        <FAQ />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
+          <Why />
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
+          <Cta1Section />
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
+          <Cta2Section />
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
+          <FAQ />
+        </motion.div>
+        
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
+          <Footer />
+        </motion.div>
       </div>
     </div>
   );

@@ -31,9 +31,10 @@ const CTA1Section = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4 }}
         >
-          <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl">
-            FOGLALJON IDŐPONTOT MOST!
-          </Button>
+    <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl hover:-translate-y-1 transition-transform">
+  FOGLALJON IDŐPONTOT MOST!
+</Button>
+
         </motion.div>
       </div>
     </section>
