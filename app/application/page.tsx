@@ -140,7 +140,6 @@ export default function DigitalMarketingQuiz() {
   const handleNext = () =>
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
 
-  // Type-safe form update function
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
@@ -171,12 +170,13 @@ export default function DigitalMarketingQuiz() {
     const step = quizSteps[currentStep - 1];
 
     if (step.type === "input" && step.field) {
-      const value = formData[step.field];
+      // Only string fields use input elements
+      const value = formData[step.field] as string;
       return (
         <div className="space-y-4">
           <input
             {...step.inputProps}
-            value={typeof value === "boolean" ? value ? "true" : "" : value}
+            value={value}
             onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-xl"
           />
@@ -207,7 +207,8 @@ export default function DigitalMarketingQuiz() {
     }
 
     if (step.type === "single" && step.field) {
-      const fieldValue = formData[step.field];
+      // Only string fields use radio buttons
+      const fieldValue = formData[step.field] as string;
       return (
         <div className="space-y-4">
           <div className="flex flex-col space-y-4 max-w-md mx-auto">
@@ -278,7 +279,7 @@ export default function DigitalMarketingQuiz() {
               az időpont egyeztetés céljából kezeljék.
             </span>
           </label>
-           <button
+          <button
             disabled={!canSubmit}
             onClick={async () => {
               const payload = {
@@ -309,7 +310,7 @@ export default function DigitalMarketingQuiz() {
                 console.error("Error submitting form:", error);
                 alert("Hiba történt a beküldés során.");
               }
-              }}
+            }}
             className={`w-full py-3 rounded-lg font-semibold transition-colors ${
               !canSubmit
                 ? "bg-gray-400 cursor-not-allowed text-gray-200"
