@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { motion, easeOut } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { easeOut } from 'framer-motion/dom';
 import Why from "@/components/why";
 import Cta1Section from "@/components/cta1section";
 import Cta2Section from "@/components/cta2section";
@@ -65,13 +66,11 @@ export default function DigitalMarketingQuiz() {
     acceptedPrivacy: false,
   });
 
-  const updateField = <K extends keyof FormData>(field: K, value: FormData[K]) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
   const topSectionRef = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
-    topSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (topSectionRef.current) {
+      topSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const quizSteps: QuizStep[] = [
@@ -132,27 +131,31 @@ export default function DigitalMarketingQuiz() {
         { value: "not_invest", label: "Nem tervezek befektetni." },
       ],
     },
-    { question: "Kapcsolati adatok", type: "contact" },
+    {
+      question: "Kapcsolati adatok",
+      type: "contact",
+    },
   ];
 
-  const handleNext = () => setCurrentStep(s => Math.min(s + 1, quizSteps.length));
+  const handleNext = () =>
+    setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
+
+  // Type-safe form update function
+  const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
   const handleSelection = (value: string) => {
     const step = quizSteps[currentStep - 1];
-    const field = step.field;
-    // handle multiple selections
-    if (step.type === "multiple" && field === "marketingType") {
+    if (step.type === "multiple" && step.field === "marketingType") {
       const arr = [...formData.marketingType];
-      const idx = arr.indexOf(value);
-      if (idx >= 0) arr.splice(idx, 1);
-      else arr.push(value);
-      updateField("marketingType", arr);
-      return;
+      arr.includes(value)
+        ? arr.splice(arr.indexOf(value), 1)
+        : arr.push(value);
+      updateFormData("marketingType", arr);
+    } else if (step.field) {
+      updateFormData(step.field, value);
     }
-    // ensure other steps have a valid field
-    if (!field) return;
-    // single choice or other inputs
-    updateField(field, value as unknown as FormData[typeof field]);
   };
 
   const renderNextButton = () => (
@@ -166,157 +169,160 @@ export default function DigitalMarketingQuiz() {
 
   const renderStep = () => {
     const step = quizSteps[currentStep - 1];
-    const value = step.field ? formData[step.field] : undefined;
 
-    switch (step.type) {
-      case "input":
-        return (
-          <div className="space-y-4">
-            <input
-              {...step.inputProps}
-              value={value as string}
-              onChange={e => updateField(step.field!, e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl"
-            />
-            {renderNextButton()}
-          </div>
-        );
-
-      case "multiple":
-        return (
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-              {step.options?.map(opt => (
-                <label key={opt.value} className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={formData.marketingType.includes(opt.value)}
-                    onChange={() => handleSelection(opt.value)}
-                    className="w-5 h-5 text-blue-600 border-gray-300 rounded"
-                  />
-                  <span className="text-gray-700">{opt.label}</span>
-                </label>
-              ))}
-            </div>
-            {renderNextButton()}
-          </div>
-        );
-
-      case "single":
-        return (
-          <div className="space-y-4">
-            <div className="flex flex-col space-y-4 max-w-md mx-auto">
-              {step.options?.map(opt => (
-                <label key={opt.value} className="flex items-center space-x-2">
-                  <input
-                    type="radio"
-                    name={step.field}
-                    checked={formData[step.field] === opt.value}
-                    onChange={() => handleSelection(opt.value)}
-                    className="w-5 h-5 text-blue-600 border-gray-300 rounded-full"
-                  />
-                  <span className="text-gray-700">{opt.label}</span>
-                </label>
-              ))}
-            </div>
-            {renderNextButton()}
-          </div>
-        );
-
-      case "contact":
-        const canSubmit =
-          Boolean(formData.fullName) &&
-          Boolean(formData.email) &&
-          Boolean(formData.phone) &&
-          formData.acceptedPrivacy;
-
-        return (
-          <div className="space-y-4 max-w-md mx-auto">
-            <input
-              type="text"
-              placeholder="Teljes név"
-              value={formData.fullName}
-              onChange={e => updateField("fullName", e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={e => updateField("email", e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl"
-            />
-            <input
-              type="tel"
-              placeholder="Telefonszám"
-              value={formData.phone}
-              onChange={e => updateField("phone", e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl"
-            />
-            <input
-              type="text"
-              placeholder="Pozíció a klinikán"
-              value={formData.position}
-              onChange={e => updateField("position", e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl"
-            />
-            <label className="flex items-center space-x-3">
-              <input
-                type="checkbox"
-                checked={formData.acceptedPrivacy}
-                onChange={e => updateField("acceptedPrivacy", e.target.checked)}
-                className="w-5 h-5 text-blue-600 border-gray-300 rounded"
-              />
-              <span className="text-gray-700 text-sm">
-                Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel és az időpont egyeztetés céljából kezeljék.
-              </span>
-            </label>
-            <button
-              disabled={!canSubmit}
-              onClick={async () => {
-                const payload = {
-                  full_name: formData.fullName,
-                  email: formData.email,
-                  phone: formData.phone,
-                  position: formData.position,
-                  marketing_type: formData.marketingType.join(", "),
-                  average_revenue: formData.averageRevenue,
-                  monthly_spend: formData.monthlySpend,
-                  treatments: formData.treatments,
-                  website: formData.website,
-                  location: formData.location,
-                  investment_intent: formData.investmentIntent,
-                  accepted_privacy: formData.acceptedPrivacy,
-                };
-                try {
-                  await fetch(
-                    "https://services.leadconnectorhq.com/hooks/HgwsFJRMemfUuXfpnWLH/webhook-trigger/7672dfd5-798a-435a-92ae-94e579048f06",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(payload),
-                    }
-                  );
-                  window.location.href = "/booking";
-                } catch (error) {
-                  console.error("Error submitting form:", error);
-                  alert("Hiba történt a beküldés során.");
-                }
-              }}
-              className={`w-full py-3 rounded-lg font-semibold transition-colors ${
-                !canSubmit
-                  ? "bg-gray-400 cursor-not-allowed text-gray-200"
-                  : "bg-black text-white hover:bg-gray-900"
-              }`}
-            >
-              KÜLDÉS
-            </button>
-          </div>
-        );
-
-      default:
-        return null;
+    if (step.type === "input" && step.field) {
+      const value = formData[step.field];
+      return (
+        <div className="space-y-4">
+          <input
+            {...step.inputProps}
+            value={typeof value === "boolean" ? value ? "true" : "" : value}
+            onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+          />
+          {renderNextButton()}
+        </div>
+      );
     }
+
+    if (step.type === "multiple") {
+      return (
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+            {step.options?.map((opt) => (
+              <label key={opt.value} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={formData.marketingType.includes(opt.value)}
+                  onChange={() => handleSelection(opt.value)}
+                  className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+                />
+                <span className="text-gray-700">{opt.label}</span>
+              </label>
+            ))}
+          </div>
+          {renderNextButton()}
+        </div>
+      );
+    }
+
+    if (step.type === "single" && step.field) {
+      const fieldValue = formData[step.field];
+      return (
+        <div className="space-y-4">
+          <div className="flex flex-col space-y-4 max-w-md mx-auto">
+            {step.options?.map((opt) => (
+              <label key={opt.value} className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name={step.field}
+                  checked={fieldValue === opt.value}
+                  onChange={() => handleSelection(opt.value)}
+                  className="w-5 h-5 text-blue-600 border-gray-300 rounded-full"
+                />
+                <span className="text-gray-700">{opt.label}</span>
+              </label>
+            ))}
+          </div>
+          {renderNextButton()}
+        </div>
+      );
+    }
+
+    if (step.type === "contact") {
+      const canSubmit =
+        formData.fullName &&
+        formData.email &&
+        formData.phone &&
+        formData.acceptedPrivacy;
+
+      return (
+        <div className="space-y-4 max-w-md mx-auto">
+          <input
+            type="text"
+            placeholder="Teljes név"
+            value={formData.fullName}
+            onChange={(e) => updateFormData("fullName", e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={(e) => updateFormData("email", e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+          />
+          <input
+            type="tel"
+            placeholder="Telefonszám"
+            value={formData.phone}
+            onChange={(e) => updateFormData("phone", e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+          />
+          <input
+            type="text"
+            placeholder="Pozíció a klinikán"
+            value={formData.position}
+            onChange={(e) => updateFormData("position", e.target.value)}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+          />
+          <label className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              checked={formData.acceptedPrivacy}
+              onChange={(e) => updateFormData("acceptedPrivacy", e.target.checked)}
+              className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+            />
+            <span className="text-gray-700 text-sm">
+              Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel és
+              az időpont egyeztetés céljából kezeljék.
+            </span>
+          </label>
+          <button
+            disabled={!canSubmit}
+            onClick={async () => {
+              const payload = {
+                full_name: formData.fullName,
+                email: formData.email,
+                phone: formData.phone,
+                position: formData.position,
+                marketing_type: formData.marketingType.join(", "),
+                average_revenue: formData.averageRevenue,
+                monthly_spend: formData.monthlySpend,
+                treatments: formData.treatments,
+                website: formData.website,
+                location: formData.location,
+                investment_intent: formData.investmentIntent,
+                accepted_privacy: formData.acceptedPrivacy,
+              };
+              try {
+                await fetch(
+                  "https://services.leadconnectorhq.com/hooks/HgwsFJRMemfUuXfpnWLH/webhook-trigger/7672dfd5-798a-435a-92ae-94e579048f06",
+                  {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                  }
+                );
+                window.location.href = "/booking";
+              } catch (error) {
+                console.error("Error submitting form:", error);
+                alert("Hiba történt a beküldés során.");
+              }
+            }}
+            className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+              !canSubmit
+                ? "bg-gray-400 cursor-not-allowed text-gray-200"
+                : "bg-black text-white hover:bg-gray-900"
+            }`}
+          >
+            KÜLDÉS
+          </button>
+        </div>
+      );
+    }
+
+    return null;
   };
 
   const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
@@ -342,7 +348,8 @@ export default function DigitalMarketingQuiz() {
           className="mt-6 text-lg md:text-xl text-gray-600"
           variants={fadeUp}
         >
-          🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy 8 lépéses meta útmutatóhoz
+          🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy
+          8 lépéses meta útmutatóhoz
         </motion.p>
       </motion.div>
 
@@ -357,19 +364,44 @@ export default function DigitalMarketingQuiz() {
       </motion.div>
 
       <div className="w-full max-w-6xl space-y-16">
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOptions} variants={fadeUp}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
           <Why />
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOptions} variants={fadeUp}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
           <Cta1Section scrollToTop={scrollToTop} />
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOptions} variants={fadeUp}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
           <Cta2Section scrollToTop={scrollToTop} />
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOptions} variants={fadeUp}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
           <FAQ />
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={viewportOptions} variants={fadeUp}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
+          variants={fadeUp}
+        >
           <Footer />
         </motion.div>
       </div>
