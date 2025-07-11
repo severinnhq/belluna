@@ -140,17 +140,22 @@ export default function DigitalMarketingQuiz() {
   const handleNext = () =>
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
 
-   function updateFormData<K extends keyof FormData>(field: K, value: FormData[K]) {
-   setFormData(prev => ({ ...prev, [field]: value }));
-  }
+  const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
 
-  const handleSelection = (value: string) => {
+ const handleSelection = (value: string) => {
     const step = quizSteps[currentStep - 1];
     if (step.type === "multiple" && step.field === "marketingType") {
       const arr = [...formData.marketingType];
-      arr.includes(value)
-        ? arr.splice(arr.indexOf(value), 1)
-        : arr.push(value);
+      const index = arr.indexOf(value);
+      
+      if (index > -1) {
+        arr.splice(index, 1);
+      } else {
+        arr.push(value);
+      }
+      
       updateFormData("marketingType", arr);
     } else if (step.field) {
       updateFormData(step.field, value);
