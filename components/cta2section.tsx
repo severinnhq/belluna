@@ -1,4 +1,3 @@
-// cta2section.tsx
 import React from "react";
 import Button from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +11,11 @@ const problems = [
   "Nincs ideje hirdetések kezelésére vagy az érdeklődők utánkövetésére?",
 ];
 
-const SolutionSection = () => {
+interface SolutionSectionProps {
+  scrollToTop: () => void;
+}
+
+const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
   return (
     <section className="bg-grey py-16 px-6 md:px-20 text-gray-800">
       <div className="max-w-5xl mx-auto text-center">
@@ -51,10 +54,12 @@ const SolutionSection = () => {
                   Garantáltan <strong>5–10 új, magas értékű plasztikai páciens</strong> havonta – teljesen <strong>kockázatmentesen</strong>!
                   Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
                 </p>
-            <Button className="text-lg px-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl hover:-translate-y-1 transition-transform">
-  FOGLALJON IDŐPONTOT MOST!
-</Button>
-
+                <button 
+                  onClick={scrollToTop}
+                  className="text-lg px-6 py-4 bg-[#080657] hover:bg-[#05043a] text-white rounded-xl hover:-translate-y-1 transition-transform"
+                >
+                  FOGLALJON IDŐPONTOT MOST!
+                </button>
               </div>
             </CardContent>
           </Card>
@@ -64,4 +69,4 @@ const SolutionSection = () => {
   );
 };
 
-export default SolutionSection;
+export default Cta2Section;
