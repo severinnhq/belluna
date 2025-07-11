@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
