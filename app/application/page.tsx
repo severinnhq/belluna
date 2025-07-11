@@ -139,15 +139,20 @@ export default function DigitalMarketingQuiz() {
 
   const handleSelection = (value: string) => {
     const step = quizSteps[currentStep - 1];
-    if (step.type === "multiple" && step.field === "marketingType") {
+    const field = step.field;
+    // handle multiple selections
+    if (step.type === "multiple" && field === "marketingType") {
       const arr = [...formData.marketingType];
       const idx = arr.indexOf(value);
       if (idx >= 0) arr.splice(idx, 1);
       else arr.push(value);
       updateField("marketingType", arr);
-    } else if (step.field) {
-      updateField(step.field, value as any);
+      return;
     }
+    // ensure other steps have a valid field
+    if (!field) return;
+    // single choice or other inputs
+    updateField(field, value as unknown as FormData[typeof field]);
   };
 
   const renderNextButton = () => (
@@ -206,7 +211,7 @@ export default function DigitalMarketingQuiz() {
                   <input
                     type="radio"
                     name={step.field}
-                    checked={step.field ? formData[step.field] === opt.value : false}
+                    checked={formData[step.field] === opt.value}
                     onChange={() => handleSelection(opt.value)}
                     className="w-5 h-5 text-blue-600 border-gray-300 rounded-full"
                   />
