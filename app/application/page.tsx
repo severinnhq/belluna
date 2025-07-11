@@ -140,9 +140,9 @@ export default function DigitalMarketingQuiz() {
   const handleNext = () =>
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
 
-  const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+   function updateFormData<K extends keyof FormData>(field: K, value: FormData[K]) {
+   setFormData(prev => ({ ...prev, [field]: value }));
+  }
 
   const handleSelection = (value: string) => {
     const step = quizSteps[currentStep - 1];
