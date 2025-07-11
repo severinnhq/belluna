@@ -278,7 +278,7 @@ export default function DigitalMarketingQuiz() {
               az időpont egyeztetés céljából kezeljék.
             </span>
           </label>
-          <button
+           <button
             disabled={!canSubmit}
             onClick={async () => {
               const payload = {
@@ -309,7 +309,7 @@ export default function DigitalMarketingQuiz() {
                 console.error("Error submitting form:", error);
                 alert("Hiba történt a beküldés során.");
               }
-            }}
+              }}
             className={`w-full py-3 rounded-lg font-semibold transition-colors ${
               !canSubmit
                 ? "bg-gray-400 cursor-not-allowed text-gray-200"
