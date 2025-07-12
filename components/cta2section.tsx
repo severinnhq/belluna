@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { easeOut } from 'framer-motion/dom';
 import { motion } from "framer-motion";
 
 const problems = [
@@ -13,16 +12,20 @@ const problems = [
 interface SolutionSectionProps {
   scrollToTop: () => void;
 }
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
+};
 
 const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
   return (
-    <section className="bg-grey py-16 px-6 md:px-20 text-gray-800">
+    <section className="py-16 px-6 md:px-20 text-white">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
+          className="text-3xl md:text-4xl font-bold mb-6 text-white"
         >
           Ismerősen hangzik?
         </motion.h2>
@@ -36,33 +39,34 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index }}
             >
-              <CheckCircle className="text-emerald-600 mt-1" size={22} />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="size-8 text-green-500">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
               <p className="text-lg">{problem}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="bg-emerald-50 shadow-xl rounded-2xl">
-          <Card>
-            <CardContent>
-              <div className="p-8">
-                <h3 className="text-2xl font-semibold mb-4 text-gray-900">
-                  🎯 A Bellunánál mi nem csak hirdetünk – <br /> valódi eredményeket hozunk!
-                </h3>
-                <p className="text-lg mb-6">
-                  Garantáltan <strong>5–10 új, magas értékű plasztikai páciens</strong> havonta – teljesen <strong>kockázatmentesen</strong>!
-                  Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
-                </p>
-                <button 
-                  onClick={scrollToTop}
-                  className="text-lg px-6 py-4 bg-[#080657] hover:bg-[#05043a] text-white rounded-xl hover:-translate-y-1 transition-transform"
-                >
-                  FOGLALJON IDŐPONTOT MOST!
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        <motion.div
+            className="bg-white/5 green-shadow rounded-3xl"
+            variants={fadeUp}
+          >
+          <div className="rounded-3xl p-8">
+            <h3 className="text-2xl font-semibold mb-4 text-white">
+              🎯 A <strong>Bellunánál</strong> mi nem csak hirdetünk - <br /> valódi eredményeket hozunk!
+            </h3>
+            <p className="text-lg mb-6">
+              Garantáltan <strong>5-10 új, magas értékű plasztikai páciens</strong> havonta - teljesen <strong>kockázatmentesen</strong>!
+              Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
+            </p>
+          <button
+            onClick={scrollToTop}
+            className="text-xl px-6 py-4 bg-green-600 text-white hover:bg-yellow-400 hover:text-black font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer"
+          >
+            FOGLALJON IDŐPONTOT MOST!
+          </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -75,7 +75,7 @@ export default function DigitalMarketingQuiz() {
 
   const quizSteps: QuizStep[] = [
     {
-      question: "Jelenleg milyen típusú digitális marketinget használ?",
+      question: "Jelenleg milyen típusú digitális marketinget alkalmaznak?",
       type: "multiple",
       field: "marketingType",
       options: [
@@ -86,44 +86,44 @@ export default function DigitalMarketingQuiz() {
       ],
     },
     {
-      question: "Mekkora volt az elmúlt 90 napban a klinika átlagos havi bevétele? (FT)",
+      question: "Mekkora volt az elmúlt 90 napban a sebészet átlagos havi bevétele?",
       type: "input",
       field: "averageRevenue",
-      inputProps: { type: "number", placeholder: "Írd be forintban" },
+      inputProps: { type: "text", placeholder: "Írja be forintban..." },
     },
     {
-      question: "Mekkora az Ön teljes, átlagos havi marketingköltése?",
+      question: "Mekkora a teljes, átlagos havi marketingköltségük?",
       type: "single",
       field: "monthlySpend",
       options: [
-        { value: "100-200", label: "Havi 100–200 ezer forint körül" },
-        { value: "300-500", label: "Nagyjából 300–500 ezer forint között" },
+        { value: "100-200", label: "Havi 100-200 ezer forint körül" },
+        { value: "300-500", label: "Nagyjából 300-500 ezer forint között" },
         { value: "600-1000", label: "Olyan 600 ezertől 1 millió forintig" },
         { value: "1000-2000", label: "1 és 2 millió forint között" },
         { value: "2000+", label: "Több mint 2 millió forint havonta" },
       ],
     },
     {
-      question: "Milyen kezeléseket akar hirdetni?",
+      question: "Milyen beavatkozásokat szeretnének hirdetni?",
       type: "input",
       field: "treatments",
       inputProps: { type: "text", placeholder: "Pl. fogfehérítés, implantátum" },
     },
     {
-      question: "Rendelő weboldala?",
+      question: "Sebészet weboldala?",
       type: "input",
       field: "website",
       inputProps: { type: "url", placeholder: "https://..." },
     },
     {
-      question: "Hol található a klinikája?",
+      question: "Hol található a sebészet?",
       type: "input",
       field: "location",
       inputProps: { type: "text", placeholder: "Város" },
     },
     {
       question:
-        "Csak akkor foglalj időpontot, ha nyitott vagy befektetni a klinikád fejlesztésébe, amennyiben megfelelőnek találod a szolgáltatásunkat.",
+        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, valamint elégedett a szolgáltatásainkkal.",
       type: "single",
       field: "investmentIntent",
       options: [
@@ -132,7 +132,7 @@ export default function DigitalMarketingQuiz() {
       ],
     },
     {
-      question: "Kapcsolati adatok",
+      question: "Kapcsolattartási adatok",
       type: "contact",
     },
   ];
@@ -165,7 +165,7 @@ export default function DigitalMarketingQuiz() {
   const renderNextButton = () => (
     <button
       onClick={handleNext}
-      className="bg-black text-white w-full py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
+      className="bg-yellow-400 text-black text-xl font-bold w-full py-4 rounded-2xl hover:bg-[#000816] hover:text-white transition-colors cursor-pointer btn-shadow"
     >
       TOVÁBB
     </button>
@@ -174,49 +174,59 @@ export default function DigitalMarketingQuiz() {
   const renderStep = () => {
     const step = quizSteps[currentStep - 1];
 
+  const QuestionTitle = () => (
+    <h2 className="text-3xl font-semibold text-center mb-8 text-white text-shadow-md text-shadow-black/50">
+      {step.question}
+    </h2>
+  );
+
     if (step.type === "input" && step.field) {
       // Only string fields use input elements
       const value = formData[step.field] as string;
-      return (
+      return (<>
+        <QuestionTitle />
         <div className="space-y-4">
           <input
             {...step.inputProps}
             value={value}
             onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+            className="w-full p-4 border-2 border-gray-400 rounded-2xl mb-8 active:border-white btn-shadow"
           />
           {renderNextButton()}
-        </div>
+        </div></>
       );
     }
 
     if (step.type === "multiple") {
-      return (
+      return (<>
+        <QuestionTitle />
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+          <div className="grid grid-cols-2 gap-4 max-w-md mx-auto mb-8">
             {step.options?.map((opt) => (
               <label key={opt.value} className="flex items-center space-x-2">
                 <input
                   type="checkbox"
                   checked={formData.marketingType.includes(opt.value)}
                   onChange={() => handleSelection(opt.value)}
-                  className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+                  className="w-5 h-5 rounded-full cursor-pointer"
                 />
-                <span className="text-gray-700">{opt.label}</span>
+                <span className="text-white font-medium text-shadow-sm text-shadow-black/50 italic cursor-pointer">{opt.label}</span>
               </label>
             ))}
           </div>
           {renderNextButton()}
         </div>
+        </>
       );
     }
 
     if (step.type === "single" && step.field) {
       // Only string fields use radio buttons
       const fieldValue = formData[step.field] as string;
-      return (
+      return (<>
+        <QuestionTitle />
         <div className="space-y-4">
-          <div className="flex flex-col space-y-4 max-w-md mx-auto">
+          <div className="flex flex-col space-y-4 max-w-md mx-auto mb-8">
             {step.options?.map((opt) => (
               <label key={opt.value} className="flex items-center space-x-2">
                 <input
@@ -224,14 +234,15 @@ export default function DigitalMarketingQuiz() {
                   name={step.field}
                   checked={fieldValue === opt.value}
                   onChange={() => handleSelection(opt.value)}
-                  className="w-5 h-5 text-blue-600 border-gray-300 rounded-full"
+                  className="w-5 h-5 rounded-full cursor-pointer"
                 />
-                <span className="text-gray-700">{opt.label}</span>
+                <span className="text-white font-medium text-shadow-sm text-shadow-black/50 italic cursor-pointer">{opt.label}</span>
               </label>
             ))}
           </div>
           {renderNextButton()}
         </div>
+        </>
       );
     }
 
@@ -242,44 +253,45 @@ export default function DigitalMarketingQuiz() {
         formData.phone &&
         formData.acceptedPrivacy;
 
-      return (
-        <div className="space-y-4 max-w-md mx-auto">
+      return (<>
+        <QuestionTitle />
+        <div className="max-w-md mx-auto">
           <input
             type="text"
             placeholder="Teljes név"
             value={formData.fullName}
             onChange={(e) => updateFormData("fullName", e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+            className="w-full p-4 border-2 border-gray-400 rounded-2xl mb-2 active:border-white btn-shadow"
           />
           <input
             type="email"
             placeholder="Email"
             value={formData.email}
             onChange={(e) => updateFormData("email", e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+            className="w-full p-4 border-2 border-gray-400 rounded-2xl mb-2 active:border-white btn-shadow"
           />
           <input
             type="tel"
             placeholder="Telefonszám"
             value={formData.phone}
             onChange={(e) => updateFormData("phone", e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+            className="w-full p-4 border-2 border-gray-400 rounded-2xl mb-2 active:border-white btn-shadow"
           />
           <input
             type="text"
             placeholder="Pozíció a klinikán"
             value={formData.position}
             onChange={(e) => updateFormData("position", e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl"
+            className="w-full p-4 border-2 border-gray-400 rounded-2xl mb-4 active:border-white btn-shadow"
           />
-          <label className="flex items-center space-x-3">
+          <label className="flex items-center space-x-2 mb-8">
             <input
               type="checkbox"
               checked={formData.acceptedPrivacy}
               onChange={(e) => updateFormData("acceptedPrivacy", e.target.checked)}
-              className="w-5 h-5 text-blue-600 border-gray-300 rounded"
+              className="w-10 h-10 rounded-full cursor-pointer"
             />
-            <span className="text-gray-700 text-sm">
+            <span className="text-white text-sm text-shadow-xs text-shadow-black cursor-pointer">
               Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel és
               az időpont egyeztetés céljából kezeljék.
             </span>
@@ -316,15 +328,16 @@ export default function DigitalMarketingQuiz() {
                 alert("Hiba történt a beküldés során.");
               }
             }}
-            className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+            className={`w-full text-xl py-4 rounded-2xl font-bold transition-colors ${
               !canSubmit
                 ? "bg-gray-400 cursor-not-allowed text-gray-200"
-                : "bg-black text-white hover:bg-gray-900"
+                : "bg-yellow-400 text-black hover:bg-[#000816] hover:text-white cursor-pointer btn-shadow"
             }`}
           >
             KÜLDÉS
           </button>
         </div>
+        </>
       );
     }
 
@@ -333,84 +346,120 @@ export default function DigitalMarketingQuiz() {
 
   const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
 
-  return (
+  return (<main className='spacer layer1'>
     <div
       ref={topSectionRef}
-      className="min-h-screen bg-gray-50 pt-16 px-4 pb-4 flex flex-col items-center"
-    >
-      <motion.div
-        className="text-center max-w-3xl mb-16 mt-8"
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-      >
-        <motion.h1
-          className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight"
-          variants={fadeUp}
+      className="w-full px-64 py-20 backdrop-blur-0"
+      > {/* blur kerdeses */}
+      <div className='flex justify-between items-center h-138'>
+        <motion.div
+          className="text-center max-w-3xl mb-16 md:mb-0 mt-4"
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
         >
-          Szerezzen havonta 5–10 új plasztikai pácienst kockázatmentesen!
-        </motion.h1>
-        <motion.p
-          className="mt-6 text-lg md:text-xl text-gray-600"
-          variants={fadeUp}
-        >
-          🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy
-          8 lépéses meta útmutatóhoz
-        </motion.p>
-      </motion.div>
+                  <motion.div
+                    className="flex flex-col text-4xl md:text-6xl font-extrabold text-white leading-tight text-left text-shadow-lg text-shadow-black/50"
+                    variants={fadeUp}
+                  >
+                    <span>Szerezzen <strong className='text-7xl text-[#5271ff]'>5-10 új</strong></span>
+                    <span className='text-red-500'>plasztikai pácienst</span>
+                    <span><i>havonta</i>, teljesen</span>
+                    <span><strong className='text-green-500'>kockázatmentesen!</strong></span>
+                      
+                  </motion.div>
+        </motion.div>
 
-      <motion.div
-        className="bg-white/90 backdrop-blur-lg rounded-3xl py-12 px-8 border border-gray-200 shadow-2xl w-full max-w-2xl mb-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOptions}
-        variants={grow}
-      >
-        {renderStep()}
-      </motion.div>
-
-      <div className="w-full max-w-6xl space-y-16">
         <motion.div
+          className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-3xl p-8 border-2 border-gray-400 shadow-2xl w-full max-w-2xl"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOptions}
-          variants={fadeUp}
+          variants={grow}
         >
-          <Why />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={fadeUp}
-        >
-          <Cta1Section scrollToTop={scrollToTop} />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={fadeUp}
-        >
-          <Cta2Section scrollToTop={scrollToTop} />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={fadeUp}
-        >
-          <FAQ />
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOptions}
-          variants={fadeUp}
-        >
-          <Footer />
+          {renderStep()}
         </motion.div>
       </div>
+        <motion.div
+          className='flex justify-center items-center w-full'
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}>
+                  <motion.p
+                    className="text-cemter mt-12 text-lg md:text-xl text-white font-medium"
+                    variants={fadeUp}
+                  >
+                    🎁 BÓNUSZ #1- Foglaljon ingyenes konzultációt most, és hozzáférést kap egy
+                    8 lépéses meta útmutatóhoz
+                  </motion.p>
+        </motion.div>
     </div>
+        <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0"> {/* blur kerdeses */}
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+            </svg>
+        </div>
+      <div className="flex flex-col items-center spacer bg-white layer3">
+        <div className="w-full px-64 2xl:px-96 bg-[#000816] pb-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+            className=""
+          >
+            <Why />
+          </motion.div>
+        </div>
+        <div className="w-[250%] md:w-[175%] xl:w-full wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
+            </svg>
+        </div>
+        <div className="w-full px-64 mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+          >
+            <Cta1Section scrollToTop={scrollToTop} />
+          </motion.div>
+        </div>
+        <div className="triangle">
+          <svg className="h-16 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
+          </svg>
+        </div>
+        <div className="w-full px-64 bg-[#000816]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+          >
+            <Cta2Section scrollToTop={scrollToTop} />
+          </motion.div>
+        </div>
+        <div className="triangle">
+          <svg className="h-16 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" className="shape-fill"></path>
+          </svg>
+        </div>
+        <div className="w-full px-64 mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOptions}
+            variants={fadeUp}
+          >
+            <FAQ />
+          </motion.div>
+        </div>
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </main>
   );
 }

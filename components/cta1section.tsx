@@ -2,46 +2,50 @@ import React from 'react';
 
 export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }) {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 text-shadow-md text-shadow-black/40">
                 Miért válassza a mi szolgáltatásunkat?
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-white mb-8 text-shadow-sm text-shadow-black/20">
                 Tapasztalt marketingesekkel dolgozunk, akik kizárólag fogorvosoknak és szájsebészeknek nyújtanak digitális marketing szolgáltatásokat.
               </p>
               <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-emerald-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                <li className="flex items-start mb-4">
+                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-gray-700">Növeljük a páciensek számát</span>
+                  <span className="text-white text-shadow-sm text-shadow-black/20">Növeljük a páciensek számát</span>
                 </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-emerald-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                <li className="flex items-start mb-4">
+                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-gray-700">Csökkentjük a megszerzési költséget</span>
+                  <span className="text-white text-shadow-sm text-shadow-black/20">Csökkentjük a megszerzési költséget</span>
                 </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-emerald-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                <li className="flex items-start mb-4">
+                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span className="text-gray-700">Növeljük a visszatérő páciensek arányát</span>
+                  <span className="text-white text-shadow-sm text-shadow-black/20">Növeljük a visszatérő páciensek arányát</span>
                 </li>
               </ul>
             </div>
             
-            <div className="flex-1 bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Készen áll a növekedésre?</h3>
-              <p className="text-gray-600 mb-6">
+            <div className="flex-1 bg-white/10 rounded-2xl">
+            <div className="backdrop-blur-xs backdrop-brightness-105 rounded-2xl p-8 my-shadow">
+              <h3 className="text-2xl font-bold text-black mb-4">Készen áll a növekedésre?</h3>
+              <p className="text-black mb-6 font-medium">
                 Foglaljon időpontot ingyenes konzultációra még ma, és kezdje el növelni pácienslétszámát!
               </p>
               
-              <div className="bg-white p-6 rounded-xl shadow-sm mb-6">
+              <div className="bg-white p-6 rounded-xl custom-inset mb-6">
                 <div className="flex items-start mb-4">
                   <div className="bg-emerald-100 p-2 rounded-lg mr-4">
                     <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -69,10 +73,11 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
               
              <button
   onClick={scrollToTop}
-  className="text-lg px-6 py-4 bg-[#080657] hover:bg-[#05043a] text-white rounded-xl hover:-translate-y-1 transition-transform w-full"
+  className="text-xl px-6 py-4 bg-[#1E57BB] text-white hover:bg-yellow-400 hover:text-black btn-shadow font-bold rounded-xl hover:-translate-y-1 transition w-full cursor-pointer"
 >
   FOGLALJON IDŐPONTOT MOST!
 </button>
+            </div>
             </div>
           </div>
         </div>

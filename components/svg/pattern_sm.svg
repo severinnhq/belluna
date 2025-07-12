@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="1080px" width="1920px">
+  <defs>
+    <linearGradient id="0" x1="0" y1="0.5" x2="1" y2="0.5">
+      <stop offset="0%" stop-color="#f7fafc"/>
+      <stop offset="25%" stop-color="#f7fafc"/>
+      <stop offset="50%" stop-color="#f7fafc"/>
+      <stop offset="100%" stop-color="#f7fafc"/>
+    </linearGradient>
+    <linearGradient id="1" x1="0.74" y1="0.06" x2="0.26" y2="0.94">
+      <stop offset="4%" stop-color="rgba(105, 211, 146, 0.1)"/>
+      <stop offset="17%" stop-color="rgba(116, 197, 92, 0.14)"/>
+      <stop offset="30%" stop-color="rgba(146, 175, 82, 0.19)"/>
+      <stop offset="43%" stop-color="rgba(157, 156, 72, 0.23)"/>
+      <stop offset="56%" stop-color="rgba(163, 138, 63, 0.27)"/>
+      <stop offset="69%" stop-color="rgba(167, 119, 54, 0.31)"/>
+      <stop offset="95%" stop-color="rgba(201, 38, 44, 0.4)"/>
+    </linearGradient>
+    <linearGradient id="2" x1="0.26" y1="0.06" x2="0.74" y2="0.94">
+      <stop offset="1%" stop-color="rgba(82, 113, 255, 0.4)"/>
+      <stop offset="15.14%" stop-color="rgba(30, 141, 214, 0.34)"/>
+      <stop offset="29.29%" stop-color="rgba(45, 155, 193, 0.29)"/>
+      <stop offset="43.43%" stop-color="rgba(58, 166, 183, 0.23)"/>
+      <stop offset="57.57%" stop-color="rgba(70, 177, 178, 0.17)"/>
+      <stop offset="71.71%" stop-color="rgba(82, 188, 172, 0.11)"/>
+      <stop offset="100%" stop-color="rgba(104, 211, 145, 0)"/>
+    </linearGradient>
+    <linearGradient id="3" x1="0.99" y1="0.42" x2="0.01" y2="0.58">
+      <stop offset="1%" stop-color="rgba(255, 255, 255, 0.4)"/>
+      <stop offset="14.43%" stop-color="rgba(247, 245, 245, 0.34)"/>
+      <stop offset="27.86%" stop-color="rgba(240, 235, 233, 0.29)"/>
+      <stop offset="41.29%" stop-color="rgba(236, 225, 211, 0.23)"/>
+      <stop offset="54.71%" stop-color="rgba(226, 219, 168, 0.17)"/>
+      <stop offset="68.14%" stop-color="rgba(197, 217, 146, 0.11)"/>
+      <stop offset="95%" stop-color="rgba(105, 211, 146, 0)"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#0)" height="100%" width="100%"/>
+  <rect fill="url(#1)" height="100%" width="100%"/>
+  <rect fill="url(#2)" height="100%" width="100%"/>
+  <rect fill="url(#3)" height="100%" width="100%"/>
+</svg>
