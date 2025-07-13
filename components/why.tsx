@@ -9,7 +9,7 @@ const Why: React.FC = () => {
         <div className="bg-white/5 rounded-3xl">
         <div className='p-6 rounded-3xl border-4 border-gray-400'>
           <h2 className="text-3xl font-semibold mb-4 text-white border-b-2 border-gray-400 pb-2">
-            Miért válasszon minket?
+            BellunaDigital
           </h2>
           <ul className="space-y-3 list-disc text-gray-300 font-medium">
             <li className="flex"><Chevy color={"text-green-500"}/>Rész alapú díjfizetés + teljesítmény alapú jutalék</li>

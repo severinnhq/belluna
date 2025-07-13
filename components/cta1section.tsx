@@ -40,8 +40,8 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
             
             <div className="flex-1 bg-white/10 rounded-2xl">
             <div className="backdrop-blur-xs backdrop-brightness-105 rounded-2xl p-8 my-shadow">
-              <h3 className="text-2xl font-bold text-black mb-4">Készen áll a növekedésre?</h3>
-              <p className="text-black mb-6 font-medium">
+              <h3 className="text-2xl font-bold text-white mb-4">Készen áll a növekedésre?</h3>
+              <p className="text-white mb-6 font-medium">
                 Foglaljon időpontot ingyenes konzultációra még ma, és kezdje el növelni pácienslétszámát!
               </p>
               

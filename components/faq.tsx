@@ -6,11 +6,11 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Hogyan különbözik a FogászDigital egy hagyományos marketingügynökségtől?",
+    question: "Hogyan különbözik a BellunaDigital egy hagyományos marketingügynökségtől?",
     answer:
       "Mi nem csupán hirdetéseket kezelünk, hanem teljes körű páciensszerző rendszert biztosítunk: érdeklődőszerzés, utánkövetés, időpontfoglalás – mindezt eredménygaranciával.",
   },
-  {
+  { 
     question: "Milyen pácienseket hoztok a rendelőmbe?",
     answer:
       "Kifejezetten magas értékű, esztétikai kezelések iránt érdeklődő pácienseket célzunk meg, akik hajlandóak fizetni a prémium szolgáltatásokért.",
@@ -58,7 +58,7 @@ const FAQ = () => {
   transition={{ duration: 0.5 }}
   className="text-xl md:text-2xl font-semibold text-center mb-14" // reduced size
 >
-  <span className="text-black">
+  <span className="text-white">
   Még mindig bizonytalan?
   </span>
   <br />
@@ -79,7 +79,7 @@ const FAQ = () => {
               >
                 <span className="text-lg font-semibold text-white text-shadow-md text-shadow-black/25">{faq.question}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-black transition-transform duration-300 ${
+                  className={`w-5 h-5 text-white transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
