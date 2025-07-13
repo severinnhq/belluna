@@ -387,7 +387,7 @@ export default function DigitalMarketingQuiz() {
         className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 min-h-[90vh] flex flex-col justify-center items-center py-12 md:py-16 lg:py-20 backdrop-blur-0"
       >
         <motion.div
-          className="hidden min-[1140px]:block bg-transparent backdrop-blur-md  p-1 sm:p-2 mb-6 md:mb-8 max-w-4xl mx-auto text-center"
+          className="hidden min-[1140px]:block mb-6 md:mb-8 max-w-4xl mx-auto text-center"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
@@ -397,7 +397,7 @@ export default function DigitalMarketingQuiz() {
           </p>
         </motion.div>
 
-         <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-12 min-[1140px]:gap-24 w-full max-w-6xl">
+      <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-y-3 min-[1140px]:gap-24 w-full max-w-6xl">
 <motion.div
   className="w-full min-[1140px]:w-1/2 flex justify-center items-center max-[1139px]:mt-10" // Changed from mt-[-1.5rem]
   initial="hidden"
@@ -406,7 +406,7 @@ export default function DigitalMarketingQuiz() {
 >
             <div className="max-w-2xl">
               <motion.div
-                className="flex flex-col font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-3 sm:space-y-4"
+                className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-3 sm:space-y-4 min-[1140px]:items-start min-[1140px]:text-left"
                 variants={fadeUp}
               >
                 <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
@@ -425,8 +425,8 @@ export default function DigitalMarketingQuiz() {
             </div>
           </motion.div>
 
-          <motion.div
-            className="max-[1139px]:block min-[1140px]:hidden bg-transparent backdrop-blur-md  p-1 sm:p-2 w-full max-w-md mx-auto text-center"
+      <motion.div
+          className="max-[1139px]:block min-[1140px]:hidden mt-2 sm:mt-4 w-full max-w-md mx-auto text-center"
             initial="hidden"
             animate="visible"
             variants={fadeUp}
@@ -437,7 +437,7 @@ export default function DigitalMarketingQuiz() {
           </motion.div>
 
           <motion.div
-            className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center"
+           className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center mt-8 min-[1140px]:mt-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
