@@ -31,13 +31,22 @@ html, body {
   overflow-x: hidden;
 }
 
+
+
 .spacer {
   aspect-ratio: 16/9;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: auto;
-  background-attachment: fixed;
+  background-size: cover;       /* ← cover everywhere */
+  background-attachment: scroll; /* ← scroll everywhere by default */
+}
+
+@media (min-width: 768px) {
+  .spacer {
+    background-attachment: fixed; /* only fixed on md+ */
+    background-size: auto;        /* your existing desktop sizing */
+  }
 }
 
 .layer1 {

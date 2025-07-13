@@ -380,7 +380,9 @@ export default function DigitalMarketingQuiz() {
   const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
 
   return (
-    <main className="spacer layer1">
+    <main className=" spacer layer1
+    bg-scroll bg-cover
+    md:bg-fixed md:bg-auto">
       <LandingHeader />
       <div
         ref={topSectionRef}
