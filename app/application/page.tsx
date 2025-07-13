@@ -97,11 +97,11 @@ export default function DigitalMarketingQuiz() {
       type: "single",
       field: "monthlySpend",
       options: [
-        { value: "100-200", label: "Havi 100-200 ezer forint körül" },
-        { value: "300-500", label: "Nagyjából 300-500 ezer forint között" },
-        { value: "600-1000", label: "Olyan 600 ezertől 1 millió forintig" },
-        { value: "1000-2000", label: "1 és 2 millió forint között" },
-        { value: "2000+", label: "Több mint 2 millió forint havonta" },
+        { value: "100-200", label: "100-200 ezer Ft" },
+        { value: "300-500", label: "300-500 ezer Ft" },
+        { value: "600-1000", label: "600 ezer-1 millió Ft" },
+        { value: "1000-2000", label: "1-2 millió Ft" },
+        { value: "2000+", label: "2+ millió Ft" },
       ],
     },
     {
@@ -138,6 +138,13 @@ export default function DigitalMarketingQuiz() {
     },
   ];
 
+  const iconMap: Record<string, string> = {
+  facebook:  'https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg',
+  google:    'https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png',
+  seo:       'https://cdn-icons-png.flaticon.com/512/906/906347.png',
+  other:     'https://upload.wikimedia.org/wikipedia/commons/8/8d/Question_mark_grey.png',
+};
+
   const handleNext = () =>
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
 
@@ -166,7 +173,7 @@ export default function DigitalMarketingQuiz() {
   const renderNextButton = () => (
     <button
       onClick={handleNext}
-      className="bg-white text-black text-lg sm:text-xl font-bold w-full py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:bg-[#000816] hover:text-white transition-colors cursor-pointer btn-shadow"
+      className="bg-yellow-400 text-black text-lg sm:text-xl font-bold w-full py-2 sm:py-3 rounded-xl sm:rounded-2xl hover:bg-yellow-500 hover:text-white transition-colors cursor-pointer btn-shadow"
     >
       TOVÁBB
     </button>
@@ -191,7 +198,7 @@ export default function DigitalMarketingQuiz() {
               {...step.inputProps}
               value={value}
               onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
-              className="w-full p-3 sm:p-4 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-6 sm:mb-8 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 active:border-white btn-shadow"
             />
             {renderNextButton()}
           </div>
@@ -204,18 +211,30 @@ export default function DigitalMarketingQuiz() {
         <>
           <QuestionTitle />
           <div className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-md mx-auto mb-6 sm:mb-8">
+            <div className="grid grid-cols-2 gap-2 max-w-md mx-auto mb-4 sm:mb-6">
               {step.options?.map((opt) => (
-                <label key={opt.value} className="flex items-center space-x-2 p-2">
+                <label
+                  key={opt.value}
+                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] ${
+                    formData.marketingType.includes(opt.value)
+                      ? 'bg-white text-black font-bold border-2 border-blue-500'
+                      : 'bg-white text-black hover:bg-gray-100'
+                  }`}
+                >
+                  <img
+                    src={iconMap[opt.value]}
+                    alt={opt.label}
+                    className="w-5 h-5 mr-1 sm:mr-2"
+                  />
+                  <span className="text-center text-xs sm:text-sm">
+                    {opt.label}
+                  </span>
                   <input
                     type="checkbox"
                     checked={formData.marketingType.includes(opt.value)}
                     onChange={() => handleSelection(opt.value)}
-                    className="w-4 h-4 sm:w-5 sm:h-5 rounded-full cursor-pointer"
+                    className="hidden"
                   />
-                  <span className="text-white font-medium text-shadow-sm text-shadow-black/50 italic cursor-pointer text-sm sm:text-base">
-                    {opt.label}
-                  </span>
                 </label>
               ))}
             </div>
@@ -225,25 +244,31 @@ export default function DigitalMarketingQuiz() {
       );
     }
 
-    if (step.type === "single" && step.field) {
-      const fieldValue = formData[step.field] as string;
+    if (step.type === "single") {
       return (
         <>
           <QuestionTitle />
           <div className="space-y-4">
-            <div className="flex flex-col space-y-3 sm:space-y-4 max-w-md mx-auto mb-6 sm:mb-8">
+            <div className="grid grid-cols-1 gap-2 max-w-md mx-auto mb-4 sm:mb-6">
               {step.options?.map((opt) => (
-                <label key={opt.value} className="flex items-center space-x-2 p-2">
+                <label
+                  key={opt.value}
+                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] ${
+                    formData[step.field!] === opt.value
+                      ? 'bg-white text-black font-bold border-2 border-blue-500'
+                      : 'bg-white text-black hover:bg-gray-100'
+                  }`}
+                >
+                  <span className="text-center text-xs sm:text-sm">
+                    {opt.label}
+                  </span>
                   <input
                     type="radio"
                     name={step.field}
-                    checked={fieldValue === opt.value}
+                    checked={formData[step.field!] === opt.value}
                     onChange={() => handleSelection(opt.value)}
-                    className="w-4 h-4 sm:w-5 sm:h-5 rounded-full cursor-pointer"
+                    className="hidden"
                   />
-                  <span className="text-white font-medium text-shadow-sm text-shadow-black/50 italic cursor-pointer text-sm sm:text-base">
-                    {opt.label}
-                  </span>
                 </label>
               ))}
             </div>
@@ -269,30 +294,30 @@ export default function DigitalMarketingQuiz() {
               placeholder="Teljes név"
               value={formData.fullName}
               onChange={(e) => updateFormData("fullName", e.target.value)}
-              className="w-full p-3 sm:p-4 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
             />
             <input
               type="email"
               placeholder="Email"
               value={formData.email}
               onChange={(e) => updateFormData("email", e.target.value)}
-              className="w-full p-3 sm:p-4 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
             />
             <input
               type="tel"
               placeholder="Telefonszám"
               value={formData.phone}
               onChange={(e) => updateFormData("phone", e.target.value)}
-              className="w-full p-3 sm:p-4 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
             />
             <input
               type="text"
               placeholder="Pozíció a klinikán"
               value={formData.position}
               onChange={(e) => updateFormData("position", e.target.value)}
-              className="w-full p-3 sm:p-4 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 active:border-white btn-shadow"
             />
-            <label className="flex items-start space-x-2 mb-6 sm:mb-8">
+            <label className="flex items-start space-x-2 mb-4 sm:mb-6">
               <input
                 type="checkbox"
                 checked={formData.acceptedPrivacy}
@@ -301,7 +326,7 @@ export default function DigitalMarketingQuiz() {
               />
               <span className="text-white text-xs sm:text-sm text-shadow-xs text-shadow-black cursor-pointer">
                 Hozzájárulok, hogy a megadott adataimat a kapcsolatfelvétel és
-                az időpont egyeztetés céljából kezeljék.
+                az időpont egyeztetés céljából kezeljük.
               </span>
             </label>
             <button
@@ -336,7 +361,7 @@ export default function DigitalMarketingQuiz() {
                   alert("Hiba történt a beküldés során.");
                 }
               }}
-              className={`w-full text-lg sm:text-xl py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold transition-colors ${
+              className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-colors ${
                 !canSubmit
                   ? "bg-gray-400 cursor-not-allowed text-gray-200"
                   : "bg-yellow-400 text-black hover:bg-[#000816] hover:text-white cursor-pointer btn-shadow"
@@ -354,77 +379,74 @@ export default function DigitalMarketingQuiz() {
 
   const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
 
-   return (
-  <main className="spacer layer1">
-        <LandingHeader />
-   <div
-  ref={topSectionRef}
-  className="
-    w-full
-    px-4 sm:px-8 md:px-12 lg:px-24 xl:px-64
-    mt-12                 /* pushes whole hero down */
-    py-12 md:py-16 lg:py-20 /* increases top & bottom padding */
-    backdrop-blur-0
-  "
->
-  <div className="flex flex-col justify-between items-center gap-6 lg:gap-12">
-    {/* Text section */}
-    <motion.div
-      className="w-full mb-2 lg:mb-0 text-center"
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-    >
-      <motion.div
-        className="flex flex-col font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50"
-        variants={fadeUp}
+  return (
+    <main className="spacer layer1">
+      <LandingHeader />
+      <div
+        ref={topSectionRef}
+        className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 min-h-[90vh] flex flex-col justify-center items-center py-12 md:py-16 lg:py-20 backdrop-blur-0"
       >
-        <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-          Szerezzen <span className="text-white">5-10 új</span>
-        </div>
-        <div className="text-[#5271ff] underline text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-          plasztikai pácienst
-        </div>
-        <div className="italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-          havonta, teljesen
-        </div>
-        <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-          kockázatmentesen!
-        </div>
-      </motion.div>
-
-      {/* Bonus text */}
-      <motion.div
-        className="flex justify-center items-center w-full mt-4 md:mt-6"
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp}
-      >
-        <motion.p
-          className="text-center text-sm sm:text-base text-white font-medium px-2 max-w-3xl"
+        <motion.div
+          className="hidden min-[1140px]:block bg-transparent backdrop-blur-md  p-1 sm:p-2 mb-6 md:mb-8 max-w-4xl mx-auto text-center"
+          initial="hidden"
+          animate="visible"
           variants={fadeUp}
         >
-          🎁 BÓNUSZ #1- Csak töltse ki az űrlapot, és hozzáférést kap
-          egy 8 lépéses meta útmutatóhoz
-        </motion.p>
-      </motion.div>
-    </motion.div>
+          <p className="text-gray-300 font-thin text-sm sm:text-base md:text-lg">
+            🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+          </p>
+        </motion.div>
 
-    {/* Quiz Form Container */}
-    <motion.div
-       className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-4 md:p-6 w-full max-w-2xl mx-auto"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-      variants={grow}
-    >
-      {renderStep()}
-    </motion.div>
-  </div>
-</div>
-    
-        
-    
+         <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-12 min-[1140px]:gap-24 w-full max-w-6xl">
+<motion.div
+  className="w-full min-[1140px]:w-1/2 flex justify-center items-center max-[1139px]:mt-10" // Changed from mt-[-1.5rem]
+  initial="hidden"
+  animate="visible"
+  variants={fadeIn}
+>
+            <div className="max-w-2xl">
+              <motion.div
+                className="flex flex-col font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-3 sm:space-y-4"
+                variants={fadeUp}
+              >
+                <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+                  Szerezzen <span className="text-white">5-10 új</span>
+                </div>
+                <div className="text-[#5271ff] underline text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+                  plasztikai pácienst
+                </div>
+                <div className="italic text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+                  havonta, teljesen
+                </div>
+                <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+                  kockázatmentesen!
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="max-[1139px]:block min-[1140px]:hidden bg-transparent backdrop-blur-md  p-1 sm:p-2 w-full max-w-md mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+          >
+            <p className="text-gray-300 font-thin text-sm sm:text-base">
+              🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            variants={grow}
+          >
+            {renderStep()}
+          </motion.div>
+        </div>
+      </div>
 
       <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
