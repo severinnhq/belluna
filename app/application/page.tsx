@@ -390,7 +390,7 @@ export default function DigitalMarketingQuiz() {
   const viewportOptions = { once: true, margin: "0px 0px -100px 0px" };
 
   return (
-    <main className="   spacer layer1
+    <main className="spacer layer1
     bg-no-repeat bg-center
     bg-contain bg-scroll
     md:bg-auto md:bg-fixed">
@@ -405,7 +405,7 @@ export default function DigitalMarketingQuiz() {
     animate="visible"
     variants={fadeUp}
   >
-    <p className="text-gray-300 font-thin text-sm sm:text-base md:text-lg">
+    <p className="text-gray-300 font-medium text-sm sm:text-base md:text-lg">
       🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
     </p>
   </motion.div>
@@ -444,7 +444,7 @@ export default function DigitalMarketingQuiz() {
       animate="visible"
       variants={fadeUp}
     >
-      <p className="text-gray-300 font-thin text-sm sm:text-base">
+      <p className="text-gray-300 font-medium text-sm sm:text-base">
         🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
       </p>
     </motion.div>

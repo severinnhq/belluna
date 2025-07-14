@@ -39,7 +39,7 @@ html, body {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;       /* ← cover everywhere */
-  background-attachment: scroll; /* ← scroll everywhere by default */
+  background-attachment: fixed; /* ← scroll everywhere by default */
 }
 
 @media (min-width: 768px) {
