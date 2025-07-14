@@ -139,10 +139,12 @@ export default function DigitalMarketingQuiz() {
   ];
 
   const iconMap: Record<string, string> = {
-  facebook:  'https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg',
-  google:    'https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png',
-  seo:       'https://cdn-icons-png.flaticon.com/512/906/906347.png',
-  other:     'https://upload.wikimedia.org/wikipedia/commons/8/8d/Question_mark_grey.png',
+  facebook:  'https://cdn-icons-png.flaticon.com/512/6033/6033716.png', // Meta logo
+  instagram: 'https://cdn-icons-png.flaticon.com/512/6033/6033716.png', // Meta logo
+  google:    'https://cdn-icons-png.flaticon.com/512/281/281764.png',  // Google logo
+  seo:       'https://cdn-icons-png.flaticon.com/512/3648/3648841.png', // SEO magnifying‑glass icon
+  other: 'https://cdn-icons-png.flaticon.com/512/1006/1006555.png'
+
 };
 
   const handleNext = () =>
@@ -198,7 +200,7 @@ export default function DigitalMarketingQuiz() {
               {...step.inputProps}
               value={value}
               onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
-              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 bg-transparent text-white placeholder:text-gray-300"
             />
             {renderNextButton()}
           </div>
@@ -206,43 +208,48 @@ export default function DigitalMarketingQuiz() {
       );
     }
 
-    if (step.type === "multiple") {
-      return (
-        <>
-          <QuestionTitle />
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-2 max-w-md mx-auto mb-4 sm:mb-6">
-              {step.options?.map((opt) => (
-                <label
-                  key={opt.value}
-                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] ${
-                    formData.marketingType.includes(opt.value)
-                      ? 'bg-white text-black font-bold border-2 border-blue-500'
-                      : 'bg-white text-black hover:bg-gray-100'
-                  }`}
-                >
+   if (step.type === "multiple") {
+  return (
+    <>
+      <QuestionTitle />
+      <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-2 max-w-md mx-auto mb-4 sm:mb-6">
+          {step.options?.map((opt) => (
+            <label
+              key={opt.value}
+              className={`flex items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
+                formData.marketingType.includes(opt.value)
+                  ? 'bg-yellow-400/80 text-black font-bold border-2 border-yellow-500'
+                  : 'bg-transparent text-white hover:bg-white/10'
+              }`}
+            >
+              {/* Fixed-width icon container */}
+              <div className="w-6 h-6 mr-1 sm:mr-2 flex items-center justify-center">
+                {opt.value !== "other" && (
                   <img
                     src={iconMap[opt.value]}
                     alt={opt.label}
-                    className="w-5 h-5 mr-1 sm:mr-2"
+                    className="w-5 h-5"
                   />
-                  <span className="text-center text-xs sm:text-sm">
-                    {opt.label}
-                  </span>
-                  <input
-                    type="checkbox"
-                    checked={formData.marketingType.includes(opt.value)}
-                    onChange={() => handleSelection(opt.value)}
-                    className="hidden"
-                  />
-                </label>
-              ))}
-            </div>
-            {renderNextButton()}
-          </div>
-        </>
-      );
-    }
+                )}
+              </div>
+              <span className="text-xs sm:text-sm flex-1">
+                {opt.label}
+              </span>
+              <input
+                type="checkbox"
+                checked={formData.marketingType.includes(opt.value)}
+                onChange={() => handleSelection(opt.value)}
+                className="hidden"
+              />
+            </label>
+          ))}
+        </div>
+        {renderNextButton()}
+      </div>
+    </>
+  );
+}
 
     if (step.type === "single") {
       return (
@@ -253,10 +260,10 @@ export default function DigitalMarketingQuiz() {
               {step.options?.map((opt) => (
                 <label
                   key={opt.value}
-                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] ${
+                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
                     formData[step.field!] === opt.value
-                      ? 'bg-white text-black font-bold border-2 border-blue-500'
-                      : 'bg-white text-black hover:bg-gray-100'
+                      ? 'bg-yellow-400/80 text-black font-bold border-2 border-yellow-500'
+                      : 'bg-transparent text-white hover:bg-white/10'
                   }`}
                 >
                   <span className="text-center text-xs sm:text-sm">
@@ -294,28 +301,28 @@ export default function DigitalMarketingQuiz() {
               placeholder="Teljes név"
               value={formData.fullName}
               onChange={(e) => updateFormData("fullName", e.target.value)}
-              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="email"
               placeholder="Email"
               value={formData.email}
               onChange={(e) => updateFormData("email", e.target.value)}
-              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="tel"
               placeholder="Telefonszám"
               value={formData.phone}
               onChange={(e) => updateFormData("phone", e.target.value)}
-              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-2 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="text"
               placeholder="Pozíció a klinikán"
               value={formData.position}
               onChange={(e) => updateFormData("position", e.target.value)}
-              className="w-full p-2 sm:p-3 border-2 border-gray-400 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 active:border-white btn-shadow"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 bg-transparent text-white placeholder:text-gray-300"
             />
             <label className="flex items-start space-x-2 mb-4 sm:mb-6">
               <input
@@ -385,71 +392,72 @@ export default function DigitalMarketingQuiz() {
     bg-contain bg-scroll
     md:bg-auto md:bg-fixed bg-transparent">
       <LandingHeader />
-      <div
-        ref={topSectionRef}
-        className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 min-h-[90vh] flex flex-col justify-center items-center py-12 md:py-16 lg:py-20 backdrop-blur-0"
-      >
-        <motion.div
-          className="hidden min-[1140px]:block mb-6 md:mb-8 max-w-4xl mx-auto text-center"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
-        >
-          <p className="text-gray-300 font-thin text-sm sm:text-base md:text-lg">
-            🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
-          </p>
-        </motion.div>
-
-      <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-y-3 min-[1140px]:gap-24 w-full max-w-6xl">
-<motion.div
-  className="w-full min-[1140px]:w-1/2 flex justify-center items-center max-[1139px]:mt-10" // Changed from mt-[-1.5rem]
-  initial="hidden"
-  animate="visible"
-  variants={fadeIn}
+     <div
+  ref={topSectionRef}
+  className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 min-h-[100vh] flex flex-col justify-center items-center py-12 md:py-16 lg:pt-24 backdrop-blur-0"
 >
-            <div className="max-w-2xl">
-              <motion.div
-                className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-3 sm:space-y-4 min-[1140px]:items-start min-[1140px]:text-left"
-                variants={fadeUp}
-              >
-                <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-                  Szerezzen <span className="text-white">5-10 új</span>
-                </div>
-                <div className="text-[#5271ff] underline text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-                  plasztikai pácienst
-                </div>
-                <div className="italic text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-                  havonta, teljesen
-                </div>
-                <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-                  kockázatmentesen!
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+  <motion.div
+    className="hidden min-[1140px]:block mb-1 md:mb-4 max-w-4xl mx-auto text-center"
+    initial="hidden"
+    animate="visible"
+    variants={fadeUp}
+  >
+    <p className="text-gray-300 font-thin text-sm sm:text-base md:text-lg">
+      🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
+    </p>
+  </motion.div>
 
-      <motion.div
-          className="max-[1139px]:block min-[1140px]:hidden mt-2 sm:mt-4 w-full max-w-md mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-          >
-            <p className="text-gray-300 font-thin text-sm sm:text-base">
-              🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
-            </p>
-          </motion.div>
+  <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-y-3 min-[1140px]:gap-24 w-full max-w-6xl min-[1140px]:mt-8">
+    <motion.div
+      className="w-full min-[1140px]:w-1/2 flex justify-center items-center max-[1139px]:mt-10"
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+    >
+     <div className="max-w-2xl">
+  <motion.div
+    className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-1 sm:space-y-3 md:space-y-3 min-[1140px]:items-start min-[1140px]:text-left min-[1140px]:space-y-4"
+    variants={fadeUp}
+  >
+    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+      Szerezzen <span className="text-white">5-10 új</span>
+    </div>
+    <div className="text-yellow-400 underline text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+      plasztikai pácienst
+    </div>
+    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+      <span className="italic">havonta</span>, teljesen
+    </div>
+    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
+      kockázatmentesen!
+    </div>
+  </motion.div>
+</div>
+    </motion.div>
 
-          <motion.div
-           className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center mt-8 min-[1140px]:mt-0"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-            variants={grow}
-          >
-            {renderStep()}
-          </motion.div>
-        </div>
-      </div>
+    <motion.div
+      className="max-[1139px]:block min-[1140px]:hidden mt-2 sm:mt-4 w-full max-w-md mx-auto text-center"
+      initial="hidden"
+      animate="visible"
+      variants={fadeUp}
+    >
+      <p className="text-gray-300 font-thin text-sm sm:text-base">
+        🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center mt-8 min-[1140px]:mt-0"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+      variants={grow}
+    >
+      {renderStep()}
+    </motion.div>
+  </div>
+</div>
+
 
       <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
