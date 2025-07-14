@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { easeOut } from 'framer-motion/dom';
+import Image from 'next/image';
 import LandingHeader from '@/components/landingheader';
 import Why from "@/components/why";
 import Cta1Section from "@/components/cta1section";
@@ -225,10 +226,12 @@ export default function DigitalMarketingQuiz() {
             >
               {/* Fixed-width icon container */}
               <div className="w-6 h-6 mr-1 sm:mr-2 flex items-center justify-center">
-                {opt.value !== "other" && (
-                  <img
+                {opt.value  && (
+                  <Image
                     src={iconMap[opt.value]}
                     alt={opt.label}
+                    width={0}
+                    height={0}
                     className="w-5 h-5"
                   />
                 )}
@@ -390,7 +393,7 @@ export default function DigitalMarketingQuiz() {
     <main className="   spacer layer1
     bg-no-repeat bg-center
     bg-contain bg-scroll
-    md:bg-auto md:bg-fixed bg-transparent">
+    md:bg-auto md:bg-fixed">
       <LandingHeader />
      <div
   ref={topSectionRef}
