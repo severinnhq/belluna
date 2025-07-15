@@ -4,10 +4,10 @@ import NiceBlue from '@/components/svg/nice-blue.svg';
 export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }) {
   return (
     <section
-      className="py-16 bg-cover bg-center"
+      className="py-16 bg-cover bg-center px-4 sm:px-6 lg:px-8"
       style={{ backgroundImage: `url(${NiceBlue})` }}
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex-1">
@@ -18,33 +18,15 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
                 Tapasztalt marketingesekkel dolgozunk, akik kizárólag fogorvosoknak és szájsebészeknek nyújtanak digitális marketing szolgáltatásokat.
               </p>
               <ul className="space-y-3 mb-8">
-                <li className="flex items-start mb-4">
-                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-white text-shadow-sm text-shadow-black/20">
-                    Növeljük a páciensek számát
-                  </span>
-                </li>
-                <li className="flex items-start mb-4">
-                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-white text-shadow-sm text-shadow-black/20">
-                    Csökkentjük a megszerzési költséget
-                  </span>
-                </li>
-                <li className="flex items-start mb-4">
-                  <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-white text-shadow-sm text-shadow-black/20">
-                    Növeljük a visszatérő páciensek arányát
-                  </span>
-                </li>
+                {['Növeljük a páciensek számát', 'Csökkentjük a megszerzési költséget', 'Növeljük a visszatérő páciensek arányát'].map((text, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <svg className="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="6" d="M5 13l4 4L19 7" stroke="black" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-white text-shadow-sm text-shadow-black/20">{text}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
