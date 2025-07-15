@@ -61,7 +61,7 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
             </p>
           <button
             onClick={scrollToTop}
-            className="text-xl px-6 py-4 bg-green-600 text-white hover:bg-green-700 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer"
+            className="text-md md:text-2xl px-6 py-4 bg-green-600 text-white hover:bg-green-700 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer"
           >
             FOGLALJON IDŐPONTOT MOST!
           </button>

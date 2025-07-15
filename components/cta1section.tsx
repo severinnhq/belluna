@@ -85,7 +85,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
 
                 <button
                   onClick={scrollToTop}
-                  className="text-xl px-6 py-4 bg-[#1E57BB] text-white hover:bg-yellow-400 hover:text-black btn-shadow font-bold rounded-xl hover:-translate-y-1 transition w-full cursor-pointer"
+                  className="text-xl md:text-2xl px-6 py-4 bg-[#1E57BB] text-white hover:bg-yellow-400 hover:text-black btn-shadow font-bold rounded-xl hover:-translate-y-1 transition w-full cursor-pointer whitespace-nowrap"
                 >
                   FOGLALJON IDŐPONTOT MOST!
                 </button>

@@ -52,20 +52,18 @@ const FAQ = () => {
   return (
     <section className="py-8 text-white">
       <div className="max-w-5xl mx-auto">
-       <motion.h2
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
-  className="text-xl md:text-2xl font-semibold text-center mb-14" // reduced size
->
-  <span className="text-white">
-  Még mindig bizonytalan?
-  </span>
-  <br />
-  <span className="text-4xl md:text-4xl font-extrabold text-shadow-md text-shadow-black/40">
-    Gyakran Ismételt Kérdések
-  </span>
-</motion.h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-xl md:text-2xl font-semibold text-center mb-14"
+        >
+          <span className="text-white">Még mindig bizonytalan?</span>
+          <br />
+          <span className="text-4xl md:text-4xl font-extrabold text-shadow-md text-shadow-black/40">
+            Gyakran Ismételt Kérdések
+          </span>
+        </motion.h2>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -77,9 +75,11 @@ const FAQ = () => {
                 onClick={() => toggleIndex(index)}
                 className="w-full flex justify-between items-center text-left px-6 py-4 focus:outline-none cursor-pointer"
               >
-                <span className="text-lg font-semibold text-white text-shadow-md text-shadow-black/25">{faq.question}</span>
+                <span className="text-lg font-semibold text-white text-shadow-md text-shadow-black/25">
+                  {faq.question}
+                </span>
                 <ChevronDown
-                  className={`w-5 h-5 text-white transition-transform duration-300 ${
+                  className={`w-5 h-5 md:w-6 md:h-6 flex-shrink-0 transition-transform duration-300 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
