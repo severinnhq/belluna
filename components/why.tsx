@@ -3,7 +3,7 @@ import Chevy from './ui/chevy';
 
 const Why: React.FC = () => {
   return (
-    <section className="grid lg:grid-cols-2 gap-8 py-4 sm:py-8 max-w-5xl lg:mx-auto">
+    <section className="grid lg:grid-cols-2 gap-8 py-4 sm:py-8 lg:pb-12 max-w-5xl lg:mx-auto">
       {/* Our Advantages   */}
       <div className="rounded-3xl blue-shadow h-min mb-4 lg:mb-0">
         <div className="bg-white/5 rounded-3xl">

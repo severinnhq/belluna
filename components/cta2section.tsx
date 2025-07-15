@@ -19,7 +19,7 @@ const fadeUp = {
 
 const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
   return (
-    <section className="py-16 text-white">
+    <section className="py-16 lg:pt-8 text-white">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
