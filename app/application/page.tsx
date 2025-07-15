@@ -201,7 +201,7 @@ export default function DigitalMarketingQuiz() {
               {...step.inputProps}
               value={value}
               onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-4 sm:mb-6 bg-transparent text-white placeholder:text-gray-300"
             />
             {renderNextButton()}
           </div>
@@ -304,28 +304,28 @@ export default function DigitalMarketingQuiz() {
               placeholder="Teljes név"
               value={formData.fullName}
               onChange={(e) => updateFormData("fullName", e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="email"
               placeholder="Email"
               value={formData.email}
               onChange={(e) => updateFormData("email", e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="tel"
               placeholder="Telefonszám"
               value={formData.phone}
               onChange={(e) => updateFormData("phone", e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-2 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
               type="text"
               placeholder="Pozíció a klinikán"
               value={formData.position}
               onChange={(e) => updateFormData("position", e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-3 sm:mb-4 bg-transparent text-white placeholder:text-gray-300"
             />
             <label className="flex items-start space-x-2 mb-4 sm:mb-6">
               <input
@@ -371,7 +371,7 @@ export default function DigitalMarketingQuiz() {
                   alert("Hiba történt a beküldés során.");
                 }
               }}
-              className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-colors ${
+              className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl font-bold transition-colors ${
                 !canSubmit
                   ? "bg-gray-400 cursor-not-allowed text-gray-200"
                   : "bg-yellow-400 text-black hover:bg-[#000816] hover:text-white cursor-pointer btn-shadow"
@@ -422,16 +422,16 @@ export default function DigitalMarketingQuiz() {
       className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-1 sm:space-y-2"
       variants={fadeUp}
     >
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         Szerezzen <span className="text-white">5-10 új</span>
       </div>
-      <div className="text-yellow-400 underline text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+      <div className="text-yellow-400 underline text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         plasztikai pácienst
       </div>
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         <span className="italic">havonta</span>, teljesen
       </div>
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
         kockázatmentesen!
       </div>
     </motion.div>
