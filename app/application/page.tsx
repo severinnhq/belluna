@@ -144,7 +144,7 @@ export default function DigitalMarketingQuiz() {
   instagram: 'https://cdn-icons-png.flaticon.com/512/6033/6033716.png', // Meta logo
   google:    'https://cdn-icons-png.flaticon.com/512/281/281764.png',  // Google logo
   seo:       'https://cdn-icons-png.flaticon.com/512/3648/3648841.png', // SEO magnifying‑glass icon
-  other: 'https://cdn-icons-png.flaticon.com/512/1006/1006555.png'
+  other: 'https://cdn-icons-png.flaticon.com/512/5726/5726470.png'
 
 };
 
@@ -176,7 +176,7 @@ export default function DigitalMarketingQuiz() {
   const renderNextButton = () => (
     <button
       onClick={handleNext}
-      className="bg-yellow-400 text-black text-lg sm:text-xl font-bold w-full py-2 sm:py-3 rounded-xl sm:rounded-2xl hover:bg-yellow-500 hover:text-white transition-colors cursor-pointer btn-shadow"
+      className="bg-yellow-400 text-black text-lg sm:text-xl font-bold w-full py-2 sm:py-3 rounded-xl hover:bg-yellow-500 transition-colors cursor-pointer btn-shadow"
     >
       TOVÁBB
     </button>
@@ -186,7 +186,7 @@ export default function DigitalMarketingQuiz() {
     const step = quizSteps[currentStep - 1];
 
     const QuestionTitle = () => (
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-center mb-4 md:mb-8 text-white text-shadow-md text-shadow-black/50 px-2">
+      <h2 className="text-2xl min-[560px]:text-3xl lg:text-2xl xl:text-3xl font-semibold text-center mb-4 md:mb-8 text-white text-shadow-md text-shadow-black/50 px-2">
         {step.question}
       </h2>
     );
@@ -218,10 +218,10 @@ export default function DigitalMarketingQuiz() {
           {step.options?.map((opt) => (
             <label
               key={opt.value}
-              className={`flex items-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
+              className={`flex items-center p-2 sm:p-3 rounded-xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
                 formData.marketingType.includes(opt.value)
-                  ? 'bg-yellow-400/80 text-black font-bold border-2 border-yellow-500'
-                  : 'bg-transparent text-white hover:bg-white/10'
+                  ? 'bg-white/10 text-white font-bold'
+                  : 'bg-black/25 text-white font-medium hover:bg-white/5'
               }`}
             >
               {/* Fixed-width icon container */}
@@ -263,10 +263,10 @@ export default function DigitalMarketingQuiz() {
               {step.options?.map((opt) => (
                 <label
                   key={opt.value}
-                  className={`flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
+                  className={`flex items-center p-2 sm:p-3 rounded-xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
                     formData[step.field!] === opt.value
-                      ? 'bg-yellow-400/80 text-black font-bold border-2 border-yellow-500'
-                      : 'bg-transparent text-white hover:bg-white/10'
+                      ? 'bg-white/10 text-white font-bold italic'
+                      : 'bg-black/25 text-white font-medium hover:bg-white/5'
                   }`}
                 >
                   <span className="text-center text-xs sm:text-sm">
@@ -395,80 +395,85 @@ export default function DigitalMarketingQuiz() {
     bg-contain bg-scroll
     md:bg-auto md:bg-fixed">
       <LandingHeader />
-     <div
+<div
   ref={topSectionRef}
-  className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24 min-h-[100vh] flex flex-col justify-center items-center py-12 md:py-16 lg:pt-24 backdrop-blur-0"
+  className="w-full px-8 sm:px-16 md:px-32 lg:px-16 flex flex-col justify-between items-center pt-12 md:pt-16 lg:pt-24 backdrop-blur-0 telo-layer1"
 >
-  <motion.div
-    className="hidden min-[1140px]:block mb-1 md:mb-4 max-w-4xl mx-auto text-center"
-    initial="hidden"
-    animate="visible"
-    variants={fadeUp}
-  >
-    <p className="text-gray-300 font-medium text-sm sm:text-base md:text-lg">
-      🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
-    </p>
-  </motion.div>
-
-  <div className="flex flex-col min-[1140px]:flex-row justify-center items-center gap-y-3 min-[1140px]:gap-24 w-full max-w-6xl min-[1140px]:mt-8">
+  <div className="flex flex-col justify-between items-center w-full ">
     <motion.div
-      className="w-full min-[1140px]:w-1/2 flex justify-center items-center max-[1139px]:mt-10"
-      initial="hidden"
-      animate="visible"
-      variants={fadeIn}
-    >
-     <div className="max-w-2xl">
-  <motion.div
-    className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-1 sm:space-y-3 md:space-y-3 min-[1140px]:items-start min-[1140px]:text-left min-[1140px]:space-y-4"
-    variants={fadeUp}
-  >
-    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-      Szerezzen <span className="text-white">5-10 új</span>
-    </div>
-    <div className="text-yellow-400 underline text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-      plasztikai pácienst
-    </div>
-    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-      <span className="italic">havonta</span>, teljesen
-    </div>
-    <div className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl">
-      kockázatmentesen!
-    </div>
-  </motion.div>
-</div>
-    </motion.div>
-
-    <motion.div
-      className="max-[1139px]:block min-[1140px]:hidden mt-2 sm:mt-4 w-full max-w-md mx-auto text-center"
+      className="hidden lg:block max-w-4xl mx-auto text-center"
       initial="hidden"
       animate="visible"
       variants={fadeUp}
     >
-      <p className="text-gray-300 font-medium text-sm sm:text-base">
-        🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+      <p className="text-white font-medium text-sm sm:text-base md:text-lg mt-8">
+        🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
       </p>
     </motion.div>
 
+    <div className="flex flex-col lg:flex-row lg:justify-center items-center md:h-[822px] lg:h-[502px] xl:h-[510px] w-full my-16 sm:my-8 lg:my-0">
+      <motion.div
+        className="flex justify-center items-center lg:mr-8 2xl:mr-16"
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+      >
     <motion.div
-      className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-5 w-full max-w-lg flex flex-col justify-center mt-8 min-[1140px]:mt-0"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-      variants={grow}
+      className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-1 sm:space-y-2"
+      variants={fadeUp}
     >
-      {renderStep()}
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+        Szerezzen <span className="text-white">5-10 új</span>
+      </div>
+      <div className="text-yellow-400 underline text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+        plasztikai pácienst
+      </div>
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+        <span className="italic">havonta</span>, teljesen
+      </div>
+      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl">
+        kockázatmentesen!
+      </div>
     </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="block lg:hidden mt-4 max-w-md md:max-w-lg mx-auto text-center"
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
+        <p className="text-white/90 font-medium text-xs sm:text-sm min-[560px]:text-base md:text-lg">
+          🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="bg-white/10 backdrop-blur-xs backdrop-brightness-110 rounded-2xl p-8 w-full max-w-lg flex flex-col justify-center lg:ml-8 2xl:ml-16 border-2 border-gray-400 my-shadow mt-12 lg:mt-0"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        variants={grow}
+      >
+        {renderStep()}
+      </motion.div>
+    </div>
+  </div>
+  <div className="w-[250%] md:w-[175%] h-32 wave backdrop-blur-0 block lg:hidden">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+    </svg>
   </div>
 </div>
 
 
-      <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0">
+      <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0 hidden lg:block">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
         </svg>
       </div>
       <div className="flex flex-col items-center spacer bg-white layer3">
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 2xl:px-96 bg-[#000816] pb-8">
+        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 bg-[#000816] pb-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -478,12 +483,12 @@ export default function DigitalMarketingQuiz() {
             <Why />
           </motion.div>
         </div>
-        <div className="w-[250%] md:w-[175%] xl:w-full wave">
+        <div className="w-[250%] md:w-[175%] xl:w-full wave hidden lg:block">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
           </svg>
         </div>
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 mb-10 md:mb-16">
+        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 mb-10 md:mb-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -498,7 +503,7 @@ export default function DigitalMarketingQuiz() {
             <path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
           </svg>
         </div>
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 bg-[#000816]">
+        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 bg-[#000816]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -513,7 +518,7 @@ export default function DigitalMarketingQuiz() {
             <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" className="shape-fill"></path>
           </svg>
         </div>
-        <div className="w-full px-4 sm:px-8 md:px-16 lg:px-32 xl:px-64 mb-10 md:mb-16">
+        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 mb-10 md:mb-16">
           <motion.div
             initial="hidden"
             whileInView="visible"

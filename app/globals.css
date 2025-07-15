@@ -39,16 +39,24 @@ html, body {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;       /* ← cover everywhere */
-  background-attachment: fixed; /* ← scroll everywhere by default */
+  background-attachment: scroll; /* ← scroll everywhere by default */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .spacer {
     background-attachment: fixed; /* only fixed on md+ */
     background-size: auto;        /* your existing desktop sizing */
   }
 }
 
+.telo-layer1 {
+  background-image: url('../components/svg/nice-blue.svg');
+}
+@media (min-width: 1024px) {
+  .telo-layer1 {
+    background-image: none;
+  }
+}
 .layer1 {
   background-image: url('../components/svg/nice-blue.svg');
 }

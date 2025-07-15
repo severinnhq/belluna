@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="select-none">
       <head>
         <link rel="icon" href="/favicon.ico" />
         {/* Add base path for static export */}

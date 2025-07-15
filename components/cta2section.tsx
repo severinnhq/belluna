@@ -19,7 +19,7 @@ const fadeUp = {
 
 const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
   return (
-    <section className="py-16 px-6 md:px-20 text-white">
+    <section className="py-16 text-white">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
           Ismerősen hangzik?
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-left">
+        <div className="grid grid-cols-1 min-[960px]:grid-cols-2 gap-6 mb-10 text-left">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -61,7 +61,7 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
             </p>
           <button
             onClick={scrollToTop}
-            className="text-xl px-6 py-4 bg-green-600 text-white hover:bg-yellow-400 hover:text-black font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer"
+            className="text-xl px-6 py-4 bg-green-600 text-white hover:bg-green-700 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer"
           >
             FOGLALJON IDŐPONTOT MOST!
           </button>
