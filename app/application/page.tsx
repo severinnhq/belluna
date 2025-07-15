@@ -81,7 +81,7 @@ export default function DigitalMarketingQuiz() {
       type: "multiple",
       field: "marketingType",
       options: [
-        { value: "facebook", label: "Facebook/Instagram" },
+        { value: "facebook", label: "META" },
         { value: "google", label: "Google" },
         { value: "seo", label: "SEO" },
         { value: "other", label: "Egyéb" },
