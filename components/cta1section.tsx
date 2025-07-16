@@ -12,10 +12,10 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4 text-shadow-md text-shadow-black/40">
-                Miért válassza a mi szolgáltatásunkat?
+                Miért a Belluna?
               </h2>
               <p className="text-lg text-white mb-8 text-shadow-sm text-shadow-black/20">
-                Tapasztalt marketingesekkel dolgozunk, akik kizárólag fogorvosoknak és szájsebészeknek nyújtanak digitális marketing szolgáltatásokat.
+                Csak plasztikai sebészetekkel dolgozunk és nekik segítünk kifejzetten az ügyfélszerzésben, nem csak marketingben.
               </p>
               <ul className="space-y-3 mb-8">
                 {['Növeljük a páciensek számát', 'Csökkentjük a megszerzési költséget', 'Növeljük a visszatérő páciensek arányát'].map((text, idx) => (
@@ -48,7 +48,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-800">Ingyenes konzultáció</h4>
-                      <p className="text-gray-600 text-sm">15 perces személyre szabott elemzés</p>
+                      <p className="text-gray-600 text-sm">45 perces személyre szabott elemzés</p>
                     </div>
                   </div>
 
@@ -60,7 +60,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-800">Személyre szabott stratégia</h4>
-                      <p className="text-gray-600 text-sm">Gyakorlatias tanácsok a klinikája számára</p>
+                      <p className="text-gray-600 text-sm">Gyakorlatias tanácsok a sebészete számára</p>
                     </div>
                   </div>
                 </div>

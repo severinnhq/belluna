@@ -57,7 +57,7 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
             </h3>
             <p className="text-lg mb-6">
               Garantáltan <strong>5-10 új, magas értékű plasztikai páciens</strong> havonta - teljesen <strong>kockázatmentesen</strong>!
-              Önnek csak a kezelésekre kell fókuszálnia, mi intézzük a marketinget és az utánkövetést.
+              Önnek csak a kezelésekre kell fókuszálnia, mi intézzük az ügyfélszerzést és az utánkövetést.
             </p>
           <button
             onClick={scrollToTop}
