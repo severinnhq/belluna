@@ -419,23 +419,23 @@ export default function DigitalMarketingQuiz() {
         animate="visible"
         variants={fadeIn}
       >
-    <motion.div
-      className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50 space-y-1 sm:space-y-2"
-      variants={fadeUp}
-    >
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-        Szerezzen <span className="text-white">5-10 új</span>
-      </div>
-      <div className="text-yellow-400 underline text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-        plasztikai pácienst
-      </div>
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-        <span className="italic">havonta</span>, teljesen
-      </div>
-      <div className="text-4xl min-[560px]:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-        kockázatmentesen!
-      </div>
-    </motion.div>
+   <motion.div
+  className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50"
+  variants={fadeUp}
+>
+  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+    Szerezzen <span className="text-white">5-10 új</span>
+  </div>
+  <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+    plasztikai pácienst
+  </div>
+  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+    <span className="italic">havonta</span>, teljesen
+  </div>
+  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+    kockázatmentesen!
+  </div>
+</motion.div>
       </motion.div>
 
       <motion.div
