@@ -28,12 +28,12 @@ const faqs = [
   {
     question: "Miért érdemes most jelentkezni?",
     answer:
-      "Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani. Ha most jelentkezik, az elsők között biztosíthatja a helyét.",
+      "Egy körzeten belül csak egy sebészettel dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
   },
   {
     question: "Új ügynökség vagytok?",
     answer:
-      "Nem. Bár a FogászDigital új brandként indult, mögötte tapasztalt marketing szakemberek és kipróbált rendszerek állnak, akik már sok praxisnak hoztak mérhető növekedést.",
+      "Nem. Bár a BellunaDigital új brandként indult, mögötte tapasztalt marketing szakemberek és kipróbált rendszerek állnak, akik már sok praxisnak hoztak mérhető növekedést.",
   },
   {
     question: "Mennyi időt kell ezzel foglalkoznom?",
