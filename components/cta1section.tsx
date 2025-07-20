@@ -68,7 +68,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
               {/* Button with responsive text size and wrapped text */}
               <button
                 onClick={scrollToTop}
-                className="text-base md:text-xl lg:text-2xl px-4 py-3 md:px-6 md:py-4 bg-[#1E57BB] text-white hover:bg-yellow-400 hover:text-black btn-shadow font-bold rounded-xl hover:-translate-y-1 transition w-full"
+                className="text-base md:text-lg lg:text-xl px-4 py-3 md:px-6 md:py-4 bg-[#1E57BB] text-white hover:bg-yellow-400 hover:text-black btn-shadow font-bold rounded-xl hover:-translate-y-1 transition w-full"
               >
                 FOGLALJON IDŐPONTOT MOST!
               </button>
