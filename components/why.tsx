@@ -17,7 +17,7 @@ const Why: React.FC = () => {
             <li className="flex"><Chevy color={"text-green-500"}/>10-25+ új, kvalifikált érdeklődő havonta, kockázat nélkül</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Plasztikai sebészetre specializálva - célzott stratégiák</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Teljes automatizáció - AI + manuális utánkövetés</li>
-            <li className="flex"><Chevy color={"text-green-500"}/>Magas értékű esztétikai páciensek (pl. mellnagyobbítás)</li>
+            <li className="flex"><Chevy color={"text-green-500"}/>Magas értékű páciensek (pl. mellnagyobbítás)</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Azonnali előszűrés, kézi kvalifikálás - időhatékony megoldások</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Területi exkluzivitás - csak egy partner klinika</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Hosszú távú partneri gondolkodás - együtt növekedünk</li>
