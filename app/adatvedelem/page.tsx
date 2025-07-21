@@ -71,12 +71,12 @@ export default function AdatvedelemPage() {
         <li>Automatizált döntéshozatal elleni tiltakozás joga</li>
       </ul>
       <p className="mb-6">
-        Jogai gyakorlását kezdeményezheti e-mailben: <a href="mailto:meeting@fogaszdigital.com" className="text-blue-600 underline">meeting@fogaszdigital.com</a>
+        Jogai gyakorlását kezdeményezheti e-mailben: <a href="mailto:info@bellunadigital.com" className="text-blue-600 underline">info@bellunadigital.com</a>
       </p>
 
       <h2 className="text-2xl font-semibold mb-2">VIII. Cookie-k (sütik) alkalmazása</h2>
       <p className="mb-6">
-        A <strong>fogaszdigital.com</strong> weboldal cookie-kat alkalmaz a működés biztosítása, a felhasználói élmény fokozása és marketing célok érdekében. A cookie-k elfogadása nem kötelező; böngészőjében bármikor letilthatja.
+        A <strong>bellunadigital.com</strong> weboldal cookie-kat alkalmaz a működés biztosítása, a felhasználói élmény fokozása és marketing célok érdekében. A cookie-k elfogadása nem kötelező; böngészőjében bármikor letilthatja.
       </p>
 
       <h2 className="text-2xl font-semibold mb-2">IX. Közösségi bővítmények</h2>
@@ -97,12 +97,12 @@ export default function AdatvedelemPage() {
       </ul>
 
       <footer className="mt-12 text-sm text-gray-600 mb-12">
-        <p>Jelen tájékoztató folyamatosan elérhető a <a href="https://www.fogaszdigital.com" className="text-blue-600 underline">www.fogaszdigital.com</a> weboldalon.</p>
+        <p>Jelen tájékoztató folyamatosan elérhető a <a href="https://bellunadigital.com/" className="text-blue-600 underline">bellunadigital.com</a> weboldalon.</p>
       </footer>
 
       <h1 className="text-3xl font-bold mb-6">Süti (Cookie) Szabályzat</h1>
       <p className="mb-2"><strong>Frissítve:</strong> 2025. március 28.</p>
-      <p className="mb-4"><strong>Weboldal:</strong> fogaszdigital.com</p>
+      <p className="mb-4"><strong>Weboldal:</strong> bellunadigital.com</p>
 
       <h2 className="text-2xl font-semibold mb-2">1. Mik azok a sütik?</h2>
       <p className="mb-6">
@@ -153,16 +153,16 @@ export default function AdatvedelemPage() {
 
       <h2 className="text-2xl font-semibold mb-2">6. Kapcsolat</h2>
       <p className="mb-6">
-        Ha bármilyen kérdése van az adatkezeléssel vagy sütikkel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot az alábbi email címen: <a href="mailto:info@fogaszdigital.com" className="text-blue-600 underline">info@fogaszdigital.com</a>
+        Ha bármilyen kérdése van az adatkezeléssel vagy sütikkel kapcsolatban, kérjük, vegye fel velünk a kapcsolatot az alábbi email címen: <a href="mailto:info@bellunadigital.com" className="text-blue-600 underline">info@bellunadigital.com</a>
       </p>
 
       <h1 className="text-3xl font-bold mb-4">🔒 Adatvédelmi tájékoztató</h1>
       <p className="mb-4">
-        A fogaszdigital.com (a továbbiakban: „Weboldal”) üzemeltetője tiszteletben tartja az Ön személyes adataihoz fűződő jogait, és elkötelezett azok védelme mellett.
+        A bellunadigital.com (a továbbiakban: „Weboldal”) üzemeltetője tiszteletben tartja az Ön személyes adataihoz fűződő jogait, és elkötelezett azok védelme mellett.
       </p>
 
       <h2 className="text-2xl font-semibold mb-2">1. Ki az adatkezelő?</h2>
-      <p className="mb-4"><strong>Cégnév:</strong> FogaszDigital</p>
+      <p className="mb-4"><strong>Cégnév:</strong> BellunaDigital</p>
 
       <h2 className="text-2xl font-semibold mb-2">2. Milyen adatokat gyűjtünk?</h2>
       <ul className="list-disc list-inside mb-6">
