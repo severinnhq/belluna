@@ -151,6 +151,9 @@ export default function DigitalMarketingQuiz() {
 
   const handleNext = () =>
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
+  
+  const handleBack = () =>
+    setCurrentStep((s) => Math.max(s - 1, 1));
 
   const updateFormData = <K extends keyof FormData>(field: K, value: FormData[K]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -192,6 +195,23 @@ export default function DigitalMarketingQuiz() {
       </h2>
     );
 
+    // Render back button conditionally (from step 2 onward)
+    const renderBackButton = () => {
+      if (currentStep > 1) {
+        return (
+          <div className="flex justify-start w-full">
+            <button
+              onClick={handleBack}
+              className="text-white underline text-sm sm:text-base mt-2 hover:text-gray-300 transition-colors"
+            >
+              Vissza
+            </button>
+          </div>
+        );
+      }
+      return null;
+    };
+
     if (step.type === "input" && step.field) {
       const value = formData[step.field] as string;
       return (
@@ -204,6 +224,7 @@ export default function DigitalMarketingQuiz() {
               onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
               className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-4 sm:mb-6 bg-transparent text-white placeholder:text-gray-300"
             />
+            {renderBackButton()}
             {renderNextButton()}
           </div>
         </>
@@ -249,6 +270,7 @@ export default function DigitalMarketingQuiz() {
             </label>
           ))}
         </div>
+        {renderBackButton()}
         {renderNextButton()}
       </div>
     </>
@@ -266,7 +288,7 @@ export default function DigitalMarketingQuiz() {
                   key={opt.value}
                   className={`flex items-center p-2 sm:p-3 rounded-xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
                     formData[step.field!] === opt.value
-                      ? 'bg-white/10 text-white font-bold italic'
+                      ? 'bg-white/10 text-white font-bold' // Removed italic here
                       : 'bg-black/25 text-white font-medium hover:bg-white/5'
                   }`}
                 >
@@ -283,6 +305,7 @@ export default function DigitalMarketingQuiz() {
                 </label>
               ))}
             </div>
+            {renderBackButton()}
             {renderNextButton()}
           </div>
         </>
@@ -340,6 +363,7 @@ export default function DigitalMarketingQuiz() {
                 az időpont egyeztetés céljából kezeljük.
               </span>
             </label>
+            {renderBackButton()}
             <button
               disabled={!canSubmit}
               onClick={async () => {
