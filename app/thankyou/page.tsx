@@ -5,9 +5,14 @@ const ThankYouPage = () => {
     <div className="min-h-screen bg-gray-100 text-gray-800 p-6 flex flex-col items-center justify-center text-center">
       <div className="max-w-2xl space-y-6">
         <h1 className="text-4xl font-bold text-gray-900">Köszönjük a foglalást! 🎉</h1>
+         <p className="text-md text-blue-700 font-medium">
+          📩 A Google Meet linket elküldtük. Kérjük, ellenőrizze az emailjeit!
+        </p>
         <p className="text-lg">
           Fontos: Ezeket az exkluzív bónuszokat csak azok kapják meg, akik valóban megjelennek a híváson.
         </p>
+
+       
 
         <div className="space-y-4">
           <div className="bg-white p-4 rounded-xl shadow">
