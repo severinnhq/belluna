@@ -13,7 +13,7 @@ const ThankYouPage = () => {
           <div className="bg-white p-4 rounded-xl shadow">
             <h2 className="text-xl font-semibold">🎁 BÓNUSZ #3 – Funnel Pénzszivárgás Audit</h2>
             <p>
-              Egy gyors, de mélyreható elemzés, ami megmutatja, hol szivároghat el pénz a rendszeredből — legyen szó hirdetésekről,
+              Egy gyors, de mélyreható elemzés, ami megmutatja, hol szivároghat el pénz a rendszeréből — legyen szó hirdetésekről,
               landing oldalakról vagy a CRM-ről. Gyors nyereség, nagy hatás.
             </p>
           </div>
@@ -21,7 +21,7 @@ const ThankYouPage = () => {
           <div className="bg-white p-4 rounded-xl shadow">
             <h2 className="text-xl font-semibold">🎁 BÓNUSZ #4 – Bevált Hirdetési Kreatívok és Szövegek</h2>
             <p>
-              Egy exkluzív gyűjtemény működő, konvertáló hirdetésekből — magyarázatokkal kiegészítve. Látni fogod, mitől működnek ezek, és mi hiányzik a legtöbb konkurens anyagából.
+              Egy exkluzív gyűjtemény működő, konvertáló hirdetésekből — magyarázatokkal kiegészítve. Látni fogja, mitől működnek ezek, és mi hiányzik a legtöbb konkurens anyagából.
             </p>
           </div>
 
@@ -29,13 +29,13 @@ const ThankYouPage = () => {
             <h2 className="text-xl font-semibold">🎁 BÓNUSZ #5 – Rendszerbemutató: Hogyan dominálnak a top amerikai rendelők</h2>
             <p>
               Egy lépésről-lépésre bemutató — vizuálisan vagy videón keresztül — arról, hogyan működik ez a rendszer a világ egyik
-              legversenyképesebb piacán. Megmutatjuk, hogyan adaptálhatod ezt a saját praxisodra.
+              legversenyképesebb piacán. Megmutatjuk, hogyan adaptálhatja ezt a saját sebészetébe.
             </p>
           </div>
         </div>
 
         <p className="text-md text-gray-600 pt-6">
-          Készülj fel — izgalmas dolgok várnak rád a híváson! 
+          Készüljön fel — izgalmas dolgok várják a híváson! 
         </p>
       </div>
     </div>
