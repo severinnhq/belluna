@@ -26,7 +26,7 @@ const CheckIcon = () => (
 
 const Bonuses = () => {
   const bonuses = [
-    'havi díj + Teljesítményalapú fizetés',
+    'havi díj / teljesítményalapú fizetés',
     '100% Elégedettség – Ha nem elégedett, vissza kapja a pénzét',
     'Nincs hosszú távú szerződés – Csak valódi eredmények!',
     '100% Lead exkluzivitás',
