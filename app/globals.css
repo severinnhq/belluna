@@ -156,3 +156,6 @@ html, body {
 .triangle .shape-fill {
     fill: #000816;
 }
+.cursor-ew-resize {
+  cursor: ew-resize;
+}

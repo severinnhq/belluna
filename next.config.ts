@@ -1,3 +1,4 @@
+// next.config.js
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -5,7 +6,10 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: false, // Allow image optimization
-    domains: ['cdn-icons-png.flaticon.com'], // Add allowed image host(s)
+    domains: [
+      "cdn-icons-png.flaticon.com",  // your existing icon host
+      "images.unsplash.com",         // add this!
+    ],
   },
   webpack: (config) => {
     config.watchOptions = {
