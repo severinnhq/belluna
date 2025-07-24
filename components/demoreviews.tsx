@@ -14,8 +14,8 @@ const DemoReviews: React.FC = () => {
     },
     {
       name: 'Réka S.',
-      text: 'Sosem gondoltam volna, hogy a változás ennyire természetes és harmonikus lehet. Köszönöm!'
-    }
+      text: 'Sosem gondoltam volna, hogy a változás ennyire természetes és harmonikus lehet. Köszönöm!',
+    },
   ];
 
   return (
@@ -34,7 +34,7 @@ const DemoReviews: React.FC = () => {
                   <Star key={i} className="text-yellow-400 w-5 h-5 fill-yellow-400" />
                 ))}
               </div>
-              <p className="italic mb-3">"{review.text}"</p>
+              <p className="italic mb-3">&quot;{review.text}&quot;</p>
               <p className="text-sm text-gray-400">– {review.name}</p>
             </div>
           ))}
