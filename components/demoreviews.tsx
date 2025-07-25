@@ -34,7 +34,7 @@ const DemoReviews: React.FC = () => {
                   <Star key={i} className="text-yellow-400 w-5 h-5 fill-yellow-400" />
                 ))}
               </div>
-              <p className="italic mb-3">"{review.text}"</p>
+              <p className="italic mb-3">&ldquo;{review.text}&rdquo;</p>
               <p className="text-sm text-gray-400">– {review.name}</p>
             </div>
           ))}
