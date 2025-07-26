@@ -9,6 +9,7 @@ export default function PixelClient() {
     console.warn("Meta Pixel ID is missing. Set NEXT_PUBLIC_PIXEL_ID in your environment.");
     return null;
   }
+  console.log("PIXEL ID:", pixelId);
 
   return (
     <>
