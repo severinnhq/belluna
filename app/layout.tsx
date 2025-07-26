@@ -11,28 +11,25 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export const metadata: Metadata = {
   title: "BellunaDigital | Új páciensek plasztikai sebészeteknek, automatizáltan",
   icons: {
-    // Standard favicon (browsers will pick the right one by size)
+    // Standard favicons (browsers auto-select by size)
     icon: [
-      { url: "/favicons/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicons/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicons/favicon-48x48.png", type: "image/png", sizes: "48x48" },
-      // You can also include the .ico if you want legacy support
-      { url: "/favicons/favicon.ico", type: "image/x-icon" },
+      { url: "/favicons/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
+      { url: "/favicons/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
+      { url: "/favicons/favicon-48x48.png?v=2", type: "image/png", sizes: "48x48" },
+      { url: "/favicons/favicon.ico?v=2",    type: "image/x-icon" },
     ],
-    // Apple Touch icon for iOS Home Screen
+    // Apple touch icon for iOS home-screen
     apple: [
-      { url: "/favicons/favicon-180x180.png", sizes: "180x180", type: "image/png" }
+      { url: "/favicons/favicon-180x180.png?v=2", sizes: "180x180", type: "image/png" },
     ],
-    // Android/Chrome PWA icons
+    // Android / Chrome PWA icons
     other: [
-      { url: "/favicons/favicon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicons/favicon-512x512.png", sizes: "512x512", type: "image/png" }
+      { url: "/favicons/favicon-192x192.png?v=2", sizes: "192x192", type: "image/png" },
+      { url: "/favicons/favicon-512x512.png?v=2", sizes: "512x512", type: "image/png" },
     ],
-    // Optional maskable icon for PWAs
-    // maskable: "/favicons/maskable-icon.png",
-    // You can still set a single shortcut icon if you like
-    shortcut: "/favicons/favicon.ico"
-  }
+    // Legacy shortcut icon fallback
+    shortcut: "/favicons/favicon.ico?v=2",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
