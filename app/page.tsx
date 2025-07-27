@@ -125,11 +125,11 @@ export default function HeroSection() {
                 custom={0}
                 variants={textVariants}
               >
-                Our Decision
+                Plasztikai sebészetek
                 <br />
-                <span className="text-emerald-300">Intelligence</span>
+                <span className="text-emerald-300">AI növekedési partnere</span>
                 <br />
-                Platform
+         
               </motion.h1>
               <motion.p
                 className="mb-8 max-w-md text-white/90 text-base sm:text-lg"
@@ -146,14 +146,14 @@ export default function HeroSection() {
                 variants={buttonVariants}
                 className="flex gap-4 flex-wrap"
               >
-                <Link href="/book-demo">
+                <Link href="/booking">
                   <button className="px-6 py-3 bg-white text-violet-700 font-medium rounded-md hover:bg-emerald-50 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    Schedule a Demo
+                   Foglaljon időpontot!
                   </button>
                 </Link>
                 <Link href="/learn-more">
                   <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-md hover:bg-white/10 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Learn More
+                    Hogyan működik
                   </button>
                 </Link>
               </motion.div>
