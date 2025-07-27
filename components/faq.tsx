@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "Miért érdemes most jelentkezni?",
     answer:
-      "Egy körzeten belül csak egy sebészettel dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
+      "Egy körzeten belül csak egy klinikával dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
   },
   {
     question: "Új ügynökség vagytok?",
