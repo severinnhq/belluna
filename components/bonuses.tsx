@@ -40,7 +40,7 @@ const Bonuses = () => {
           Csak 1 klinikával dolgozunk együtt egy körzeten belül.
         </h2>
 
-        <div className="bg-[#0A1128] rounded-2xl p-6 md:p-10 shadow-lg">
+        <div className="bg-[#061f3b] rounded-2xl p-6 md:p-10 shadow-lg">
           <h3 className="text-2xl font-semibold mb-4">
             🎁 BÓNUSZ #2 — Személyre szabott stratégiai útvonalterv
           </h3>
