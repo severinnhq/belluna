@@ -11,10 +11,10 @@ const BookingPage: React.FC = () => {
       {/* Wider Container */}
       <div className="w-full max-w-6xl mb-6">
         <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/GOdfmrCSbfu9WlueFtlk"
+          src="https://api.leadconnectorhq.com/widget/booking/RxkYNdkRcOBFB3Ce6kdj"
           style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '800px' }}
           scrolling="no"
-          id="GOdfmrCSbfu9WlueFtlk_1752220832259"
+          id="RxkYNdkRcOBFB3Ce6kdj_1754236207558"
           title="Foglaljon időpont widget"
         ></iframe>
       </div>
