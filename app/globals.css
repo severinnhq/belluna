@@ -139,7 +139,11 @@ html, body {
   -webkit-box-shadow: inset -2px 2px 4px 2px rgba(0,0,0,0.25);
   -moz-box-shadow: inset -2px 2px 4px 2px rgba(0,0,0,0.25);
 }
-
+.new-shadow:hover {
+  box-shadow: 0.105vw 0.105vw 0.42vw rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0.105vw 0.105vw 0.42vw rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0.105vw 0.105vw 0.42vw rgba(0, 0, 0, 0.8);
+}
 .triangle {
     width: 100%;
     overflow: hidden;
