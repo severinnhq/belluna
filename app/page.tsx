@@ -1,11 +1,14 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Sora } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 import Footer from "@/components/Footer";
 
-const sora = Sora({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -54,9 +57,10 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className={`relative min-h-screen w-full overflow-hidden ${sora.className}`}>
+      <section className={`relative w-full overflow-hidden ${poppins.className}`}>
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-700 to-emerald-400 opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black to-[#5271ff] opacity-90" />
+        {/* from-[#000816] maybe better (used in application background svg as the "black" part) */}
         
         {/* SVG Patterns */}
         <div className="absolute inset-0 overflow-hidden">
@@ -113,21 +117,21 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 py-16 h-full">
-          <div className="flex flex-col lg:flex-row min-h-screen pt-10 md:pt-16 lg:pt-0">
+        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-16 pb-20 h-full">
+          <div className="flex flex-col lg:flex-row lg:pt-0 lg:my-24 xl:my-36">
             {/* Left Column */}
-            <div className="lg:w-1/2 flex flex-col justify-center z-10 mt-8 sm:mt-16 lg:mt-0">
-              <div className="w-16 h-1 bg-white mb-6"></div>
+            <div className="lg:w-1/2 flex flex-col justify-center z-10 mt-8 lg:mt-0">
+              <div className="w-16 md:w-24 h-1 bg-white mb-4"></div>
               <motion.h1
-                className="font-bold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white"
+                className="font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white text-shadow-lg text-shadow-black/50"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 custom={0}
                 variants={textVariants}
               >
-                Plasztikai sebészetek
+                Esztétikai Klinikák
                 <br />
-                <span className="text-emerald-300">AI növekedési partnere</span>
+                <span className="text-yellow-400">AI növekedési partnere</span>
                 <br />
          
               </motion.h1>
@@ -138,7 +142,7 @@ export default function HeroSection() {
                 custom={1}
                 variants={textVariants}
               >
-                Connect ambiguous, siloed data into the most trusted, reusable resource for your organization.
+                Több időpont, kevesebb kihagyott lehetőség, teljesítmény alapú díjazás. <br /> Egy átlagon felüli ügyfélszerző rendszerrel.
               </motion.p>
               <motion.div
                 initial="hidden"
@@ -147,13 +151,13 @@ export default function HeroSection() {
                 className="flex gap-4 flex-wrap"
               >
                 <Link href="/booking">
-                  <button className="px-6 py-3 bg-white text-violet-700 font-medium rounded-md hover:bg-emerald-50 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <button className="text-base md:text-lg lg:text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                    Foglaljon időpontot!
                   </button>
                 </Link>
                 <Link href="/learn-more">
-                  <button className="px-6 py-3 bg-transparent border-2 border-white text-white font-medium rounded-md hover:bg-white/10 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Hogyan működik
+                  <button className="text-base md:text-lg lg:text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
+                    Hogyan működik?
                   </button>
                 </Link>
               </motion.div>
@@ -169,33 +173,33 @@ export default function HeroSection() {
               >
                 <div className="relative">
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl transform translate-x-4 translate-y-4"></div>
-                  <div className="relative bg-white/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border border-white/20">
-                    <div className="h-12 bg-violet-700/5 border-b border-violet-700/10 flex items-center px-4">
-                      <div className="w-3 h-3 rounded-full bg-red-400 mr-2"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-400 mr-2"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-400 mr-4"></div>
-                      <div className="h-6 w-3/4 bg-violet-700/10 rounded-full"></div>
+                  <div className="relative bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border border-white/20">
+                    <div className="h-12 bg-yellow-700/5 border-b border-white/20 flex items-center px-4">
+                      <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500 mr-4"></div>
+                      <div className="h-6 w-3/4 bg-gray-300/10 rounded-full"></div>
                     </div>
-                    <div className="aspect-video bg-violet-700/5 relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-violet-700/10 to-emerald-400/10"></div>
+                    <div className="aspect-video bg-black/5 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#5271ff]/10 to-black/10"></div>
                       <div className="absolute inset-0 flex flex-col items-center justify-center">
                         <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center mb-4 shadow-lg">
-                          <div className="w-14 h-14 rounded-full bg-violet-700 flex items-center justify-center text-white">
+                          <div className="w-15 h-15 rounded-full bg-black flex items-center justify-center text-yellow-400">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                             </svg>
                           </div>
                         </div>
-                        <p className="text-violet-700 font-medium">Platform Demo Video</p>
-                        <p className="text-violet-600/70 text-sm mt-1">See how our solution works</p>
+                        <p className="text-yellow-400 font-semibold text-shadow-lg text-shadow-black/50">Platform Demo Video</p>
+                        <p className="text-yellow-400/80 text-sm mt-1 text-shadow-lg text-shadow-black/50">See how our solution works</p>
                       </div>
                     </div>
-                    <div className="p-4 bg-violet-700/5 border-t border-violet-700/10 flex items-center">
-                      <div className="w-full h-2 bg-violet-700/10 rounded-full overflow-hidden">
-                        <div className="h-full w-1/3 bg-violet-700"></div>
+                    <div className="p-4 bg-yellow-700/5 border-t border-white/2 0 flex items-center">
+                      <div className="w-full h-2 bg-gray-300/15 rounded-full overflow-hidden">
+                        <div className="h-full w-1/3 bg-yellow-400"></div>
                       </div>
                       <div className="ml-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-violet-700" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                         </svg>
                       </div>
