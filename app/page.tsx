@@ -117,13 +117,13 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-16 pb-19 h-full overflow-hidden">
-          <div className="flex flex-col lg:flex-row lg:pt-0 lg:my-24 xl:my-36">
+        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-12 xl:pt-16 pb-10 xl:pb-19">
+          <div className="flex flex-col items-center lg:flex-row lg:pt-0 lg:my-24 xl:my-36">
             {/* Left Column */}
             <div className="lg:w-1/2 flex flex-col justify-center z-10 mt-8 lg:mt-0">
               <div className="w-16 md:w-24 h-1 bg-white mb-4"></div>
               <motion.h1
-                className="font-extrabold mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white text-shadow-lg text-shadow-black/50"
+                className="font-extrabold mb-6 text-2xl min-[440px]:text-3xl sm:text-4xl min-[1095px]:!text-5xl xl:!text-6xl leading-tight text-white text-shadow-lg text-shadow-black/50"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 custom={0}
@@ -131,32 +131,33 @@ export default function HeroSection() {
               >
                 Esztétikai Klinikák
                 <br />
-                <span className="text-yellow-400">AI növekedési partnere</span>
+                <span className="text-yellow-400">AI növekedési
+                <br />partnere</span>
                 <br />
          
               </motion.h1>
               <motion.p
-                className="mb-8 max-w-md text-white/90 text-base sm:text-lg"
+                className="mb-8 max-w-md text-white/90 min-[440px]:text-sm sm:text-base min-[1095px]:text-lg"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 custom={1}
                 variants={textVariants}
               >
-                Több időpont, kevesebb kihagyott lehetőség, teljesítmény alapú díjazás. <br /> Egy átlagon felüli ügyfélszerző rendszerrel.
+                Több időpont, kevesebb kihagyott lehetőség,<br />teljesítmény alapú díjazás. <br /> Egy átlagon felüli ügyfélszerző rendszerrel.
               </motion.p>
               <motion.div
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 variants={buttonVariants}
-                className="flex gap-4 flex-wrap"
+                className="flex gap-4 flex-wrap justify-center lg:justify-start"
               >
                 <Link href="/booking">
-                  <button className="text-base md:text-lg lg:text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
+                  <button className="min-[440px]:text-base sm:text-lg min-[1095px]:!text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                    Foglaljon időpontot!
                   </button>
                 </Link>
                 <Link href="/blog">
-                  <button className="text-base md:text-lg lg:text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
+                  <button className="min-[440px]:text-base sm:text-lg min-[1095px]:!text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                     Hogyan működik?
                   </button>
                 </Link>
@@ -164,7 +165,7 @@ export default function HeroSection() {
             </div>
 
             {/* Right Column */}
-            <div className="lg:w-1/2 flex items-center justify-center lg:justify-end mt-12 sm:mt-16 lg:mt-0">
+            <div className="w-9/10 min-[500px]:w-8/10 lg:w-1/2 flex items-center min-[500px]:justify-center lg:justify-end mt-8 sm:mt-16 lg:mt-0 mb-8 lg:mb-0">
               <motion.div
                 className="w-full max-w-md lg:max-w-lg xl:max-w-xl relative z-10"
                 initial="hidden"

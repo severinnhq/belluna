@@ -1,38 +1,42 @@
 @import "tailwindcss";
 
 .cta-blog-button {
-  @apply text-base md:text-lg lg:text-xl px-4 py-3 md:px-6 md:py-4 bg-yellow-400 text-black hover:bg-yellow-500 hover:text-black font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer;
+  @apply text-sm min-[400px]:text-base sm:text-lg lg:text-xl px-4 py-3 lg:px-6 lg:py-4 bg-yellow-400 text-black hover:bg-yellow-500 hover:text-black font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer;
 }
 #article.blog h1 {
-    @apply text-2xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-yellow-400;
+    @apply text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-yellow-400;
 }
 
 #article.blog h2 {
-    @apply text-xl sm:text-3xl font-bold leading-snug mb-5 mt-16;
+    @apply text-xl min-[400px]:text-2xl sm:text-3xl font-bold leading-snug mb-4 sm:mb-5 mt-8 sm:mt-16;
 }
 
 #article.blog h3 {
-    @apply text-base sm:text-xl leading-snug mt-12 mb-4 text-center;
+    @apply text-base sm:text-xl leading-snug mt-6 sm:mt-12 mb-4 text-center;
 }
 
 #article.blog h4 {
-    @apply text-lg sm:text-2xl font-semibold leading-snug mb-4 mt-8;
+    @apply text-lg min-[400px]:text-xl sm:text-2xl font-semibold leading-snug mb-2 sm:mb-4 mt-6 sm:mt-8;
 }
 
 #article.blog h5 {
-    @apply text-sm font-semibold mt-16;
+    @apply text-xs min-[400px]:text-sm font-semibold mt-16;
 }
 
 #article.blog h6 {
-    @apply flex justify-between font-light mb-4;
+    @apply flex justify-between font-light mb-4 text-xs min-[400px]:text-sm sm:text-base;
 }
 
 #article.blog p {
-  @apply text-white text-sm sm:text-base leading-relaxed mb-3;
+  @apply text-white text-sm sm:text-base leading-relaxed mb-2 sm:mb-3;
 }
 
 #article.blog small {
-  @apply text-white/40 text-xs sm:text-xs mt-4;
+  font-size: 0.667rem;
+  line-height: 0.667rem;
+}
+#article.blog small {
+  @apply text-white/40 sm:text-xs;
 }
 
 #article.blog strong {
@@ -40,9 +44,9 @@
 }
 
 #article.blog ul {
-  @apply list-disc list-inside text-white mb-3;
+  @apply list-disc list-inside text-white mb-2 sm:mb-3;
 }
 
 #article.blog li {
-  @apply text-white leading-relaxed mb-2 ml-4;
+  @apply text-white leading-relaxed mb-2 ml-4 text-sm sm:text-base;
 }

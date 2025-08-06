@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }) {
       <div id="article" className="blog spacer layer1 h-max">
         <Navbar btnText={"VISSZA"} />
         <div className="bg-black/10 py-16">
-          <div className="max-w-4xl mx-auto btn-shadow rounded-4xl backdrop-blur-xs backdrop-brightness-50 backdrop-opacity-80 p-12">
+          <div className="max-w-4xl mx-auto btn-shadow rounded-2xl sm:rounded-4xl backdrop-blur-xs backdrop-brightness-50 backdrop-opacity-80 px-6 py-12 sm:px-12">
             <BlogComponent />
           </div>
         </div>
