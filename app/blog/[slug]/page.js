@@ -13,6 +13,12 @@ const blogComponents = {
     import(
       "@/components/blog-posts/Lokalis_SEO_esztetikai_klinikaknak-20250430"
     ),
+  "Az_edukacio_ereje-20250331": () =>
+    import("@/components/blog-posts/Az_edukacio_ereje-20250331"),
+  "Miert_valtanak_a_paciensek_klinikat-20250228": () =>
+    import(
+      "@/components/blog-posts/Miert_valtanak_a_paciensek_klinikat-20250228"
+    ),
 };
 
 // ✅ Dynamic metadata loading

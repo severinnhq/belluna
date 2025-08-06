@@ -21,7 +21,7 @@ export const metadata = {
   // },
 };
 
-export default function Teljesitmeny() {
+export default function BlogPost() {
   return (
     <>
       <h6>

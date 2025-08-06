@@ -21,7 +21,7 @@ export const metadata = {
   // },
 };
 
-export default function LokalisSEO() {
+export default function BlogPost() {
   return (
     <>
       <h6>

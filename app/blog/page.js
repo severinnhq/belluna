@@ -10,7 +10,7 @@ export default function Blog() {
     },
     {
       title: "Hogyan szerezhet több pácienst egy esztétikai klinika 2025-ben?",
-      href: "/blog/Hogyan_szerezhet_tobb_pacienst-20250631",
+      href: "/blog/Hogyan_szerezhet_tobb_pacienst-20250630",
       date: "2025. 06. 30.",
       desc: "Szeretne több pácienst szerezni esztétikai klinikájába 2025-ben? Mutatjuk, milyen marketing trendek működnek igazán jól a mai digitális világban.",
     },
@@ -24,9 +24,23 @@ export default function Blog() {
     {
       title:
         "Lokális SEO esztétikai klinikáknak: Hogyan kerülj az élre a térképen?",
-      href: "/blog/Lokalis_SEO_esztetikai_klinikaknak-20250431",
+      href: "/blog/Lokalis_SEO_esztetikai_klinikaknak-20250430",
       date: "2025. 04. 30.",
       desc: "Esztétikai klinikád szeretne előkelőbb helyet a Google Térképen? Mutatjuk, hogyan segít ebben a lokális SEO, és mik a legfontosabb lépések.",
+    },
+    {
+      title:
+        "Az edukáció ereje - Hogyan építs bizalmat a pácienseidben még az első találkozás előtt?",
+      href: "/blog/Az_edukacio_ereje-20250331",
+      date: "2025. 03. 31.",
+      desc: "A pácienseid már a kezelés előtt eldöntik, hogy bíznak-e benned. Mutatjuk, hogyan segít az edukatív marketing esztétikai klinikáknál a bizalomépítésben és ügyfélszerzésben.",
+    },
+    {
+      title:
+        "Miért váltanak a páciensek klinikát? - Marketing szempontból mit tehetsz ellene?",
+      href: "/blog/Miert_valtanak_a_paciensek_klinikat-20250228",
+      date: "2025. 02. 28.",
+      desc: "A páciensek gyakran váltanak klinikát, de sok esetben ez megelőzhető lenne. Mutatjuk, mik a leggyakoribb okok és hogyan előzheted meg őket modern marketing eszközökkel.",
     },
     // Add more blog objects here
   ];

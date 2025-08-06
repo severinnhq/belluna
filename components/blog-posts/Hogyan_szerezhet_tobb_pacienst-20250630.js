@@ -20,7 +20,7 @@ export const metadata = {
   // },
 };
 
-export default function HogyanTobbPaciens() {
+export default function BlogPost() {
   return (
     <>
       <h6>
