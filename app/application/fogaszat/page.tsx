@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { easeOut } from 'framer-motion/dom';
 import Image from 'next/image';
 import LandingHeader from '@/components/landingheader';
-import Bonuses from '@/components/bonuses';
+import Bonuses from './bonuses';
 import Why from "@/components/why";
 import Cta1Section from "@/components/cta1section";
 import Cta2Section from "@/components/cta2section";
