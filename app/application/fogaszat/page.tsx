@@ -111,7 +111,7 @@ export default function DigitalMarketingQuiz() {
       question: "Milyen beavatkozásokat szeretnének hirdetni?",
       type: "input",
       field: "treatments",
-      inputProps: { type: "text", placeholder: "Pl. szájrehabilitáció, csontpótlás, fogimplantátum" },
+      inputProps: { type: "text", placeholder: "Pl. invisalign, implantátum" },
     },
     {
       question: "Fogászat weboldala?",
