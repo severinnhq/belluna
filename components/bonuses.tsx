@@ -34,7 +34,7 @@ const Bonuses = () => {
   ];
 
   return (
-    <section className="bg-[#000816] text-white py-16 px-6 md:px-20">
+    <section className="bg-[#000816] text-white pb-16 px-6 md:px-20">
       <div className="max-w-5xl mx-auto space-y-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
           Csak 1 klinikával dolgozunk együtt egy körzeten belül.

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="select-none">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <PixelClient />
