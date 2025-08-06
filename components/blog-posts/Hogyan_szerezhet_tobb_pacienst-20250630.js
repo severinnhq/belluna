@@ -23,6 +23,12 @@ export const metadata = {
 export default function HogyanTobbPaciens() {
   return (
     <>
+      <h6>
+        <span>2025. 06. 31.</span>
+        <span>
+          by <strong>Belluna Digital</strong>
+        </span>
+      </h6>
       <h1>Hogyan szerezhet több pácienst egy esztétikai klinika 2025-ben?</h1>
 
       <small>

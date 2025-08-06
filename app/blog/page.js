@@ -1,12 +1,54 @@
 import Navbar from "@/components/navbar";
 import Link from "next/link";
 export default function Blog() {
+  const blogInfo = [
+    {
+      title: "5 marketing hiba, amit az esztétikai klinikák gyakran elkövetnek",
+      href: "/blog/5_marketing_hiba-20250731",
+      date: "2025. 07. 31.",
+      desc: "Nem elég jó szolgáltatást nyújtani - ha a marketing hibás, a páciensek elmaradnak. Mutatjuk az 5 leggyakoribb marketinghibát, amit esztétikai klinikák elkövetnek.",
+    },
+    {
+      title: "Hogyan szerezhet több pácienst egy esztétikai klinika 2025-ben?",
+      href: "/blog/Hogyan_szerezhet_tobb_pacienst-20250631",
+      date: "2025. 06. 30.",
+      desc: "Szeretne több pácienst szerezni esztétikai klinikájába 2025-ben? Mutatjuk, milyen marketing trendek működnek igazán jól a mai digitális világban.",
+    },
+    {
+      title:
+        "Teljesítményalapú marketing: Mit jelent, és miért előnyös a klinikádnak?",
+      href: "/blog/Teljesitmenyalapu_marketing-20250531",
+      date: "2025. 05. 31.",
+      desc: "A teljesítményalapú marketing esztétikai klinikáknak is elérhető. De mit jelent ez pontosan? Hogyan működik, és miért válhat előnyödre? Mutatjuk.",
+    },
+    {
+      title:
+        "Lokális SEO esztétikai klinikáknak: Hogyan kerülj az élre a térképen?",
+      href: "/blog/Lokalis_SEO_esztetikai_klinikaknak-20250431",
+      date: "2025. 04. 30.",
+      desc: "Esztétikai klinikád szeretne előkelőbb helyet a Google Térképen? Mutatjuk, hogyan segít ebben a lokális SEO, és mik a legfontosabb lépések.",
+    },
+    // Add more blog objects here
+  ];
+  const isNew = (dateString) => {
+    // Remove dots and trim, then split
+    const parts = dateString.replace(/\./g, "").trim().split(" ");
+    const [year, month, day] = parts.map(Number);
+
+    // Create Date object (month is 0-indexed!)
+    const itemDate = new Date(year, month - 1, day);
+
+    // Today's date minus 30 days
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    return itemDate > thirtyDaysAgo;
+  };
   return (
     <>
-      <Navbar btnText={"FOGLALJON IDŐPONTOT"} />
-      <section className={`relative w-full overflow-hidden`}>
+      <section className="relative w-full overflow-hidden h-full min-h-screen">
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black to-[#5271ff] opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-black to-[#5271ff] opacity-90 bg-fixed" />
         {/* from-[#000816] maybe better (used in application background svg as the "black" part) */}
 
         {/* SVG Patterns */}
@@ -116,28 +158,47 @@ export default function Blog() {
           </svg>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative max-w-screen-xl mx-auto h-full">
-          <div className="flex flex-col lg:my-24 xl:my-36">
-            <Link
-              className="bg-white text-black hover:bg-gray-400 transition duration-250 p-4 mb-4 rounded-full w-max"
-              href={"/blog/5_marketing_hiba-20250331"}
-            >
-              5 marketing hiba, amit az esztétikai klinikák gyakran elkövetnek
-            </Link>
-            <Link
-              className="bg-white text-black hover:bg-gray-400 transition duration-250 p-4 mb-4 rounded-full w-max"
-              href={"/blog/Hogyan_szerezhet_tobb_pacienst-20250431"}
-            >
-              Hogyan szerezhet több pácienst egy esztétikai klinika 2025-ben?
-            </Link>
-            <Link
-              className="bg-white text-black hover:bg-gray-400 transition duration-250 p-4 mb-4 rounded-full w-max"
-              href={"/blog/Teljesitmenyalapu_marketing-20250531"}
-            >
-              Teljesítményalapú marketing: Mit jelent, és miért előnyös a
-              klinikádnak?
-            </Link>
+        <Navbar btnText={"FOGLALJON IDŐPONTOT"} />
+        <div className="relative max-w-screen-xl mx-auto">
+          <div className="flex flex-col my-8 xl:my-16 mx-4 lg:mx-8 xl:mx-16">
+            <h1 className="font-extrabold text-center text-3xl sm:text-4xl lg:text-5xl mb-12 text-yellow-400 text-shadow-md text-shadow-black">
+              Témák
+            </h1>
+            {blogInfo.map((b, index) => (
+              <Link
+                key={index}
+                className="px-8 py-4 border-b border-white/25 hover:bg-white/10 transition hover:scale-102"
+                href={b.href}
+              >
+                <div className="flex flex-col sm:flex-row justify-between">
+                  <div className="font-bold text-lg sm:text-xl lg:text-2xl mb-2 sm:mb-0 sm:w-9/10 md:w-5/6 lg:w-7/8 xl:w-9/10">
+                    {b.title}
+                  </div>
+                  <div className="flex justify-between items-center sm:justify-end sm:w-1/10 md:w-1/6 lg:w-1/8 xl:w-1/10 mb-2 sm:mb-0 sm:text-right">
+                    <div className="text-sm sm:text-base">{b.date}</div>
+                    {isNew(b.date) && (
+                      <div className="flex sm:hidden justify-end sm:w-1/3 sm:mt-4 text-right">
+                        <p className="bg-yellow-400 text-black font-semibold py-0.5 px-3 rounded-full sm:mb-2 sm:mr-2 btn-shadow">
+                          NEW
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex justify-between items-end">
+                  <div className="text-sm sm:text-base sm:w-2/3 mt-2 font-light text-white/66">
+                    <p>{b.desc}</p>
+                  </div>
+                  {isNew(b.date) && (
+                    <div className="hidden sm:flex justify-end w-1/3 mt-4 text-right">
+                      <p className="bg-yellow-400 text-black font-semibold py-0.5 px-3 rounded-full mb-2 mr-2 btn-shadow">
+                        NEW
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

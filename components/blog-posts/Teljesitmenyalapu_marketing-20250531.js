@@ -24,6 +24,12 @@ export const metadata = {
 export default function Teljesitmeny() {
   return (
     <>
+      <h6>
+        <span>2025. 05. 31.</span>
+        <span>
+          by <strong>Belluna Digital</strong>
+        </span>
+      </h6>
       <h1>
         Teljesítményalapú marketing: Mit jelent, és miért előnyös a klinikádnak?
       </h1>

@@ -23,6 +23,12 @@ export const metadata = {
 export default function MarketingHibak() {
   return (
     <>
+      <h6>
+        <span>2025. 07. 31.</span>
+        <span>
+          by <strong>Belluna Digital</strong>
+        </span>
+      </h6>
       <h1>5 marketing hiba, amit az esztétikai klinikák gyakran elkövetnek</h1>
       <small>
         Marketing hibák amit plasztikai sebészetek, hajbeültető klinikák,

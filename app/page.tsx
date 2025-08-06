@@ -117,7 +117,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-16 pb-20 h-full">
+        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-16 pb-19 h-full overflow-hidden">
           <div className="flex flex-col lg:flex-row lg:pt-0 lg:my-24 xl:my-36">
             {/* Left Column */}
             <div className="lg:w-1/2 flex flex-col justify-center z-10 mt-8 lg:mt-0">
@@ -155,7 +155,7 @@ export default function HeroSection() {
                    Foglaljon időpontot!
                   </button>
                 </Link>
-                <Link href="/learn-more">
+                <Link href="/blog">
                   <button className="text-base md:text-lg lg:text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                     Hogyan működik?
                   </button>

@@ -23,6 +23,10 @@
     @apply text-sm font-semibold mt-16;
 }
 
+#article.blog h6 {
+    @apply flex justify-between font-light mb-4;
+}
+
 #article.blog p {
   @apply text-white text-sm sm:text-base leading-relaxed mb-3;
 }
