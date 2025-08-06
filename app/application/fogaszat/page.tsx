@@ -383,14 +383,14 @@ export default function DigitalMarketingQuiz() {
                 };
                 try {
                   await fetch(
-                    "https://services.leadconnectorhq.com/hooks/l0c8ywCOTjNlqdeCpdIQ/webhook-trigger/6fd105cc-b1dd-498e-8554-d092501b4c34",
+                    "https://services.leadconnectorhq.com/hooks/l0c8ywCOTjNlqdeCpdIQ/webhook-trigger/8b4815d3-a269-453e-aa7e-8ae7c4e25550",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify(payload),
                     }
                   );
-                  window.location.href = "/aestheticbooking";
+                  window.location.href = "/dentalbooking";
                 } catch (error) {
                   console.error("Error submitting form:", error);
                   alert("Hiba történt a beküldés során.");
