@@ -15,7 +15,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
               Miért a Belluna?
             </h2>
             <p className="text-base sm:text-lg text-white mb-8 text-shadow-sm text-shadow-black/20">
-              Csak esztétikai klinikákkal dolgozunk és nekik segítünk kifejzetten az ügyfélszerzésben, nem csak marketingben.
+              Csak fogászatokkal dolgozunk és nekik segítünk kifejzetten az ügyfélszerzésben, nem csak marketingben.
             </p>
             <ul className="space-y-3 mb-8">
               {['Növeljük a páciensek számát', 'Csökkentjük a megszerzési költséget', 'Növeljük a visszatérő páciensek arányát'].map((text, idx) => (

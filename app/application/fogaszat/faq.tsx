@@ -13,7 +13,7 @@ const faqs = [
   { 
     question: "Milyen pácienseket hoztok a rendelőmbe?",
     answer:
-      "Kifejezetten magas értékű, plasztikai kezelések iránt érdeklődő pácienseket célzunk meg, akik hajlandóak fizetni a prémium szolgáltatásokért.",
+      "Kifejezetten magas értékű, fogászati kezelések iránt érdeklődő pácienseket célzunk meg, akik hajlandóak fizetni a prémium szolgáltatásokért.",
   },
   {
     question: "Mennyi idő alatt hoztok eredményeket?",
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "Miért érdemes most jelentkezni?",
     answer:
-      "Egy körzeten belül csak egy sebészettel dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
+      "Egy körzeten belül csak egy fogászattal dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
   },
   {
     question: "Új ügynökség vagytok?",

@@ -15,7 +15,7 @@ const Why: React.FC = () => {
             <li className="flex"><Chevy color={"text-green-500"}/>Rész alapú díjfizetés + teljesítmény alapú jutalék</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Garantált ROI - ingyen dolgozunk, amíg profitot nem termelünk</li>
             <li className="flex"><Chevy color={"text-green-500"}/>10-25+ új, kvalifikált érdeklődő havonta, kockázat nélkül</li>
-            <li className="flex"><Chevy color={"text-green-500"}/>Hajbeültető sebészetre specializálva - célzott stratégiák</li>
+            <li className="flex"><Chevy color={"text-green-500"}/>Hajbeültető klinikákra specializálva - célzott stratégiák</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Teljes automatizáció - AI + manuális utánkövetés</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Magas értékű páciensek (pl. FUE hajbeültetés)</li>
             <li className="flex"><Chevy color={"text-green-500"}/>Azonnali előszűrés, kézi kvalifikálás - időhatékony megoldások</li>

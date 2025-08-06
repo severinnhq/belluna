@@ -4,12 +4,12 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { easeOut } from 'framer-motion/dom';
 import Image from 'next/image';
-import LandingHeader from '@/components/landingheader';
+import LandingHeader from './landingheader';
 import Bonuses from '@/components/bonuses';
-import Why from "@/components/why";
-import Cta1Section from "@/components/cta1section";
+import Why from "./why";
+import Cta1Section from "./cta1section";
 import Cta2Section from "@/components/cta2section";
-import FAQ from "@/components/faq";
+import FAQ from "./faq";
 import Footer from "@/components/Footer";
 
 interface FormData {
@@ -90,7 +90,7 @@ export default function DigitalMarketingQuiz() {
       ],
     },
     {
-      question: "Mekkora volt az elmúlt 90 napban a sebészet átlagos havi bevétele?",
+      question: "Mekkora volt az elmúlt 90 napban a klinika átlagos havi bevétele?",
       type: "input",
       field: "averageRevenue",
       inputProps: { type: "text", placeholder: "Írja be forintban..." },
@@ -111,23 +111,23 @@ export default function DigitalMarketingQuiz() {
       question: "Milyen beavatkozásokat szeretnének hirdetni?",
       type: "input",
       field: "treatments",
-      inputProps: { type: "text", placeholder: "Pl. orrplasztika, hasplasztika, implantátum" },
+      inputProps: { type: "text", placeholder: "Pl. FUE, DHI, PRP kezelés, Lézeres hajstimuláció" },
     },
     {
-      question: "Sebészet weboldala?",
+      question: "Klinika weboldala?",
       type: "input",
       field: "website",
       inputProps: { type: "url", placeholder: "https://..." },
     },
     {
-      question: "Hol található a sebészet?",
+      question: "Hol található a klinika?",
       type: "input",
       field: "location",
       inputProps: { type: "text", placeholder: "Város" },
     },
     {
       question:
-        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, amennyiben elégedett a szolgáltatásainkkal.",
+        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a klinika fejlesztésébe fektessen, valamint elégedett a szolgáltatásainkkal.",
       type: "single",
       field: "investmentIntent",
       options: [
@@ -436,14 +436,14 @@ export default function DigitalMarketingQuiz() {
                 };
                 try {
                   await fetch(
-                    "https://services.leadconnectorhq.com/hooks/l0c8ywCOTjNlqdeCpdIQ/webhook-trigger/f04446c2-e1f4-4c05-b6da-6a3def092b46",
+                    "https://services.leadconnectorhq.com/hooks/l0c8ywCOTjNlqdeCpdIQ/webhook-trigger/6fd105cc-b1dd-498e-8554-d092501b4c34",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify(payload),
                     }
                   );
-                  window.location.href = "/booking";
+                  window.location.href = "/aestheticbooking";
                 } catch (error) {
                   console.error("Error submitting form:", error);
                   alert("Hiba történt a beküldés során.");
@@ -504,7 +504,7 @@ export default function DigitalMarketingQuiz() {
     Szerezzen <span className="text-white">5-10 új</span>
   </div>
   <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
-    plasztikai pácienst
+    hajbeültetési pácienst
   </div>
   <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
     <span className="italic">havonta</span>, teljesen

@@ -127,7 +127,7 @@ export default function DigitalMarketingQuiz() {
     },
     {
       question:
-        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, amennyiben elégedett a szolgáltatásainkkal.",
+        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, valamint elégedett a szolgáltatásainkkal.",
       type: "single",
       field: "investmentIntent",
       options: [
