@@ -4,10 +4,10 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { easeOut } from 'framer-motion/dom';
 import Image from 'next/image';
-import LandingHeader from './landingheader';
+import LandingHeader from '@/components/landingheader';
 import Bonuses from '@/components/bonuses';
-import Why from "./why";
-import Cta1Section from "./cta1section";
+import Why from "@/components/why";
+import Cta1Section from "@/components/cta1section";
 import Cta2Section from "@/components/cta2section";
 import FAQ from "@/components/faq";
 import Footer from "@/components/Footer";
@@ -68,6 +68,7 @@ export default function DigitalMarketingQuiz() {
     position: "",
     acceptedPrivacy: false,
   });
+  const [errors, setErrors] = useState<{[key: number]: string}>({});
 
   const topSectionRef = useRef<HTMLDivElement>(null);
   const scrollToTop = () => {
@@ -110,7 +111,7 @@ export default function DigitalMarketingQuiz() {
       question: "Milyen beavatkozásokat szeretnének hirdetni?",
       type: "input",
       field: "treatments",
-      inputProps: { type: "text", placeholder: "Pl. orrplasztika, implantátum" },
+      inputProps: { type: "text", placeholder: "Pl. orrplasztika, hasplasztika, implantátum" },
     },
     {
       question: "Sebészet weboldala?",
@@ -126,7 +127,7 @@ export default function DigitalMarketingQuiz() {
     },
     {
       question:
-        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, valamint elégedett a szolgáltatásainkkal.",
+        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a sebészet fejlesztésébe fektessen, amennyiben elégedett a szolgáltatásainkkal.",
       type: "single",
       field: "investmentIntent",
       options: [
@@ -146,12 +147,49 @@ export default function DigitalMarketingQuiz() {
   google:    'https://cdn-icons-png.flaticon.com/512/281/281764.png',  // Google logo
   seo:       'https://cdn-icons-png.flaticon.com/512/3648/3648841.png', // SEO magnifying‑glass icon
   other: 'https://cdn-icons-png.flaticon.com/512/5726/5726470.png'
+  };
 
-};
+  const validateStep = (step: number): boolean => {
+    const stepData = quizSteps[step - 1];
+    let isValid = true;
+    let errorMessage = '';
 
-  const handleNext = () =>
+    if (stepData.type === "multiple" && stepData.field === "marketingType") {
+      if (formData.marketingType.length === 0) {
+        isValid = false;
+        errorMessage = 'Kérjük, válasszon legalább egy opciót';
+      }
+    } else if (stepData.type === "single" || stepData.type === "multiple") {
+      if (!formData[stepData.field!]) {
+        isValid = false;
+        errorMessage = 'Kérjük, válasszon egy opciót';
+      }
+    } else if (stepData.type === "input" && stepData.field) {
+      const value = formData[stepData.field];
+      if (typeof value === 'string' && value.trim() === '') {
+        isValid = false;
+        errorMessage = 'Kérjük, töltse ki ezt a mezőt';
+      }
+    }
+
+    if (!isValid) {
+      setErrors(prev => ({...prev, [step]: errorMessage}));
+    } else {
+      setErrors(prev => {
+        const newErrors = {...prev};
+        delete newErrors[step];
+        return newErrors;
+      });
+    }
+
+    return isValid;
+  };
+
+  const handleNext = () => {
+    if (!validateStep(currentStep)) return;
     setCurrentStep((s) => Math.min(s + 1, quizSteps.length));
-  
+  };
+
   const handleBack = () =>
     setCurrentStep((s) => Math.max(s - 1, 1));
 
@@ -195,7 +233,6 @@ export default function DigitalMarketingQuiz() {
       </h2>
     );
 
-    // Render back button conditionally (from step 2 onward)
     const renderBackButton = () => {
       if (currentStep > 1) {
         return (
@@ -219,11 +256,15 @@ export default function DigitalMarketingQuiz() {
           <QuestionTitle />
           <div className="space-y-4">
             <input
+              required
               {...step.inputProps}
               value={value}
               onChange={(e) => updateFormData(step.field as keyof FormData, e.target.value)}
-              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-4 sm:mb-6 bg-transparent text-white placeholder:text-gray-300"
+              className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
+            {errors[currentStep] && (
+              <p className="text-red-400 text-sm">{errors[currentStep]}</p>
+            )}
             {renderBackButton()}
             {renderNextButton()}
           </div>
@@ -246,7 +287,6 @@ export default function DigitalMarketingQuiz() {
                   : 'bg-black/25 text-white font-medium hover:bg-white/5'
               }`}
             >
-              {/* Fixed-width icon container */}
               <div className="w-6 h-6 mr-1 sm:mr-2 flex items-center justify-center">
                 {opt.value  && (
                   <Image
@@ -270,6 +310,9 @@ export default function DigitalMarketingQuiz() {
             </label>
           ))}
         </div>
+        {errors[currentStep] && (
+          <p className="text-red-400 text-sm text-center">{errors[currentStep]}</p>
+        )}
         {renderBackButton()}
         {renderNextButton()}
       </div>
@@ -288,7 +331,7 @@ export default function DigitalMarketingQuiz() {
                   key={opt.value}
                   className={`flex items-center p-2 sm:p-3 rounded-xl cursor-pointer transition-all h-full min-h-[40px] border border-white/50 ${
                     formData[step.field!] === opt.value
-                      ? 'bg-white/10 text-white font-bold' // Removed italic here
+                      ? 'bg-white/10 text-white font-bold'
                       : 'bg-black/25 text-white font-medium hover:bg-white/5'
                   }`}
                 >
@@ -305,6 +348,9 @@ export default function DigitalMarketingQuiz() {
                 </label>
               ))}
             </div>
+            {errors[currentStep] && (
+              <p className="text-red-400 text-sm text-center">{errors[currentStep]}</p>
+            )}
             {renderBackButton()}
             {renderNextButton()}
           </div>
@@ -314,9 +360,9 @@ export default function DigitalMarketingQuiz() {
 
     if (step.type === "contact") {
       const canSubmit =
-        formData.fullName &&
-        formData.email &&
-        formData.phone &&
+        formData.fullName.trim() !== "" &&
+        formData.email.trim() !== "" &&
+        formData.phone.trim() !== "" &&
         formData.acceptedPrivacy;
 
       return (
@@ -324,6 +370,7 @@ export default function DigitalMarketingQuiz() {
           <QuestionTitle />
           <div className="max-w-md mx-auto">
             <input
+              required
               type="text"
               placeholder="Teljes név"
               value={formData.fullName}
@@ -331,6 +378,7 @@ export default function DigitalMarketingQuiz() {
               className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
+              required
               type="email"
               placeholder="Email"
               value={formData.email}
@@ -338,6 +386,7 @@ export default function DigitalMarketingQuiz() {
               className="w-full p-2 sm:p-3 border border-white/50 rounded-xl mb-2 bg-transparent text-white placeholder:text-gray-300"
             />
             <input
+              required
               type="tel"
               placeholder="Telefonszám"
               value={formData.phone}
@@ -353,6 +402,7 @@ export default function DigitalMarketingQuiz() {
             />
             <label className="flex items-start space-x-2 mb-4 sm:mb-6">
               <input
+                required
                 type="checkbox"
                 checked={formData.acceptedPrivacy}
                 onChange={(e) => updateFormData("acceptedPrivacy", e.target.checked)}
@@ -363,6 +413,9 @@ export default function DigitalMarketingQuiz() {
                 az időpont egyeztetés céljából kezeljük.
               </span>
             </label>
+            {!formData.acceptedPrivacy && (
+              <p className="text-red-400 text-sm mb-4">Kérjük, fogadja el az adatkezelési feltételeket</p>
+            )}
             {renderBackButton()}
             <button
               disabled={!canSubmit}
@@ -436,7 +489,7 @@ export default function DigitalMarketingQuiz() {
       </p>
     </motion.div>
 
-    <div className="flex flex-col lg:flex-row lg:justify-center items-center md:h-[822px] lg:h-[502px] xl:h-[510px] w-full my-16 sm:my-8 lg:my-0">
+    <div className="flex flex-col lg:flex-row lg:justify-center items-center lg:h-[586px] xl:h-[594px] w-full my-16 sm:my-8 md:my-0">
       <motion.div
         className="flex justify-center items-center lg:mr-8 2xl:mr-16"
         initial="hidden"
@@ -447,16 +500,16 @@ export default function DigitalMarketingQuiz() {
   className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50"
   variants={fadeUp}
 >
-  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
     Szerezzen <span className="text-white">5-10 új</span>
   </div>
-  <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-    hajbeültetési pácienst
+  <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
+    plasztikai pácienst
   </div>
-  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
     <span className="italic">havonta</span>, teljesen
   </div>
-  <div className="text-3xl min-[360px]:text-4xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
     kockázatmentesen!
   </div>
 </motion.div>
@@ -484,7 +537,7 @@ export default function DigitalMarketingQuiz() {
       </motion.div>
     </div>
   </div>
-  <div className="w-[250%] md:w-[175%] h-32 wave backdrop-blur-0 block lg:hidden">
+  <div className="w-[250%] md:w-[200%] h-32 wave backdrop-blur-0 block lg:hidden">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
     </svg>
