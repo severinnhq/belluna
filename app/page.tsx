@@ -143,7 +143,7 @@ export default function HeroSection() {
                 custom={1}
                 variants={textVariants}
               >
-                Több időpont, kevesebb kihagyott lehetőség,<br />teljesítmény alapú díjazás. <br /> Egy átlagon felüli ügyfélszerző rendszerrel.
+                Több páciens, kevesebb kihagyott lehetőség,<br />teljesítmény alapú díjazás. <br /> Egy átlagon felüli ügyfélszerző rendszerrel.
               </motion.p>
               <motion.div
                 initial="hidden"
