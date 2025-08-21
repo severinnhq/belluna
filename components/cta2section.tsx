@@ -56,7 +56,7 @@ const Cta2Section: React.FC<SolutionSectionProps> = ({ scrollToTop }) => {
               🎯 A <strong>Bellunánál</strong> mi nem csak hirdetünk - <br /> valódi eredményeket hozunk!
             </h3>
             <p className="text-lg mb-6">
-              Garantáltan <strong>5-10 új, magas értékű plasztikai páciens</strong> havonta - teljesen <strong>kockázatmentesen</strong>!
+              Garantáltan <strong>5-10 új, esztétikai páciens</strong> havonta - teljesen <strong>kockázatmentesen</strong>!
               Önnek csak a kezelésekre kell fókuszálnia, mi intézzük az ügyfélszerzést és az utánkövetést.
             </p>
           <button
