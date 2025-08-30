@@ -57,10 +57,9 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className={`relative w-full overflow-hidden ${poppins.className}`}>
+      <section className={`relative w-full min-h-screen overflow-hidden ${poppins.className} py-8 lg:py-12`}>
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-black to-[#5271ff] opacity-90" />
-        {/* from-[#000816] maybe better (used in application background svg as the "black" part) */}
         
         {/* SVG Patterns */}
         <div className="absolute inset-0 overflow-hidden">
@@ -117,13 +116,13 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 pt-12 xl:pt-16 pb-10 xl:pb-19">
-          <div className="flex flex-col items-center lg:flex-row lg:pt-0 lg:my-24 xl:my-36">
-            {/* Left Column */}
-            <div className="lg:w-1/2 flex flex-col justify-center z-10 mt-8 lg:mt-0">
-              <div className="w-16 md:w-24 h-1 bg-white mb-4"></div>
+        <div className="relative max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 h-full flex items-center justify-center">
+          <div className="flex flex-col lg:flex-row w-full items-center justify-between gap-6 lg:gap-10 xl:gap-12 py-4">
+            {/* Left Column - Centered on mobile, left-aligned on desktop */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center z-10 text-center lg:text-left lg:pr-4 xl:pr-8">
+              <div className="w-16 md:w-20 h-1 bg-white mb-3 md:mb-4 mx-auto lg:mx-0"></div>
               <motion.h1
-                className="font-extrabold mb-6 text-2xl min-[440px]:text-3xl sm:text-4xl min-[1095px]:!text-5xl xl:!text-6xl leading-tight text-white text-shadow-lg text-shadow-black/50"
+                className="font-extrabold mb-4 md:mb-6 text-3xl min-[400px]:text-4xl sm:text-5xl md:text-5xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-tight text-white text-shadow-lg text-shadow-black/50"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 custom={0}
@@ -133,11 +132,9 @@ export default function HeroSection() {
                 <br />
                 <span className="text-yellow-400">AI növekedési
                 <br />partnere</span>
-                <br />
-         
               </motion.h1>
               <motion.p
-                className="mb-8 max-w-md text-white/90 min-[440px]:text-sm sm:text-base min-[1095px]:text-lg"
+                className="mb-6 md:mb-8 max-w-md text-white/90 text-base sm:text-lg md:text-xl mx-auto lg:mx-0"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 custom={1}
@@ -149,58 +146,58 @@ export default function HeroSection() {
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 variants={buttonVariants}
-                className="flex gap-4 flex-wrap justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
               >
-                <Link href="/booking">
-                  <button className="min-[440px]:text-base sm:text-lg min-[1095px]:!text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
+                <Link href="/booking" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-5 py-3 md:px-6 md:py-3 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                    Foglaljon időpontot!
                   </button>
                 </Link>
-                <Link href="/blog">
-                  <button className="min-[440px]:text-base sm:text-lg min-[1095px]:!text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
+                <Link href="/blog" className="w-full sm:w-auto">
+                  <button className="w-full sm:w-auto text-base sm:text-lg md:text-xl px-5 py-3 md:px-6 md:py-3 bg-yellow-400/0 text-white hover:bg-white/5 font-semibold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
                     Hogyan működik?
                   </button>
                 </Link>
               </motion.div>
             </div>
 
-            {/* Right Column */}
-            <div className="w-9/10 min-[500px]:w-8/10 lg:w-1/2 flex items-center min-[500px]:justify-center lg:justify-end mt-8 sm:mt-16 lg:mt-0 mb-8 lg:mb-0">
+            {/* Right Column - Demo Container */}
+            <div className="w-full lg:w-1/2 flex justify-center items-center mt-8 lg:mt-0 lg:pl-4 xl:pl-8">
               <motion.div
-                className="w-full max-w-md lg:max-w-lg xl:max-w-xl relative z-10"
+                className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl relative z-10"
                 initial="hidden"
                 animate={isLoaded ? 'visible' : 'hidden'}
                 variants={videoVariants}
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl transform translate-x-4 translate-y-4"></div>
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-xl transform translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4"></div>
                   <div className="relative bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border border-white/20">
-                    <div className="h-12 bg-yellow-700/5 border-b border-white/20 flex items-center px-4">
-                      <div className="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500 mr-4"></div>
-                      <div className="h-6 w-3/4 bg-gray-300/10 rounded-full"></div>
+                    <div className="h-10 md:h-12 bg-yellow-700/5 border-b border-white/20 flex items-center px-3 md:px-4">
+                      <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500 mr-1.5 md:mr-2"></div>
+                      <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500 mr-1.5 md:mr-2"></div>
+                      <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500 mr-3 md:mr-4"></div>
+                      <div className="h-4 md:h-6 w-3/4 bg-gray-300/10 rounded-full"></div>
                     </div>
                     <div className="aspect-video bg-black/5 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-[#5271ff]/10 to-black/10"></div>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center mb-4 shadow-lg">
-                          <div className="w-15 h-15 rounded-full bg-black flex items-center justify-center text-yellow-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/80 flex items-center justify-center mb-3 md:mb-4 shadow-lg">
+                          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-black flex items-center justify-center text-yellow-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-8 md:w-8" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                             </svg>
                           </div>
                         </div>
-                        <p className="text-yellow-400 font-semibold text-shadow-lg text-shadow-black/50">Platform Demo Video</p>
-                        <p className="text-yellow-400/80 text-sm mt-1 text-shadow-lg text-shadow-black/50">See how our solution works</p>
+                        <p className="text-yellow-400 font-semibold text-sm md:text-base text-center text-shadow-lg text-shadow-black/50">Platform Demo Video</p>
+                        <p className="text-yellow-400/80 text-xs md:text-sm mt-1 text-center text-shadow-lg text-shadow-black/50">See how our solution works</p>
                       </div>
                     </div>
-                    <div className="p-4 bg-yellow-700/5 border-t border-white/2 0 flex items-center">
-                      <div className="w-full h-2 bg-gray-300/15 rounded-full overflow-hidden">
+                    <div className="p-3 md:p-4 bg-yellow-700/5 border-t border-white/20 flex items-center">
+                      <div className="w-full h-1.5 md:h-2 bg-gray-300/15 rounded-full overflow-hidden">
                         <div className="h-full w-1/3 bg-yellow-400"></div>
                       </div>
-                      <div className="ml-4 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                      <div className="ml-3 md:ml-4 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                         </svg>
                       </div>
