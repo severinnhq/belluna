@@ -8,7 +8,7 @@ const BookingPage: React.FC = () => {
     <main className="flex flex-col items-center p-8 bg-gray-50 min-h-screen">
       <h1 className="text-4xl text-black font-bold mb-4">Foglaljon időpontot!</h1>
 
-      {/* Wider Container */}
+      {/* Wider Container   */}
       <div className="w-full max-w-6xl mb-6">
         <iframe
           src="https://api.leadconnectorhq.com/widget/booking/RxkYNdkRcOBFB3Ce6kdj"
