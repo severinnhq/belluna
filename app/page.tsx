@@ -213,11 +213,11 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <section className='h-96 bg-black border-b-2 border-white'>
+      {/* <section className='h-96 bg-black border-b-2 border-white'>
         <div className="flex justify-center align-center">
           <h1 className="font-extrabold mb-6 text-2xl min-[440px]:text-3xl sm:text-4xl min-[1095px]:!text-5xl xl:!text-6xl leading-tight text-shadow-lg text-shadow-black/50 text-yellow-400">Csapatunk</h1>
         </div>
-      </section>
+      </section> */}
 
       {/* Footer placed outside HeroSection */}
       <Footer />
