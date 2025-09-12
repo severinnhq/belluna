@@ -16,6 +16,8 @@ export const metadata: Metadata = {
       { url: "/favicons/favicon-16x16.png?v=2", type: "image/png", sizes: "16x16" },
       { url: "/favicons/favicon-32x32.png?v=2", type: "image/png", sizes: "32x32" },
       { url: "/favicons/favicon-48x48.png?v=2", type: "image/png", sizes: "48x48" },
+      { url: "/favicons/favicon-64x64.png?v=2", type: "image/png", sizes: "64x64" },
+      { url: "/favicons/favicon-96x96.png?v=2", type: "image/png", sizes: "96x96" },
       { url: "/favicons/favicon.ico?v=2",    type: "image/x-icon" },
     ],
     // Apple touch icon for iOS home-screen

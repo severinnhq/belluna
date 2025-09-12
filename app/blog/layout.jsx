@@ -20,6 +20,16 @@ export const metadata = {
         type: "image/png",
         sizes: "48x48",
       },
+      {
+        url: "/favicons/favicon-64x64.png?v=2",
+        type: "image/png",
+        sizes: "64x64",
+      },
+      {
+        url: "/favicons/favicon-96x96.png?v=2",
+        type: "image/png",
+        sizes: "96x96",
+      },
       { url: "/favicons/favicon.ico?v=2", type: "image/x-icon" },
     ],
     apple: [
