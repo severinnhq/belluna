@@ -26,7 +26,7 @@ export const Slider = () => {
         onMouseUp={() => setIsDragging(false)}
         style={{ display: "inline-block", maxHeight: "400px" }}
       >
-        {/* Before i mage */}
+        {/* Before image */}
         <Image
           src="/uploads/demobefore.png"
           alt="Before"
