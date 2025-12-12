@@ -5,9 +5,11 @@ export default function Navbar({ btnText }) {
   const text = btnText;
   let btnClass =
     "px-4 py-1 bg-white/10 hover:bg-white/33 font-medium rounded-lg transition";
+  let hrefy = "/blog/";
   if (text === "FOGLALJON IDŐPONTOT") {
     btnClass =
       "px-4 py-1 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-lg hover:-translate-y-1 transition new-shadow";
+    hrefy = "/booking/";
   }
   return (
     <main className="backdrop-blur-md backdrop-brightness-50 w-full flex flex-col sm:flex-row justify-between items-center sm:h-16">
@@ -24,7 +26,7 @@ export default function Navbar({ btnText }) {
           </Link>
         </div>
         <div className="flex justify-center sm:justify-end items-center [min-width:412px]:w-1/2 sm:mr-4 lg:mr-8 xl:mr-16">
-          <Link className={btnClass + " my-4 sm:my-0"} href={"/blog/"}>
+          <Link className={btnClass + " my-4 sm:my-0"} href={hrefy}>
             {text}
           </Link>
         </div>

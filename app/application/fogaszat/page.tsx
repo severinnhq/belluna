@@ -436,7 +436,7 @@ export default function DigitalMarketingQuiz() {
                 };
                 try {
                   await fetch(
-                    "https://services.leadconnectorhq.com/hooks/l0c8ywCOTjNlqdeCpdIQ/webhook-trigger/8b4815d3-a269-453e-aa7e-8ae7c4e25550",
+                    "https://services.leadconnectorhq.com/hooks/hT7xmHU6HosUp5OVXHb6/webhook-trigger/6efc2fb7-1458-4c52-b1fa-df749b9369e9",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },

@@ -215,8 +215,6 @@ export default function HeroSection() {
         </div>
       </section>
 
-        <Services />  
-
       {/* Footer placed outside HeroSection */}
       <Footer />
     </>
