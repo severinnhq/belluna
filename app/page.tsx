@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 import Footer from "@/components/Footer";
+import Services from "@/components/Services"
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -57,6 +58,7 @@ export default function HeroSection() {
 
   return (
     <>
+    
       <section className={`relative w-full overflow-hidden ${poppins.className}`}>
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-black to-[#5271ff] opacity-90" />
@@ -129,7 +131,7 @@ export default function HeroSection() {
                 custom={0}
                 variants={textVariants}
               >
-                Esztétikai Klinikák
+                Fogászati Klinikák
                 <br />
                 <span className="text-yellow-400">AI növekedési
                 <br />partnere</span>
@@ -151,9 +153,9 @@ export default function HeroSection() {
                 variants={buttonVariants}
                 className="flex gap-4 flex-wrap justify-center lg:justify-start"
               >
-                <Link href="/booking">
+                <Link href="/dentalbooking">
                   <button className="min-[440px]:text-base sm:text-lg min-[1095px]:!text-xl px-4 py-2 md:px-6 md:py-2 bg-yellow-400 text-black hover:bg-yellow-500 font-bold rounded-xl hover:-translate-y-1 transition cursor-pointer new-shadow">
-                   Foglaljon időpontot!
+                   Ingyenes konzultáció!
                   </button>
                 </Link>
                 <Link href="/blog">
@@ -212,6 +214,8 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
+
+        <Services />  
 
       {/* Footer placed outside HeroSection */}
       <Footer />
