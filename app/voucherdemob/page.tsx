@@ -9,14 +9,14 @@ export default function LandingPage() {
         <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
           <div className="pt-4 md:pt-0">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
-              Ajándékozz ragyogó mosolyt karácsonyra 🎄
+              Már megvetted a karácsonyi ajándékot? 🎄
             </h1>
             <h2 className="text-xl md:text-2xl mb-6 text-gray-700">
-              Egy ajándék, ami valódi élményt ad – professzionális fogászati ajándékutalvány, amit örömmel használnak.
+              Egészítsd ki egy igazán emlékezetes meglepetéssel – egy ajándékutalvánnyal, amit valóban használnak.
             </h2>
             
             <button className="px-10 py-5 text-lg font-semibold rounded-2xl shadow bg-black text-white">
-              👉 Karácsonyi ajándék megvásárlása
+              👉 Kiegészítő ajándék megvásárlása
             </button>
             <p className="mt-6 text-sm text-gray-600">★★★★★ 4,8 / 5 értékelés • Több mint [X] elégedett páciens</p>
           </div>
@@ -26,44 +26,45 @@ export default function LandingPage() {
         </div>
       </section>
 
-    {/* SECTION 2 – EMOTIONAL FRAMING WITH IMAGE LEFT ON DESKTOP, BELOW TEXT ON MOBILE */}
-<section className="px-6 py-20 max-w-6xl mx-auto">
-  <div className="grid md:grid-cols-2 gap-12 items-center">
-    <div className="order-2 md:order-1">
-      <img
-        src="/uploads/voucherdemo-voucher.png"
-        alt="Voucher"
-        className="rounded-3xl shadow-xl mx-auto md:mx-0"
-      />
-    </div>
-    <div className="order-1 md:order-2 text-center md:text-left">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8">
-        Miért ez az egyik legjobb karácsonyi ajándék?
-      </h2>
-      <p className="text-lg text-gray-700">
-        A legtöbb ajándék pár nap múlva feledésbe merül.
-        <br />
-        Egy szép mosoly viszont minden nap magabiztosságot ad –
-        <br />
-        ezért a legjobb ajándék az élmény, nem a tárgy.
-      </p>
-    </div>
-  </div>
-</section>
-
+      {/* SECTION 2 – PROBLEM / INSIGHT */}
+      <section className="px-6 py-20 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <img
+              src="/uploads/voucherdemo-voucher.png"
+              alt="Voucher"
+              className="rounded-3xl shadow-xl mx-auto md:mx-0"
+            />
+          </div>
+          <div className="order-1 md:order-2 text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Miért keresnek sokan még egy kis plusz ajándékot?
+            </h2>
+            <p className="text-lg text-gray-700 mb-4">
+              • A fő ajándék túl kicsi vagy túl „biztonságos”<br />
+              • Hiányzik belőle a személyes figyelmesség<br />
+              • Szeretnének valami élményt is adni<br />
+              • Last minute döntés karácsony előtt
+            </p>
+            <p className="text-lg text-gray-700">
+              Ez az ajándékutalvány pontosan erre a helyzetre készült.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 3 – BENEFITS */}
       <section className="relative px-6 py-24">
         <div className="relative max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-10">Mit ad ez az ajándék?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10">Miért tökéletes kiegészítő ajándék?</h2>
             <ul className="space-y-4 text-lg">
-              <li>✔ Magabiztosabb megjelenést</li>
-              <li>✔ Professzionális, biztonságos kezelést</li>
-              <li>✔ Tartós, látható eredményt</li>
-              <li>✔ Egyedi, személyes élményt</li>
+              <li>✔ Bármilyen ajándék mellé passzol</li>
+              <li>✔ Nem kell méretet vagy ízlést eltalálni</li>
+              <li>✔ Valódi élményt és magabiztosságot ad</li>
+              <li>✔ Digitális – azonnal kézbesítjük</li>
             </ul>
-            <button className="mt-10 px-8 py-4 rounded-xl border">👉 Megnézem az ajándékutalványokat</button>
+            <button className="mt-10 px-8 py-4 rounded-xl border">👉 Megnézem az utalványokat</button>
           </div>
           <div>
             <img src="/uploads/voucherdemo-rendelo.png" alt="Modern fogászati rendelő" className="rounded-3xl shadow-xl" />
@@ -73,59 +74,58 @@ export default function LandingPage() {
 
       {/* SECTION 4 – OFFER / VOUCHER OPTIONS */}
       <section className="px-6 py-24 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Válaszd ki a karácsonyi meglepetést</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Válaszd ki a kiegészítő meglepetést</h2>
         <div className="grid md:grid-cols-3 gap-10">
           <div className="p-8 rounded-3xl border bg-white">
-            <h3 className="text-xl font-bold mb-6">✨ Fogfehérítő Ajándékutalvány</h3>
+            <h3 className="text-xl font-bold mb-6">✨ Gyors Mosoly Frissítés</h3>
             <p className="mb-6">
-              • Professzionális fogfehérítés<br />
+              • Professzionális fogtisztítás<br />
               • Esztétikai polírozás<br />
-              • Látványos eredmény már egy alkalom után
+              • Friss, ápolt mosoly rövid idő alatt
+            </p>
+            <p className="font-semibold mb-6">Ár: [29 900 – 39 900] Ft</p>
+            <button className="w-full py-4 rounded-xl bg-black text-white">👉 Megveszem</button>
+          </div>
+
+          <div className="p-8 rounded-3xl border bg-white">
+            <h3 className="text-xl font-bold mb-6">🎁 Fogfehérítő Ajándékutalvány</h3>
+            <p className="mb-6">
+              • Látványos fogfehérítés<br />
+              • Az egyik legnépszerűbb kiegészítő ajándék<br />
+              • Tartós eredmény
             </p>
             <p className="font-semibold mb-6">Ár: [39 900 – 49 900] Ft</p>
             <button className="w-full py-4 rounded-xl bg-black text-white">👉 Megveszem</button>
           </div>
 
           <div className="p-8 rounded-3xl border bg-white">
-            <h3 className="text-xl font-bold mb-6">🎁 Prémium Mosoly Ajándékcsomag</h3>
-            <p className="mb-6">
-              • Fogfehérítés<br />
-              • Teljes állapotfelmérés<br />
-              • Fogkőeltávolítás és polírozás<br />
-              • Bónusz szájápolási csomag
-            </p>
-            <p className="font-semibold mb-6">Ár: [49 900 – 69 900] Ft</p>
-            <button className="w-full py-4 rounded-xl bg-black text-white">👉 Megveszem</button>
-          </div>
-
-          <div className="p-8 rounded-3xl border bg-white">
-            <h3 className="text-xl font-bold mb-6">💎 Értékutalvány jövő évi kezelésekhez</h3>
+            <h3 className="text-xl font-bold mb-6">💎 Értékutalvány</h3>
             <p className="mb-6">
               • Szabadon felhasználható<br />
-              • Esztétikai kezelésekhez, fogszabályzáshoz, implantációhoz<br />
-              • Ideális nagyobb értékű ajándékként
+              • Esztétikai és jövő évi kezelésekhez<br />
+              • Maximális rugalmasság
             </p>
-            <p className="font-semibold mb-6">Ár: [50 000 / 100 000] Ft</p>
+            <p className="font-semibold mb-6">Ár: [20 000 / 50 000] Ft</p>
             <button className="w-full py-4 rounded-xl bg-black text-white">👉 Megveszem</button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5 – URGENCY */}
+      {/* SECTION 5 – URGENCY / SCARCITY */}
       <section className="px-6 py-20 text-center text-black">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Limitált karácsonyi ajánlat</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Ne hagyd az utolsó pillanatra</h2>
         <p className="mb-8 text-lg">⏰ Az ajándékutalványok csak december 23. éjfélig érhetők el.</p>
         <ul className="space-y-3 mb-10">
-          <li>• Ünnepi időszak miatti fokozott érdeklődés</li>
-          <li>• Limitált kezelési időpontok</li>
-          <li>• Digitális kézbesítés – azonnali ajándékozás</li>
+          <li>• Limitált kezelési kapacitás</li>
+          <li>• Ünnepi időszak miatti nagy érdeklődés</li>
+          <li>• Digitális kézbesítés – nincs várakozás</li>
         </ul>
-        <button className="px-10 py-5 rounded-2xl bg-black text-white font-semibold">👉 Biztosítom az ajándékot most</button>
+        <button className="px-10 py-5 rounded-2xl bg-black text-white font-semibold">👉 Kiegészítem az ajándékot most</button>
       </section>
 
-      {/* SECTION 6 – SOCIAL PROOF WITH STARS */}
+     {/* SECTION 6 – SOCIAL PROOF */}
 <section className="px-6 py-24 max-w-5xl mx-auto text-center">
-  <h2 className="text-3xl md:text-4xl font-bold mb-16">Akik már mosolyt ajándékoztak</h2>
+  <h2 className="text-3xl md:text-4xl font-bold mb-16">Vélemények pácienseinktől</h2>
   <div className="grid md:grid-cols-3 gap-8">
     <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="flex justify-center mb-4">
@@ -141,8 +141,8 @@ export default function LandingPage() {
           </svg>
         ))}
       </div>
-      <p className="text-gray-700 mb-4">„Karácsonyra kaptam, de egész évre adott önbizalmat.”</p>
-      <p className="font-semibold text-gray-900">— Anna, 36</p>
+      <p className="text-gray-700 mb-4">„Egy apró ajándéknak indult, de hatalmas öröm lett belőle.”</p>
+      <p className="font-semibold text-gray-900">— Anna, 34</p>
     </div>
 
     <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -159,8 +159,8 @@ export default function LandingPage() {
           </svg>
         ))}
       </div>
-      <p className="text-gray-700 mb-4">„Nem gondoltam volna, hogy egy fogászati ajándék ennyire betalál.”</p>
-      <p className="font-semibold text-gray-900">— Péter, 42</p>
+      <p className="text-gray-700 mb-4">„Nagyon profi csapat, a párom imádta az ajándékot.”</p>
+      <p className="font-semibold text-gray-900">— Gábor, 41</p>
     </div>
 
     <div className="p-8 rounded-3xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -177,7 +177,7 @@ export default function LandingPage() {
           </svg>
         ))}
       </div>
-      <p className="text-gray-700 mb-4">„Profi környezet, gyönyörű eredmény.”</p>
+      <p className="text-gray-700 mb-4">„Gyors, fájdalommentes, látványos eredmény.”</p>
       <p className="font-semibold text-gray-900">— Eszter, 29</p>
     </div>
   </div>
@@ -186,22 +186,22 @@ export default function LandingPage() {
 
       {/* SECTION 7 – HOW IT WORKS */}
       <section className="px-6 py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">Hogyan működik az ajándékozás?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-10">Hogyan működik?</h2>
         <ol className="space-y-4 text-lg mb-8">
-          <li>1️⃣ Kiválasztod az ajándékutalványt</li>
-          <li>2️⃣ Online, biztonságosan kifizeted</li>
+          <li>1️⃣ Kiválasztod az utalványt</li>
+          <li>2️⃣ Biztonságosan kifizeted online</li>
           <li>3️⃣ Az utalványt azonnal megkapod emailben</li>
         </ol>
         <p>📅 Felhasználható: [6 / 12] hónapig</p>
       </section>
 
+ú
 
-
-      {/* SECTION 8 – FINAL CTA */}
+      {/* SECTION 8 – FINAL CTA / CLOSING */}
       <section className="px-6 py-24 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Egy ajándék, ami minden nap mosolyt ad</h2>
-        <p className="mb-10 text-lg">Tedd igazán emlékezetessé az idei karácsonyt.</p>
-        <button className="px-10 py-5 rounded-2xl bg-black text-white text-lg">👉 Karácsonyi ajándék megvásárlása</button>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">Egy kis plusz figyelmesség, ami igazán számít</h2>
+        <p className="mb-10 text-lg">Egészítsd ki a karácsonyi ajándékot egy élménnyel, ami mosolyt ad.</p>
+        <button className="px-10 py-5 rounded-2xl bg-black text-white text-lg">👉 Utalvány megvásárlása</button>
         <p className="mt-6 text-sm text-gray-600">Digitális utalvány • Azonnali kézbesítés • December 23-ig</p>
       </section>
 
