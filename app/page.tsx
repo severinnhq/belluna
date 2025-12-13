@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 import Footer from "@/components/Footer";
-import Services from "@/components/Services"
+
 
 const poppins = Poppins({
   subsets: ['latin'],
