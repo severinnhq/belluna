@@ -60,7 +60,7 @@ export default function Cta1Section({ scrollToTop }: { scrollToTop: () => void }
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800 text-sm md:text-base">Személyre szabott stratégia</h4>
-                    <p className="text-gray-600 text-xs md:text-sm">Gyakorlatias tanácsok a sebészete számára</p>
+                    <p className="text-gray-600 text-xs md:text-sm">Gyakorlatias tanácsok a klinikája számára</p>
                   </div>
                 </div>
               </div>
