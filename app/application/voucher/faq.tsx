@@ -6,24 +6,24 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Hogyan különbözik a BellunaDigital egy hagyományos marketingügynökségtől?",
+    question: "Mennyi idő alatt lehet ezt elindítani?",
     answer:
-      "Mi nem csupán hirdetéseket kezelünk, hanem teljes körű páciensszerző rendszert biztosítunk: érdeklődőszerzés, utánkövetés, időpontfoglalás – mindezt eredménygaranciával.",
+      "Ha megvan az ajándékutalvány ajánlat és a döntéshozó elérhető, a kampány 24–48 órán belül elindítható. Nem húzzuk az időt – karácsonyig minden nap számít.",
   },
   { 
-    question: "Milyen pácienseket hoztok a rendelőmbe?",
+    question: "Kell külön marketinges csapat vagy technikai tudás a részünkről?",
     answer:
-      "Kifejezetten magas értékű, fogászati kezelések iránt érdeklődő pácienseket célzunk meg, akik hajlandóak fizetni a prémium szolgáltatásokért.",
+      "Nem. Mi készítjük a hirdetéseket, a landing oldalt és a technikai beállításokat. A rendelő feladata kizárólag az érdeklődők kiszolgálása.",
   },
   {
-    question: "Mennyi idő alatt hoztok eredményeket?",
+    question: "Mi történik, ha nem jönnek az eladások?",
     answer:
-      "Az első eredmények általában már 1–2 héten belül jelentkeznek. Teljes kampányunk beindítása után havonta 5–15+ új páciensre lehet számítani.",
+      "Ha december 23-ig nem teljesül a megbeszélt minimum (5 ajándékutalvány), nem fizet a kampányért. Ez teljesítményalapú együttműködés, nem klasszikus marketing szolgáltatás.",
   },
   {
-    question: "Hogyan tudjátok garantálni az eredményeket?",
+    question: "Milyen ajándékutalványokkal működik ez a legjobban?",
     answer:
-      "Több tucat sikeres kampány tapasztalatával dolgozunk. A kampányainkat folyamatosan optimalizáljuk, és csak akkor dolgozunk, ha biztosak vagyunk a sikerben – ezért merünk garanciát vállalni.",
+      "Tapasztalataink szerint a 30–50.000 Ft-os fogfehérítés és esztétikai csomagok teljesítenek a legjobban. Magasabb értékű utalványokkal is dolgozunk, de mindig a realitás alapján javaslunk.",
   },
   {
     question: "Miért érdemes most jelentkezni?",
@@ -31,15 +31,20 @@ const faqs = [
       "Egy körzeten belül csak egy fogászattal dolgozunk együtt. Korlátozott számú praxisnak tudunk teljes fókuszú kampányt indítani.",
   },
   {
-    question: "Új ügynökség vagytok?",
+    question: "Mennyi reklámköltséggel kell számolni?",
     answer:
-      "Nem. Bár a BellunaDigital új brandként indult, mögötte tapasztalt marketing szakemberek és kipróbált rendszerek állnak, akik már sok praxisnak hoztak mérhető növekedést.",
+      "A pontos összeg a rendelő céljaitól és kapacitásától függ, de a kampányt kontrollált, rövid időszakra optimalizáljuk – nincs felesleges költés.",
   },
   {
-    question: "Mennyi időt kell ezzel foglalkoznom?",
+    question: "Ez hosszú távú szerződést jelent?",
     answer:
-      "Minimális időráfordítás szükséges Öntől. Mi kezeljük a hirdetéseket, a jelentkezők utánkövetését és az időpontok egyeztetését – Ön csak a kezelésekkel foglalkozik.",
+      "Nem. Ez egy gyors, karácsonyi kampány, konkrét céllal. Ha működik, januárban van lehetőség továbblépni – de ez már egy külön döntés.",
   },
+  {
+    question: "Miért most érdemes belevágni?",
+    answer:
+      "Karácsony előtt az ajándékutalványok iránti kereslet kiugróan magas, januárban viszont már teljesen más a vásárlói viselkedés. Ez egy időablak, nem egy egész éves ajánlat.",
+ },
 ];
 
 const FAQ = () => {

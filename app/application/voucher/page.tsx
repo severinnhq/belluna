@@ -5,21 +5,21 @@ import { motion } from 'framer-motion';
 import { easeOut } from 'framer-motion/dom';
 import Image from 'next/image';
 import LandingHeader from './landingheader';
-import Bonuses from './bonuses';
-import Why from "./why";
-import Cta1Section from "./cta1section";
-import Cta2Section from "@/components/cta2section";
+import WhoSection from "./WhoSection";
+import WhyItWorks from "./WhyItWorks";
+
 import FAQ from "./faq";
 import Footer from "@/components/Footer";
 
+
 interface FormData {
   marketingType: string[];
-  averageRevenue: string;
+  voucher: string;
   monthlySpend: string;
-  treatments: string;
+  whodecide: string;
   website: string;
   location: string;
-  investmentIntent: string;
+  whenstart: string;
   fullName: string;
   email: string;
   phone: string;
@@ -56,12 +56,12 @@ export default function DigitalMarketingQuiz() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     marketingType: [],
-    averageRevenue: "",
+    voucher: "",
     monthlySpend: "",
-    treatments: "",
+    whodecide: "",
     website: "",
     location: "",
-    investmentIntent: "",
+    whenstart: "",
     fullName: "",
     email: "",
     phone: "",
@@ -90,49 +90,56 @@ export default function DigitalMarketingQuiz() {
       ],
     },
     {
-      question: "Mekkora volt az elmúlt 90 napban a fogászat átlagos havi bevétele?",
-      type: "input",
-      field: "averageRevenue",
-      inputProps: { type: "text", placeholder: "Írja be forintban..." },
-    },
-    {
-      question: "Mekkora a teljes, átlagos havi marketingköltségük?",
+      question: "Jelenleg rendelkeznek ajándkutalvánnyal?",
       type: "single",
-      field: "monthlySpend",
+      field: "voucher",
       options: [
-        { value: "100-200", label: "100-200 ezer Ft" },
-        { value: "300-500", label: "300-500 ezer Ft" },
-        { value: "600-1000", label: "600 ezer-1 millió Ft" },
-        { value: "1000-2000", label: "1-2 millió Ft" },
-        { value: "2000+", label: "2+ millió Ft" },
+        { value: "yes", label: "Igen" },
+        { value: "no", label: "Nem" },
       ],
     },
     {
-      question: "Milyen beavatkozásokat szeretnének hirdetni?",
-      type: "input",
-      field: "treatments",
-      inputProps: { type: "text", placeholder: "Pl. veneer" },
+      question: "Mennyi reklámkeret áll rendelkezésre decemberre?",
+      type: "single",
+      field: "monthlySpend",
+       options: [
+        { value: "50-75", label: "50-75 ezer FT" },
+        { value: "75-100", label: "75–100 ezer Ft" },
+        { value: "100+", label: "100 000 FT felett" },
+          { value: "notnow", label: "Nem tudunk most elkülöníteni" },
+
+      ],
     },
     {
-      question: "Fogászat weboldala?",
+      question: "Ki dönt a marketingről?",
+      type: "single",
+      field: "whodecide",
+      options: [
+        { value: "mydecision", label: "Én" },
+        { value: "othersdecision", label: "Más" },
+      ],
+    },
+    {
+      question: "Klinika weboldala?",
       type: "input",
       field: "website",
       inputProps: { type: "url", placeholder: "https://..." },
     },
     {
-      question: "Hol található a fogászat?",
+      question: "Hol található a klinika?",
       type: "input",
       field: "location",
       inputProps: { type: "text", placeholder: "Város" },
     },
     {
       question:
-        "Csak akkor kérjen időpontot, ha nyitott arra, hogy a fogászat fejlesztésébe fektessen, valamint elégedett a szolgáltatásainkkal.",
+        "Mikor tudnánk elindulni?",
       type: "single",
-      field: "investmentIntent",
+      field: "whenstart",
       options: [
-        { value: "ready", label: "Készen állok, ha látom az értéket." },
-        { value: "not_invest", label: "Nem tervezek befektetni." },
+        { value: "24h", label: "24 órán belül" },
+        { value: "48h", label: "48 órán beül" },
+         { value: "later", label: "Később" },
       ],
     },
     {
@@ -426,24 +433,24 @@ export default function DigitalMarketingQuiz() {
                   phone: formData.phone,
                   position: formData.position,
                   marketing_type: formData.marketingType.join(", "),
-                  average_revenue: formData.averageRevenue,
+                  voucher: formData.voucher,
                   monthly_spend: formData.monthlySpend,
-                  treatments: formData.treatments,
+                  whodecide: formData.whodecide,
                   website: formData.website,
                   location: formData.location,
-                  investment_intent: formData.investmentIntent,
+                whenstart: formData.whenstart,
                   accepted_privacy: formData.acceptedPrivacy,
                 };
                 try {
                   await fetch(
-                    "https://services.leadconnectorhq.com/hooks/hT7xmHU6HosUp5OVXHb6/webhook-trigger/17CPmlPB8HfnFpoPMNXV",
+                    "https://services.leadconnectorhq.com/hooks/sXWrabdRhQgNIx60ZBB5/webhook-trigger/2b1a4a0b-bfff-44aa-9b1f-ee96b2bf0966",
                     {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify(payload),
                     }
                   );
-                  window.location.href = "/dentalbooking";
+                  window.location.href = "/aestheticbooking";
                 } catch (error) {
                   console.error("Error submitting form:", error);
                   alert("Hiba történt a beküldés során.");
@@ -485,7 +492,7 @@ export default function DigitalMarketingQuiz() {
       variants={fadeUp}
     >
       <p className="text-white font-medium text-sm sm:text-base md:text-lg mt-8">
-        🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
+      🎁 BÓNUSZ #1 -  Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
       </p>
     </motion.div>
 
@@ -497,22 +504,27 @@ export default function DigitalMarketingQuiz() {
         variants={fadeIn}
       >
    <motion.div
-  className="flex flex-col items-center text-center font-extrabold text-white leading-tight text-shadow-lg text-shadow-black/50"
+  className="flex flex-col items-center text-center font-extrabold text-white leading-tight"
   variants={fadeUp}
 >
-  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
-    Értékesítünk <span className="text-white">5-12</span>
-  </div>
-  <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
-    ajándékutalványt
-  </div>
-  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
-    <span className="italic">Karácsonyig</span>, vagy
-  </div>
-  <div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
-    nem fizet!
-  </div>
+ <div className="text-yellow-400 underline text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
+  5-12 utalványt
+</div>
+
+<div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
+  értékesítünk
+</div>
+
+<div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
+  <span className="italic">Karácsonyig</span>, vagy
+</div>
+
+<div className="text-3xl min-[360px]:text-4xl xl:text-5xl 2xl:text-6xl">
+  nem fizet!
+</div>
+
 </motion.div>
+
       </motion.div>
 
       <motion.div
@@ -522,7 +534,7 @@ export default function DigitalMarketingQuiz() {
         variants={fadeUp}
       >
         <p className="text-white/90 font-medium text-xs sm:text-sm min-[560px]:text-base md:text-lg">
-          🎁 BÓNUSZ #1 - Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses meta útmutatóhoz!
+          🎁 BÓNUSZ #1 -  Csak töltse ki az űrlapot, és hozzáférést kap egy 8 lépéses META útmutatóhoz!
         </p>
       </motion.div>
 
@@ -537,20 +549,12 @@ export default function DigitalMarketingQuiz() {
       </motion.div>
     </div>
   </div>
-  <div className="w-[250%] md:w-[200%] h-32 wave backdrop-blur-0 block lg:hidden">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-    </svg>
-  </div>
+  
 </div>
 
 
-      <div className="w-[250%] md:w-[175%] xl:w-full wave backdrop-blur-0 hidden lg:block">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-        </svg>
-      </div>
-         <Bonuses />
+    
+       
       <div className="flex flex-col items-center spacer bg-white layer3">
         <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 bg-[#000816] pb-8">
           <motion.div
@@ -559,29 +563,13 @@ export default function DigitalMarketingQuiz() {
             viewport={viewportOptions}
             variants={fadeUp}
           >
-            <Why />
+            <WhoSection />
+            <WhyItWorks />
+            <FAQ />
           </motion.div>
         </div>
-        <div className="w-[250%] md:w-[175%] xl:w-full wave hidden lg:block">
-          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
-          </svg>
-        </div>
-        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 mb-10 md:mb-16">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeUp}
-          >
-            <Cta1Section scrollToTop={scrollToTop} />
-          </motion.div>
-        </div>
-        <div className="triangle">
-          <svg className="h-12 sm:h-16 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M1200 0L0 0 598.97 114.72 1200 0z" className="shape-fill"></path>
-          </svg>
-        </div>
+        
+       
         <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 bg-[#000816]">
           <motion.div
             initial="hidden"
@@ -589,24 +577,11 @@ export default function DigitalMarketingQuiz() {
             viewport={viewportOptions}
             variants={fadeUp}
           >
-            <Cta2Section scrollToTop={scrollToTop} />
+           
           </motion.div>
         </div>
-        <div className="triangle">
-          <svg className="h-12 sm:h-16 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M598.97 114.72L0 0 0 120 1200 120 1200 0 598.97 114.72z" className="shape-fill"></path>
-          </svg>
-        </div>
-        <div className="w-full px-8 sm:px-16 md:px-32 lg:px-16 mb-10 md:mb-16">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOptions}
-            variants={fadeUp}
-          >
-            <FAQ />
-          </motion.div>
-        </div>
+       
+       
       </div>
       <div>
         <Footer />

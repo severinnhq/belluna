@@ -44,7 +44,7 @@ export default function LandingHeader() {
               className="text-white font-bold tracking-wider whitespace-nowrap text-center"
               style={{ fontSize: 'clamp(0.5rem, 3vw, 1.5rem)' }}
             >
-              FOGÁSZATOK AI NÖVEKEDÉSI PARTNERE
+            EXKLUZÍV KARÁCSONYI AJÁNLAT 🎄
             </h1>
           </div>
         </motion.header>
