@@ -7,6 +7,12 @@ import Image from 'next/image';
 import LandingHeader from './landingheader';
 import WhoSection from "./WhoSection";
 import WhyItWorks from "./WhyItWorks";
+import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
+
+
+
+
 
 import FAQ from "./faq";
 import Footer from "@/components/Footer";
@@ -35,6 +41,7 @@ type QuizStep = {
   inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
 };
 
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
@@ -53,6 +60,7 @@ const grow = {
 };
 
 export default function DigitalMarketingQuiz() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     marketingType: [],
@@ -424,46 +432,44 @@ export default function DigitalMarketingQuiz() {
               <p className="text-red-400 text-sm mb-4">Kérjük, fogadja el az adatkezelési feltételeket</p>
             )}
             {renderBackButton()}
-            <button
-              disabled={!canSubmit}
-              onClick={async () => {
-                const payload = {
-                  full_name: formData.fullName,
-                  email: formData.email,
-                  phone: formData.phone,
-                  position: formData.position,
-                  marketing_type: formData.marketingType.join(", "),
-                  voucher: formData.voucher,
-                  monthly_spend: formData.monthlySpend,
-                  whodecide: formData.whodecide,
-                  website: formData.website,
-                  location: formData.location,
-                whenstart: formData.whenstart,
-                  accepted_privacy: formData.acceptedPrivacy,
-                };
-                try {
-                  await fetch(
-                    "https://services.leadconnectorhq.com/hooks/sXWrabdRhQgNIx60ZBB5/webhook-trigger/2b1a4a0b-bfff-44aa-9b1f-ee96b2bf0966",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(payload),
-                    }
-                  );
-                  window.location.href = "/aestheticbooking";
-                } catch (error) {
-                  console.error("Error submitting form:", error);
-                  alert("Hiba történt a beküldés során.");
-                }
-              }}
-              className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl font-bold transition-colors ${
-                !canSubmit
-                  ? "bg-gray-400 cursor-not-allowed text-gray-200"
-                  : "bg-yellow-400 text-black hover:bg-[#000816] hover:text-white cursor-pointer btn-shadow"
-              }`}
-            >
-              KÜLDÉS
-            </button>
+          <button
+  disabled={!canSubmit}
+  onClick={async () => {
+    const { error } = await supabase.from("leads").insert([
+      {
+        marketing_type: formData.marketingType,
+        voucher: formData.voucher,
+        monthly_spend: formData.monthlySpend,
+        whodecide: formData.whodecide,
+        website: formData.website,
+        location: formData.location,
+        whenstart: formData.whenstart,
+        full_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        position: formData.position,
+        accepted_privacy: formData.acceptedPrivacy,
+      },
+    ]);
+
+    if (error) {
+      alert("Hiba történt mentés közben");
+      console.error(error);
+      return;
+    }
+
+    // ✅ navigate AFTER insert succeeds
+    router.push("/aestheticbooking");
+  }}
+  className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl font-bold transition-colors ${
+    !canSubmit
+      ? "bg-gray-400 cursor-not-allowed text-gray-200"
+      : "bg-yellow-400 text-black hover:bg-[#000816] hover:text-white cursor-pointer btn-shadow"
+  }`}
+>
+  KÜLDÉS
+</button>
+
           </div>
         </>
       );
