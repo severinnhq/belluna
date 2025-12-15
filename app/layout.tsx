@@ -9,7 +9,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BellunaDigital | Új páciensek plasztikai sebészeteknek, automatizáltan",
+  title: "BellunaDigital | Új esztétikai páciensek fogászatoknak, automatizáltan",
   icons: {
     // Standard favicons (browsers auto-select by size)
     icon: [
