@@ -459,7 +459,7 @@ export default function DigitalMarketingQuiz() {
     }
 
     // ✅ navigate AFTER insert succeeds
-    router.push("/voucherbelluna");
+    router.push("/voucherbooking");
   }}
   className={`w-full text-lg sm:text-xl py-2 sm:py-3 rounded-xl font-bold transition-colors ${
     !canSubmit
