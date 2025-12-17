@@ -5,7 +5,7 @@ export default function AszfPage() {
     <main className="p-8 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold mb-6">Általános Szerződési Feltételek (ÁSZF)</h1>
       <p className="mb-4">
-        Jelen Általános Szolgáltatási Feltételek (továbbiakban: ÁSZF) tartalmazzák a Varga Balázs István E.V. (továbbiakban: Szolgáltató) által üzemeltetett{' '}
+        Jelen Általános Szolgáltatási Feltételek (továbbiakban: ÁSZF) tartalmazzák a Severin Simon Máté E.V. (továbbiakban: Szolgáltató) által üzemeltetett{' '}
         <a href="https://bellunadigital.com" className="text-blue-600 underline">https://bellunadigital.com</a> weboldal használatára, valamint a Szolgáltató által nyújtott szolgáltatásokra vonatkozó szerződési feltételeket.
       </p>
       <p className="mb-6">
@@ -14,12 +14,12 @@ export default function AszfPage() {
 
       <h2 className="text-2xl font-semibold mb-2">II. Szolgáltató adatai</h2>
       <ul className="list-disc list-inside mb-6">
-        <li><strong>Cégnév:</strong> Varga Balázs István E.V.</li>
-        <li><strong>Székhely:</strong> Magyarország 1161 Budapest, Baross utca 199.</li>
-        <li><strong>Adószám:</strong> 91226701-1-42</li>
-        <li><strong>Nyilvántartási szám:</strong> 60695097</li>
-        <li><strong>Képviselő:</strong> Varga Balázs István</li>
-        <li><strong>Telefon:</strong> +36 20 353 0545</li>
+        <li><strong>Cégnév:</strong> Severin Simon Máté E.V.</li>
+        <li><strong>Székhely:</strong> Magyarország 1141 Budapest, Zoborhegy tér 13/b</li>
+        <li><strong>Adószám:</strong> 91624178-1-42</li>
+        <li><strong>Nyilvántartási szám:</strong> 61564992</li>
+        <li><strong>Képviselő:</strong> Severin Simon Máté</li>
+        <li><strong>Telefon:</strong> +36 70 660 7873</li>
         <li><strong>Email:</strong> <a href="mailto:info@bellunadigital.com" className="text-blue-600 underline">info@bellunadigital.com</a></li>
         <li><strong>Honlap:</strong> <a href="https://bellunadigital.com" className="text-blue-600 underline">https://bellunadigital.com</a></li>
       </ul>
@@ -102,7 +102,7 @@ export default function AszfPage() {
       </p>
 
       <footer className="mt-12 text-sm text-white underline">
-        <p><strong>Szolgáltató:</strong> Varga Balázs István E.V.</p>
+        <p><strong>Szolgáltató:</strong> Severin Simon Máté E.V.</p>
       </footer>
     </main>
   );

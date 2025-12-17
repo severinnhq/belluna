@@ -13,13 +13,13 @@ export default function AdatvedelemPage() {
 
       <h2 className="text-2xl font-semibold mb-2">I. Adatkezelő adatai</h2>
       <ul className="list-disc list-inside mb-6">
-        <li><strong>Cégnév:</strong> Varga Balázs István E.V.</li>
-        <li><strong>Székhely:</strong> Magyarország 1161 Budapest Baross utca 199.</li>
-        <li><strong>Adószám:</strong> 91226701-1-42</li>
-        <li><strong>Nyilvántartási szám:</strong> 60695097</li>
+        <li><strong>Cégnév:</strong> Severin Simon Máté E.V.</li>
+        <li><strong>Székhely:</strong> Magyarország 1141 Budapest Zoborhegy tér 13/b</li>
+        <li><strong>Adószám:</strong> 91624178-1-42</li>
+        <li><strong>Nyilvántartási szám:</strong> 61564992</li>
         <li><strong>Email:</strong> info@bellunadigital.com</li>
-        <li><strong>Telefon:</strong> +36 20 353 0545</li>
-        <li><strong>Képviselő:</strong> Varga Balázs István</li>
+        <li><strong>Telefon:</strong> +36 70 660 7873</li>
+        <li><strong>Képviselő:</strong> Severin Simon Máté</li>
       </ul>
 
       <h2 className="text-2xl font-semibold mb-2">II. Jogszabályi háttér</h2>
