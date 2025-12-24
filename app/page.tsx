@@ -14,6 +14,11 @@ export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
+    // Redirect immediately when component mounts
+    window.location.href = 'https://bellunadigital.com/application/esztetika'
+  }, [])
+
+  useEffect(() => {
     setIsLoaded(true)
   }, [])
 
